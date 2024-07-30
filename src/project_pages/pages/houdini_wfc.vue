@@ -1,6 +1,6 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed} from "vue";
-import ProjectTemplate from "@/projects/template/ProjectTemplate.vue";
+import ProjectTemplate from "@/project_pages/template/ProjectTemplate.vue";
 
 let props = defineProps({
   test: {

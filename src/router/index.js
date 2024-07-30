@@ -9,10 +9,11 @@ const router = createRouter({
             name: 'home',
             component: HomeView
         },
+
         {
             path: '/wfc',
             name: 'wfc',
-            component: () => import('../projects/houdini_wfc.vue')
+            component: () => import('../project_pages/pages/houdini_wfc.vue')
         },
         // {
         //   path: '/about',

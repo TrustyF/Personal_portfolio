@@ -14,6 +14,14 @@ let props = defineProps({
     type: String,
     default: null,
   },
+  route: {
+    type: String,
+    default: null,
+  },
+  tags: {
+    type: Array,
+    default: null,
+  },
 });
 let emits = defineEmits(["test"]);
 const curr_api = inject("curr_api");
@@ -21,7 +29,7 @@ const curr_api = inject("curr_api");
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" @click="$router.push(route)">
 
     <div class="cover">
       <img :src="thumb" alt="" class="thumb">
@@ -39,6 +47,7 @@ const curr_api = inject("curr_api");
 .container {
   /*outline: 1px solid orange;*/
   /*height: 200px;*/
+  cursor: pointer;
   width: 200px;
 
   display: flex;
@@ -55,6 +64,11 @@ const curr_api = inject("curr_api");
 .thumb {
   width: 200px;
   object-fit: contain;
+  opacity: 0.9;
+  transition: 100ms ease;
+}
+.container:hover .thumb {
+  opacity: 1;
 }
 
 .overlay {
@@ -66,19 +80,21 @@ const curr_api = inject("curr_api");
 .underlay {
   /*outline: 2px dotted orange;*/
   /*flex: 1 0 auto;*/
+  z-index: 1;
 
   display: flex;
   flex-flow: column;
-  gap: 3px;
+  gap: 5px;
   justify-content: center;
   padding: 10px;
 
   background-color: rgba(0,0,0,0.5);
+  user-select: none;
 
 }
 
 h1 {
-  font-size: 1em;
+  font-size: 1.2em;
   /*outline: 1px solid cornflowerblue;*/
   display: flex;
   flex-flow: column;
@@ -89,7 +105,7 @@ h1 {
 }
 
 h2 {
-  font-size: 0.6em;
+  font-size: 0.7em;
   /*outline: 1px solid cornflowerblue;*/
   display: flex;
   flex-flow: column;

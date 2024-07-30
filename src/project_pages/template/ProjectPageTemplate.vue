@@ -14,9 +14,18 @@ const curr_api = inject("curr_api");
 
 <template>
   <div class="container">
-    <h1><slot name="title"></slot></h1>
-    <h3><slot name="desc"></slot></h3>
-    <div><slot name="content"></slot></div>
+    <div class="heading">
+      <h1>
+        <slot name="title"/>
+      </h1>
+      <h3>
+        <slot name="desc"/>
+      </h3>
+    </div>
+
+    <div>
+      <slot name="content"/>
+    </div>
   </div>
 </template>
 

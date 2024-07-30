@@ -1,6 +1,6 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed} from "vue";
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink} from 'vue-router'
 
 let props = defineProps({
   test: {

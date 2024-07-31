@@ -2,6 +2,8 @@
 import {inject, onMounted, watch, computed} from "vue";
 import ProjectPageTemplate from "@/components/ProjectPageTemplate.vue";
 import SoftwareTag from "@/components/SoftwareTag.vue";
+import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
+import 'vue-lite-youtube-embed/style.css'
 
 let props = defineProps({
   test: {
@@ -49,6 +51,17 @@ function get_image(path) {
         <h5>Early exploration in blender</h5>
       </div>
 
+      <div class="youtube_video">
+        <LiteYouTubeEmbed
+            id="9TSEhxkNfkw"
+            title="Houdini pool rooms setup"
+            params="autoplay=1&loop=1&fs=0&?modestbranding=1&&showinfo=0"
+            poster="maxresdefault"
+            aspectHeight="15.3"
+        />
+        <h5 style="text-align: center;padding-top: 10px">Procedural setup demo</h5>
+      </div>
+
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
           <img :src="get_image('2.jpg')" class="grid_image" alt="">
@@ -63,10 +76,17 @@ function get_image(path) {
 
 <style scoped>
 .single_image {
+  /*outline: 1px solid red;*/
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  gap: 10px
+  gap: 10px;
+}
+
+.youtube_video {
+  /*justify-items: center;*/
+  justify-content: center;
+  width: 80%;
 }
 
 .grid_image {

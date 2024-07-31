@@ -1,5 +1,6 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed} from "vue";
+import Spinner from "@/components/Spinner.vue";
 
 let props = defineProps({
   test: {
@@ -10,6 +11,25 @@ let props = defineProps({
 let emits = defineEmits(["test"]);
 const curr_api = inject("curr_api");
 
+let images_loaded = ref(false)
+let images_check_timeout
+
+function test_images_loaded() {
+  let images = document.getElementsByClassName('grid_image')
+  for (let i = 0; i < images.length; i++) {
+    if (!images[i].complete) {
+      images_check_timeout = setTimeout(test_images_loaded, 100)
+      break
+    } else {
+      images_loaded.value = true
+    }
+  }
+}
+
+onMounted(() => {
+  test_images_loaded()
+})
+
 </script>
 
 <template>
@@ -17,9 +37,9 @@ const curr_api = inject("curr_api");
 
     <div class="heading">
 
-<!--      <div class="thumb">-->
-<!--        <slot name="thumb"></slot>-->
-<!--      </div>-->
+      <!--      <div class="thumb">-->
+      <!--        <slot name="thumb"></slot>-->
+      <!--      </div>-->
 
       <div class="title_container">
         <div class="title">
@@ -36,8 +56,11 @@ const curr_api = inject("curr_api");
       </div>
     </div>
 
-    <div class="content">
-      <slot name="content"/>
+    <div class="content_container">
+      <div class="content" v-show="images_loaded">
+        <slot name="content"/>
+      </div>
+      <spinner v-show="!images_loaded"></spinner>
     </div>
 
   </div>
@@ -51,7 +74,7 @@ const curr_api = inject("curr_api");
   /*display: grid;*/
   /*grid-template-rows: 3fr 1fr;*/
   gap: 20px;
-  align-items: flex-start;
+  /*align-items: flex-start;*/
 }
 
 .heading {
@@ -67,13 +90,16 @@ const curr_api = inject("curr_api");
 
   min-width: 300px;
 }
+
 .thumb {
 }
+
 .title_container {
   display: flex;
   flex-flow: column;
   gap: 10px;
 }
+
 .title {
   color: white;
   font-size: 1.5em;
@@ -92,13 +118,22 @@ const curr_api = inject("curr_api");
   gap: 10px;
 }
 
-.content {
-  /*outline: 1px dotted red;*/
+.content_container {
+  display: flex;
+  align-items: center;
+}
 
+.content {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   gap: 30px;
+
+  /*-webkit-animation: fadein 1s; !* Safari, Chrome and Opera > 12.1 *!*/
+  /*-moz-animation: fadein 1s; !* Firefox < 16 *!*/
+  /*-ms-animation: fadein 1s; !* Internet Explorer *!*/
+  /*-o-animation: fadein 1s; !* Opera < 12.1 *!*/
+  animation: fadein 1s;
 }
 
 </style>

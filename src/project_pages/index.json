@@ -1,10 +1,10 @@
 [
   {
-    "title": "Houdini pool rooms",
+    "title": "Pool rooms",
     "desc": "Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
     "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/pool_rooms%2Fthumb.jpg?alt=media&token=a2f6eba9-92db-4b11-8a37-3897350a93e2",
     "route": "/pool_rooms",
-    "tags": ["Houdini","Blender","fx"]
+    "tags": ["Houdini","Blender","Procedural"]
   },
   {
     "title": "Skull rocket",

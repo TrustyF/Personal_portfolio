@@ -5,7 +5,6 @@ import {getAnalytics} from "firebase/analytics";
 import {getStorage} from "firebase/storage";
 
 import {createApp} from 'vue'
-import {createPinia} from 'pinia'
 
 const firebaseConfig = {
     apiKey: "AIzaSyC3z2TACBgtd1yVSSxh0EBBcYLOkztO1e4",
@@ -25,7 +24,6 @@ import router from './router'
 
 const app = createApp(App)
 
-// app.use(createPinia())
 app.use(router)
 
 app.mount('#app')

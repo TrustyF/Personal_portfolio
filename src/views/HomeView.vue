@@ -22,6 +22,6 @@ import tags from "@/assets/tags.json"
 <style scoped>
 .feed {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 </style>

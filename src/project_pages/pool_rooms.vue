@@ -72,7 +72,7 @@ function get_image(path) {
 .grid_image {
   width: 100%;
   height: 100%;
-  max-height: 70vh;
+  max-height: 80vh;
   object-fit: cover
 }
 </style>

@@ -23,16 +23,22 @@ let props = defineProps({
     default: null,
   },
 });
+
+let thumb_loaded = ref(false)
+
+let container_size = `${300}px`
+
 </script>
 
 <template>
   <div class="container" @click="$router.push(route)">
 
     <div class="cover">
-      <img :src="thumb" alt="" class="thumb">
+      <img :src="thumb" alt="" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
+      <div class="thumb" style="background-color: #383838;z-index: -1"></div>
 
       <div class="tags">
-        <div class="tag" v-for="t in tags" :key="t">{{t}}</div>
+        <div class="tag" v-for="t in tags" :key="t">{{ t }}</div>
       </div>
     </div>
 
@@ -48,37 +54,43 @@ let props = defineProps({
 .container {
   /*outline: 1px solid orange;*/
   cursor: pointer;
-  width: 200px;
-  /*height: 200px;*/
+  width: v-bind(container_size);
 
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-end;
   position: relative;
-
+  box-sizing: border-box;
   border-radius: 10px;
   overflow: hidden;
-}
 
-.thumb {
-  z-index: 0;
-  position: absolute;
-  height: 200px;
-  object-fit: contain;
-  opacity: 0.9;
-  transition: 100ms ease;
+  animation: fadein 0.25s;
+  transition: 500ms ease;
 }
-
 .container:hover .thumb {
-  opacity: 1;
+  filter: opacity(0.9);
+  transition: 100ms ease;
 }
 
 .cover {
   /*outline: 1px solid cornflowerblue;*/
 
   position: relative;
-  height: 200px;
+  height: v-bind(container_size);
 }
+
+.thumb {
+  z-index: 0;
+  position: absolute;
+  height: v-bind(container_size);
+  width: v-bind(container_size);
+  object-fit: cover;
+
+  animation: fadein 0.5s;
+  transition: 500ms ease;
+}
+
+
+
 .tags {
   /*outline: 1px solid cornflowerblue;*/
 
@@ -92,6 +104,7 @@ let props = defineProps({
   bottom: 0;
   left: 0;
 }
+
 .tag {
   text-align: center;
 
@@ -115,7 +128,7 @@ let props = defineProps({
   flex-flow: column;
   gap: 5px;
   justify-content: center;
-  padding: 10px;
+  padding: 15px;
 
   background-color: rgba(255, 255, 255, 0.1);
   user-select: none;
@@ -130,6 +143,7 @@ h1 {
 
   flex: 0 0 auto;
   color: white;
+  text-transform: uppercase;
 }
 
 h2 {

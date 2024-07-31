@@ -9,17 +9,16 @@ const router = createRouter({
             name: 'home',
             component: HomeView
         },
-
         {
             path: '/pool_rooms',
             name: 'pool_rooms',
             component: () => import('../project_pages/pool_rooms.vue')
         },
-        // {
-        //   path: '/about',
-        //   name: 'about',
-        //   component: () => import('../views/AboutView.vue')
-        // }
+        {
+            path: '/skull_rocket',
+            name: 'skull_rocket',
+            component: () => import('../project_pages/skull_rocket.vue')
+        },
     ]
 })
 

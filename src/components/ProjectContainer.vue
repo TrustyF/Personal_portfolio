@@ -1,5 +1,6 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed} from "vue";
+import SoftwareTag from "@/components/SoftwareTag.vue";
 
 let props = defineProps({
   title: {
@@ -18,7 +19,7 @@ let props = defineProps({
     type: String,
     default: null,
   },
-  tags: {
+  software: {
     type: Array,
     default: null,
   },
@@ -37,9 +38,10 @@ let container_size = `${300}px`
       <img :src="thumb" alt="" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
       <div class="thumb" style="background-color: #383838;z-index: -1"></div>
 
-      <div class="tags">
-        <div class="tag" v-for="t in tags" :key="t">{{ t }}</div>
+      <div class="software">
+          <software-tag v-for="soft in software" :key="soft" :name="soft"></software-tag>
       </div>
+
     </div>
 
     <div class="underlay">
@@ -61,7 +63,7 @@ let container_size = `${300}px`
   position: relative;
   box-sizing: border-box;
   border-radius: 10px;
-  overflow: hidden;
+  /*overflow: hidden;*/
 
   animation: fadein 0.25s;
   transition: 500ms ease;
@@ -72,7 +74,7 @@ let container_size = `${300}px`
 }
 
 .cover {
-  /*outline: 1px solid cornflowerblue;*/
+  outline: 1px solid cornflowerblue;
 
   position: relative;
   height: v-bind(container_size);
@@ -89,34 +91,20 @@ let container_size = `${300}px`
   transition: 500ms ease;
 }
 
+.software {
+  outline: 1px solid cornflowerblue;
 
-
-.tags {
-  /*outline: 1px solid cornflowerblue;*/
-
-  position: absolute;
-  z-index: 2;
+  /*position: absolute;*/
+  /*z-index: 2;*/
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   gap: 3px;
   padding: 3px;
 
-  bottom: 0;
-  left: 0;
-}
-
-.tag {
-  text-align: center;
-
-  color: white;
-  mix-blend-mode: screen;
-  background-color: hsl(160, 50%, 30%);
-
-  display: inline-block;
-  font-size: 0.7em;
-  margin-bottom: 1px;
-  padding: 5px;
-  border-radius: 5px;
+  /*justify-content: center;*/
+  /*justify-items: center;*/
+  /*align-items: center;*/
+  /*align-content: center;*/
 }
 
 .underlay {

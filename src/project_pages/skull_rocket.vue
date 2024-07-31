@@ -1,0 +1,125 @@
+<script setup>
+import {inject, onMounted, watch, computed} from "vue";
+import ProjectPageTemplate from "@/components/ProjectPageTemplate.vue";
+import SoftwareTag from "@/components/SoftwareTag.vue";
+import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
+import 'vue-lite-youtube-embed/style.css'
+
+let props = defineProps({
+  test: {
+    type: String,
+    default: null,
+  },
+});
+
+function get_image(path) {
+  return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/skull_rocket%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
+}
+
+</script>
+
+<template>
+  <project-page-template>
+
+    <template #thumb>
+      <img :src="get_image('thumb.jpg')" style="height: 50px;">
+    </template>
+    <template #title>
+      Skull rocket
+    </template>
+    <template #desc>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque dicta error iure sed tempora! At
+      commodi consequatur deleniti doloremque eligendi laudantium obcaecati, odio omnis perspiciatis quasi, reiciendis
+      sunt tempora tenetur.
+    </template>
+    <template #software>
+      <software-tag name="houdini"></software-tag>
+      <software-tag name="solaris"></software-tag>
+      <software-tag name="karma"></software-tag>
+    </template>
+
+    <template #content>
+
+      <div class="youtube_video">
+        <LiteYouTubeEmbed
+            id="Mbi4wjNvTKc"
+            title="Houdini Skull Rocket"
+            params="autoplay=1&loop=1&?modestbranding=1&&showinfo=0"
+            poster="maxresdefault"
+        />
+        <h5 style="text-align: center;padding-top: 10px">Final render</h5>
+      </div>
+
+      <div class="single_image">
+        <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
+          <img :src="get_image('terr1.jpg')" class="grid_image" alt="">
+          <img :src="get_image('terr2.jpg')" class="grid_image" alt="">
+        </div>
+        <h5>Procedural height field + automated texture generation</h5>
+      </div>
+
+      <div class="single_image">
+        <div style="display: grid;  grid-template-columns: repeat(4, 1fr);gap: 0">
+          <img :src="get_image('skull1_crop.jpg')" class="grid_image" alt="">
+          <img :src="get_image('skull2_crop.jpg')" class="grid_image" alt="">
+          <img :src="get_image('skull3_crop.jpg')" class="grid_image" alt="">
+          <img :src="get_image('skull4_crop.jpg')" class="grid_image" alt="">
+        </div>
+        <h5>Integrating skull as temperature mask</h5>
+      </div>
+
+      <div class="single_image">
+        <div style="display: grid;  grid-template-columns: repeat(3, 1fr);gap: 0">
+          <img :src="get_image('traj.jpg')" class="grid_image" alt="">
+          <img :src="get_image('vel1.jpg')" class="grid_image" alt="">
+          <img :src="get_image('vel2.jpg')" class="grid_image" alt="">
+        </div>
+        <h5>Trajectory automatically finds nearest valid impact point. Generates impact velocities for debris and sand</h5>
+      </div>
+
+      <div class="single_image">
+        <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
+          <img :src="get_image('def2.jpg')" class="grid_image" alt="">
+          <img :src="get_image('def1.jpg')" class="grid_image" alt="">
+        </div>
+        <h5>Deforms heightfield on impact</h5>
+      </div>
+
+      <div class="single_image">
+        <div style="display: grid;  grid-template-columns: repeat(3, 1fr);gap: 0">
+          <img :src="get_image('temp2.jpg')" class="grid_image" alt="">
+          <img :src="get_image('trail1.jpg')" class="grid_image" alt="">
+          <img :src="get_image('trail2.jpg')" class="grid_image" alt="">
+        </div>
+        <h5>Post-impact, trail smoke</h5>
+      </div>
+
+    </template>
+
+  </project-page-template>
+</template>
+
+<style scoped>
+.single_image {
+  /*outline: 1px solid red;*/
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.youtube_video {
+  /*outline: 1px solid red;*/
+
+  /*justify-items: center;*/
+  justify-content: center;
+  width: 100%;
+}
+
+.grid_image {
+  width: 100%;
+  height: 100%;
+  max-height: 80vh;
+  object-fit: cover
+}
+</style>

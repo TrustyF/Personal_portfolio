@@ -17,14 +17,15 @@ let loaded = ref(false)
 
 <template>
   <div class="container">
-        <img :src="logo" alt="" style="height: 15px;width: 15px;object-fit: contain" @load="loaded=true" v-show="loaded">
+    <img :src="logo" alt="" style="height: 15px;width: 15px;object-fit: contain" @load="loaded=true" v-show="loaded">
     <div class="placeholder" style="height: 15px;width: 15px" v-show="!loaded"></div>
-    <h1>{{ name }}</h1>
+    <h1>{{ name.slice(0, 1).toUpperCase() + name.slice(1) }}</h1>
   </div>
 </template>
 
 <style scoped>
 .container {
+  outline: 1px solid red;
   display: flex;
   flex-flow: row nowrap;
   background-color: #383838;

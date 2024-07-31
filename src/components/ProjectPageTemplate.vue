@@ -63,6 +63,8 @@ onMounted(() => {
       <spinner v-show="!images_loaded"></spinner>
     </div>
 
+    <div class="footer"></div>
+
   </div>
 </template>
 
@@ -119,11 +121,15 @@ onMounted(() => {
 }
 
 .content_container {
+  /*outline: 1px dotted orange;*/
+
   display: flex;
   align-items: center;
 }
 
 .content {
+  width: 100%;
+
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -134,6 +140,9 @@ onMounted(() => {
   /*-ms-animation: fadein 1s; !* Internet Explorer *!*/
   /*-o-animation: fadein 1s; !* Opera < 12.1 *!*/
   animation: fadein 1s;
+}
+.footer {
+  height: 100px;
 }
 
 </style>

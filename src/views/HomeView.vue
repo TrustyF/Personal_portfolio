@@ -14,7 +14,7 @@ import tags from "@/assets/tags.json"
                        :desc="article.desc"
                        :thumb="article.thumb"
                        :route="article.route"
-                       :tags="article.tags"
+                       :software="article.software"
     />
   </div>
 </template>

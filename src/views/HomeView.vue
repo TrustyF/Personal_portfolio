@@ -2,14 +2,26 @@
 import {RouterLink} from 'vue-router'
 
 import ProjectContainer from "@/components/ProjectContainer.vue";
-import wfc_thumb from "@/assets/projects/houdini_wfc/thumb.jpg"
+import index from "@/project_pages/index.json"
+import tags from "@/assets/tags.json"
+
 </script>
 
 <template>
-  <project-container
-      title="Houdini WFC"
-      desc="Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames"
-      :thumb="wfc_thumb"
-      route="/wfc"
-  />
+  <div class="feed">
+    <project-container v-for="article in index" :key="article.title"
+                       :title="article.title"
+                       :desc="article.desc"
+                       :thumb="article.thumb"
+                       :route="article.route"
+                       :tags="article.tags"
+    />
+  </div>
 </template>
+
+<style scoped>
+.feed {
+  display: flex;
+  gap: 10px;
+}
+</style>

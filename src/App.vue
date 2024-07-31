@@ -6,7 +6,7 @@ import NavBar from "@/components/NavBar.vue";
   <header>
     <div class="wrapper">
       <nav-bar></nav-bar>
-      <div style="height: 50px"></div>
+      <div style="height: 20px"></div>
     </div>
   </header>
 

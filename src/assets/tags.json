@@ -1,0 +1,10 @@
+{
+  "houdini": {
+    "title": "Houdini",
+    "color":"#ff7454"
+  },
+  "fx": {
+    "title": "Fx",
+    "color": "#00a7ff"
+  }
+}

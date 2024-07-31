@@ -11,9 +11,9 @@ const router = createRouter({
         },
 
         {
-            path: '/wfc',
-            name: 'wfc',
-            component: () => import('../project_pages/pages/houdini_wfc.vue')
+            path: '/pool_rooms',
+            name: 'pool_rooms',
+            component: () => import('../project_pages/pool_rooms.vue')
         },
         // {
         //   path: '/about',

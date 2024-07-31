@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Houdini pool rooms",
+    "desc": "Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
+    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/pool_rooms%2Fthumb.jpg?alt=media&token=a2f6eba9-92db-4b11-8a37-3897350a93e2",
+    "route": "/pool_rooms",
+    "tags": ["Houdini","Blender","fx"]
+  },
+  {
+    "title": "Skull rocket",
+    "desc": "Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
+    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/skull_rocket%2Fthumb.png?alt=media&token=25e8f926-f6bc-4ce7-82bd-7b298316318d",
+    "route": "/skull_rocket",
+    "tags": ["Houdini","fx"]
+  }
+]

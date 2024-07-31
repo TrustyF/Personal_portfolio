@@ -1,6 +1,7 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed} from "vue";
 import Spinner from "@/components/Spinner.vue";
+import ReturnArrow from "@/components/ReturnArrow.vue";
 
 let props = defineProps({
   test: {
@@ -33,6 +34,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <return-arrow></return-arrow>
   <div class="container">
 
     <div class="heading">

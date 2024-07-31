@@ -38,10 +38,15 @@ let container_size = `${300}px`
       <img :src="thumb" alt="" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
       <div class="thumb" style="background-color: #383838;z-index: -1"></div>
 
-      <div class="software">
-          <software-tag v-for="soft in software" :key="soft" :name="soft"></software-tag>
+      <div class="software_tags">
+        <software-tag v-for="soft in software" :key="soft"
+                      :name="soft"
+                      padding="6"
+                      gap="3"
+                      font_size="0.7"
+                      img_size="11"
+        />
       </div>
-
     </div>
 
     <div class="underlay">
@@ -61,20 +66,19 @@ let container_size = `${300}px`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
-  box-sizing: border-box;
   border-radius: 10px;
-  /*overflow: hidden;*/
+  overflow: hidden;
 
   animation: fadein 0.25s;
-  transition: 500ms ease;
 }
-.container:hover .thumb {
-  filter: opacity(0.9);
-  transition: 100ms ease;
+
+.container:hover .underlay {
+  background-color: hsla(160, 100%, 37%, 0.2);
+  transition: 50ms ease;
 }
 
 .cover {
-  outline: 1px solid cornflowerblue;
+  /*outline: 1px solid cornflowerblue;*/
 
   position: relative;
   height: v-bind(container_size);
@@ -91,20 +95,15 @@ let container_size = `${300}px`
   transition: 500ms ease;
 }
 
-.software {
-  outline: 1px solid cornflowerblue;
+.software_tags {
+  /*outline: 1px solid orange;*/
 
-  /*position: absolute;*/
-  /*z-index: 2;*/
+  position: absolute;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
+  bottom: 0;
   gap: 3px;
   padding: 3px;
-
-  /*justify-content: center;*/
-  /*justify-items: center;*/
-  /*align-items: center;*/
-  /*align-content: center;*/
 }
 
 .underlay {
@@ -120,6 +119,7 @@ let container_size = `${300}px`
 
   background-color: rgba(255, 255, 255, 0.1);
   user-select: none;
+  transition: 100ms ease;
 }
 
 h1 {

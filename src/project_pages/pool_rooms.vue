@@ -39,6 +39,13 @@ function get_image(path) {
     </template>
 
     <template #content>
+
+<!--      <div style="width: 300px;display: flex">-->
+<!--        <software-tag name="houdini"></software-tag>-->
+<!--        <software-tag name="blender"></software-tag>-->
+<!--        <software-tag name="photoshop"></software-tag>-->
+<!--      </div>-->
+
       <div class="single_image">
         <img :src="get_image('4.jpg')" class="grid_image" alt="">
         <h5>Final render</h5>

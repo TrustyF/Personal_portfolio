@@ -36,6 +36,7 @@ function get_image(path) {
       <software-tag name="houdini"></software-tag>
       <software-tag name="solaris"></software-tag>
       <software-tag name="karma"></software-tag>
+      <software-tag name="after_effects"></software-tag>
     </template>
 
     <template #content>

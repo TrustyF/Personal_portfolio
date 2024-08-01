@@ -19,6 +19,11 @@ const router = createRouter({
             name: 'skull_rocket',
             component: () => import('../project_pages/skull_rocket.vue')
         },
+        {
+            path: '/tommy_dgenz',
+            name: 'tommy_dgenz',
+            component: () => import('../project_pages/tommy_dgenz.vue')
+        },
     ]
 })
 

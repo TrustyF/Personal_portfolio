@@ -42,7 +42,7 @@ let loaded = ref(false)
   <div class="software_tag_container">
     <img :src="logo" alt="" class="software_tag_img" @load="loaded=true" v-show="loaded">
     <div class="placeholder software_tag_img" v-show="!loaded"></div>
-    <h1>{{ name.slice(0, 1).toUpperCase() + name.slice(1) }}</h1>
+    <h1>{{ name.slice(0, 1).toUpperCase() + name.slice(1).replace('_',' ') }}</h1>
   </div>
 </template>
 

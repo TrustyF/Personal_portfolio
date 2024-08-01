@@ -1,12 +1,12 @@
 <script setup>
-import {inject, onMounted, watch, ref, computed} from "vue";
+import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
 import Spinner from "@/components/Spinner.vue";
 import ReturnArrow from "@/components/ReturnArrow.vue";
 
 let props = defineProps({
-  test: {
-    type: String,
-    default: null,
+  image_loader: {
+    type: Boolean,
+    default: true,
   },
 });
 let emits = defineEmits(["test"]);
@@ -27,14 +27,28 @@ function test_images_loaded() {
   }
 }
 
+let back_arrow_vis = ref(false)
+
+function handle_back_arrow() {
+  let content_cont = document.getElementsByClassName('content_container')[0]
+  let bound = content_cont.getBoundingClientRect()
+  back_arrow_vis.value = bound.top < 0;
+}
+
 onMounted(() => {
-  test_images_loaded()
+  if (props.image_loader) test_images_loaded()
+  if (!props.image_loader) images_loaded.value = true
+  addEventListener('scroll', handle_back_arrow)
+})
+onUnmounted(() => {
+  removeEventListener('scroll', handle_back_arrow)
 })
 
 </script>
 
 <template>
-  <return-arrow></return-arrow>
+  <return-arrow :vis="back_arrow_vis"></return-arrow>
+
   <div class="container">
 
     <div class="heading">
@@ -123,8 +137,6 @@ onMounted(() => {
 }
 
 .content_container {
-  /*outline: 1px dotted orange;*/
-
   display: flex;
   align-items: center;
 }
@@ -143,6 +155,7 @@ onMounted(() => {
   /*-o-animation: fadein 1s; !* Opera < 12.1 *!*/
   animation: fadein 1s;
 }
+
 .footer {
   height: 100px;
 }

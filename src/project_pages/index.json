@@ -14,5 +14,13 @@
     "route": "/skull_rocket",
     "software": ["houdini"],
     "tags": ["fx"]
+  },
+  {
+    "title": "Product rendering",
+    "desc": "Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
+    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/tommy_clothes%2Fthumb_cloth.jpg?alt=media&token=11bd46cc-a9fd-427b-a8a6-ea5659c6f40f",
+    "route": "/tommy_dgenz",
+    "software": ["houdini","blender","marvelous"],
+    "tags": ["fx"]
   }
 ]

@@ -1,7 +1,7 @@
 <script setup>
 import {inject, onMounted, watch, computed} from "vue";
-import ProjectPageTemplate from "@/components/ProjectPageTemplate.vue";
-import SoftwareTag from "@/components/SoftwareTag.vue";
+import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
+import SoftwareTag from "@/components/project/SoftwareTag.vue";
 import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
 import 'vue-lite-youtube-embed/style.css'
 
@@ -21,9 +21,6 @@ function get_image(path) {
 <template>
   <project-page-template>
 
-    <template #thumb>
-      <img :src="get_image('thumb.jpg')" style="height: 50px;">
-    </template>
     <template #title>
       Pool rooms
     </template>
@@ -104,6 +101,7 @@ function get_image(path) {
 }
 
 .grid_image {
+  /*outline: 1px solid rebeccapurple;*/
   width: 100%;
   height: 100%;
   max-height: 80vh;

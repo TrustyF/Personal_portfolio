@@ -1,7 +1,7 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
-import Spinner from "@/components/Spinner.vue";
-import ReturnArrow from "@/components/ReturnArrow.vue";
+import Spinner from "@/components/generic/Spinner.vue";
+import ReturnArrow from "@/components/generic/ReturnArrow.vue";
 
 let props = defineProps({
   image_loader: {
@@ -100,11 +100,11 @@ onUnmounted(() => {
   display: flex;
   flex-flow: row;
   gap: 10px;
-  padding: 30px;
+  padding: 10px 0 30px 0;
   /*background-color: #232323;*/
 
-  border: 1px solid #383838;
-  border-radius: 10px;
+  border-bottom: 1px solid #383838;
+  /*border-radius: 10px;*/
 
   min-width: 300px;
 }
@@ -122,7 +122,7 @@ onUnmounted(() => {
   color: white;
   font-size: 1.5em;
   text-transform: uppercase;
-  font-weight: 800;
+  /*font-weight: 800;*/
 }
 
 .desc {

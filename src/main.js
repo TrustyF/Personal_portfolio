@@ -1,4 +1,6 @@
 import './assets/main.css'
+import App from './App.vue'
+import router from './router'
 
 import {initializeApp} from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
@@ -18,9 +20,6 @@ const firebaseConfig = {
 
 const firebase = initializeApp(firebaseConfig);
 const analytics = getAnalytics(firebase);
-
-import App from './App.vue'
-import router from './router'
 
 const app = createApp(App)
 

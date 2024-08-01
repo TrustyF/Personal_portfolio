@@ -1,6 +1,6 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed} from "vue";
-import SoftwareTag from "@/components/SoftwareTag.vue";
+import SoftwareTag from "@/components/project/SoftwareTag.vue";
 
 let props = defineProps({
   title: {
@@ -27,7 +27,6 @@ let props = defineProps({
 
 let thumb_loaded = ref(false)
 
-let container_size = `${300}px`
 
 </script>
 
@@ -51,7 +50,7 @@ let container_size = `${300}px`
 
     <div class="underlay">
       <h1>{{ title }} </h1>
-      <h2> {{ desc }} </h2>
+      <div class="proj_cont_desc"> {{ desc }} </div>
     </div>
 
   </div>
@@ -61,7 +60,7 @@ let container_size = `${300}px`
 .container {
   /*outline: 1px solid orange;*/
   cursor: pointer;
-  width: v-bind(container_size);
+  width: 100%;
 
   display: flex;
   flex-flow: column nowrap;
@@ -71,28 +70,29 @@ let container_size = `${300}px`
 
   animation: fadein 0.25s;
 }
-
 .container:hover .underlay {
-  background-color: hsla(160, 100%, 37%, 0.2);
+  background-color: rgb(19, 57, 44);
   transition: 50ms ease;
+}
+.container:hover .thumb {
+  transform: scale(1.01);
 }
 
 .cover {
   /*outline: 1px solid cornflowerblue;*/
-
   position: relative;
-  height: v-bind(container_size);
+  aspect-ratio: 1;
 }
 
 .thumb {
   z-index: 0;
   position: absolute;
-  height: v-bind(container_size);
-  width: v-bind(container_size);
+  width: 100%;
+  aspect-ratio: 1;
   object-fit: cover;
 
   animation: fadein 0.5s;
-  transition: 500ms ease;
+  transition: 200ms ease;
 }
 
 .software_tags {
@@ -104,12 +104,12 @@ let container_size = `${300}px`
   bottom: 0;
   gap: 3px;
   padding: 3px;
+  z-index: 20;
 }
 
 .underlay {
   /*outline: 1px solid cornflowerblue;*/
-
-  z-index: 1;
+  z-index: 50;
 
   display: flex;
   flex-flow: column;
@@ -117,7 +117,9 @@ let container_size = `${300}px`
   justify-content: center;
   padding: 15px;
 
-  background-color: rgba(255, 255, 255, 0.1);
+  height: 85px;
+
+  background-color: #2f2f2f;
   user-select: none;
   transition: 100ms ease;
 }
@@ -134,7 +136,7 @@ h1 {
   text-transform: uppercase;
 }
 
-h2 {
+.proj_cont_desc {
   font-size: 0.7em;
   /*outline: 1px solid cornflowerblue;*/
   display: flex;
@@ -142,13 +144,16 @@ h2 {
   justify-content: center;
 
   line-height: 1.2;
-  flex: 1 0 auto;
+  /*flex: 1 0 auto;*/
+  margin-top: auto;
   padding-bottom: 1px;
+
+  /*height: 5px;*/
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
+  /*text-overflow: ellipsis;*/
 }
 </style>

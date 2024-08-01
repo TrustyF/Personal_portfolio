@@ -1,9 +1,10 @@
 <script setup>
 import {RouterLink} from 'vue-router'
 
-import ProjectContainer from "@/components/ProjectContainer.vue";
+import ProjectContainer from "@/components/project/ProjectContainer.vue";
 import index from "@/project_pages/index.json"
 import tags from "@/assets/tags.json"
+import {ref} from "vue";
 
 </script>
 
@@ -21,7 +22,9 @@ import tags from "@/assets/tags.json"
 
 <style scoped>
 .feed {
-  display: flex;
+  /*outline: 1px solid orange;*/
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
   gap: 20px;
 }
 </style>

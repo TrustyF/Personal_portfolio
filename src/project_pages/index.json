@@ -1,26 +1,89 @@
 [
   {
     "title": "Pool rooms",
-    "desc": "Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
+    "desc": "Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
     "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/pool_rooms%2Fthumb.jpg?alt=media&token=a2f6eba9-92db-4b11-8a37-3897350a93e2",
     "route": "/pool_rooms",
-    "software": ["houdini","blender"],
-    "tags": ["procedural"]
+    "software": [
+      "houdini",
+      "blender"
+    ],
+    "tags": [
+      "procedural"
+    ]
   },
   {
     "title": "Skull rocket",
-    "desc": "Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
-    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/skull_rocket%2Fthumb.png?alt=media&token=25e8f926-f6bc-4ce7-82bd-7b298316318d",
+    "desc": "Naive implementation Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
+    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/skull_rocket%2Fthumb.jpg?alt=media&token=25e8f926-f6bc-4ce7-82bd-7b298316318d",
     "route": "/skull_rocket",
-    "software": ["houdini"],
-    "tags": ["fx"]
+    "software": [
+      "houdini"
+    ],
+    "tags": [
+      "fx"
+    ]
   },
   {
-    "title": "Product rendering",
-    "desc": "Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
+    "title": "Tommy Hilfiger Viral ad campaign",
+    "desc": "Naive implementation Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
     "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/tommy_clothes%2Fthumb_cloth.jpg?alt=media&token=11bd46cc-a9fd-427b-a8a6-ea5659c6f40f",
     "route": "/tommy_dgenz",
-    "software": ["houdini","blender","marvelous"],
-    "tags": ["fx"]
+    "software": [
+      "houdini",
+      "blender",
+      "marvelous"
+    ],
+    "tags": [
+      "fx"
+    ]
+  },
+  {
+    "title": "Abyss",
+    "desc": "Naive implementation Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
+    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/abyss%2Fabyss_thumb.jpg?alt=media&token=d04da543-2161-407a-90cb-419b00bd4b1f",
+    "route": "/abyss",
+    "software": [
+      "houdini"
+    ],
+    "tags": [
+      "fx"
+    ]
+  },
+  {
+    "title": "Theodosia",
+    "desc": "Naive implementation Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
+    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/theodosia%2Ftheo_snake2.jpg?alt=media&token=11bd46cc-a9fd-427b-a8a6-ea5659c6f40f",
+    "route": "/theodosia",
+    "software": [
+      "houdini"
+    ],
+    "tags": [
+      "fx"
+    ]
+  },
+  {
+    "title": "Novembre",
+    "desc": "Naive implementation Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
+    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/novembre%2Fnovembre_thumb.jpg?alt=media&token=11bd46cc-a9fd-427b-a8a6-ea5659c6f40f",
+    "route": "/novembre",
+    "software": [
+      "after_effects"
+    ],
+    "tags": [
+      "fx"
+    ]
+  },
+  {
+    "title": "Die Zweite Welle",
+    "desc": "Naive implementation Naive implementation of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames of the wave-function collapse algorithm in Houdini. Lorem Ipsum dolor sit ames",
+    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/novembre%2Fnovembre_thumb.jpg?alt=media&token=11bd46cc-a9fd-427b-a8a6-ea5659c6f40f",
+    "route": "/zweite_welle",
+    "software": [
+      "houdini"
+    ],
+    "tags": [
+      "fx"
+    ]
   }
 ]

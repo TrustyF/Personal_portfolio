@@ -1,7 +1,7 @@
 <script setup>
 import {inject, onMounted, watch, computed} from "vue";
-import ProjectPageTemplate from "@/components/ProjectPageTemplate.vue";
-import SoftwareTag from "@/components/SoftwareTag.vue";
+import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
+import SoftwareTag from "@/components/project/SoftwareTag.vue";
 import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
 import 'vue-lite-youtube-embed/style.css'
 
@@ -21,9 +21,6 @@ function get_image(path) {
 <template>
   <project-page-template>
 
-    <template #thumb>
-      <img :src="get_image('thumb.jpg')" style="height: 50px;">
-    </template>
     <template #title>
       Skull rocket
     </template>
@@ -75,7 +72,8 @@ function get_image(path) {
           <img :src="get_image('vel1.jpg')" class="grid_image" alt="">
           <img :src="get_image('vel2.jpg')" class="grid_image" alt="">
         </div>
-        <h5>Trajectory automatically finds nearest valid impact point. Generates impact velocities for debris and sand</h5>
+        <h5>Trajectory automatically finds nearest valid impact point. Generates impact velocities for debris and
+          sand</h5>
       </div>
 
       <div class="single_image">
@@ -88,9 +86,9 @@ function get_image(path) {
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(3, 1fr);gap: 0">
-          <img :src="get_image('temp2.jpg')" class="grid_image" alt="">
           <img :src="get_image('trail1.jpg')" class="grid_image" alt="">
           <img :src="get_image('trail2.jpg')" class="grid_image" alt="">
+          <img :src="get_image('temp2.jpg')" class="grid_image" alt="">
         </div>
         <h5>Post-impact, trail smoke</h5>
       </div>

@@ -1,7 +1,7 @@
 <script setup>
 import {inject, onMounted, watch, computed} from "vue";
-import ProjectPageTemplate from "@/components/ProjectPageTemplate.vue";
-import SoftwareTag from "@/components/SoftwareTag.vue";
+import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
+import SoftwareTag from "@/components/project/SoftwareTag.vue";
 import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
 import 'vue-lite-youtube-embed/style.css'
 
@@ -22,7 +22,7 @@ function get_image(path) {
   <project-page-template :image_loader="false">
 
     <template #title>
-      Product rendering
+      Tommy hilfiger | Viral ad campaign
     </template>
     <template #desc>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque dicta error iure sed tempora! At
@@ -41,26 +41,26 @@ function get_image(path) {
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
-          <iframe width="600" height="850" src="https://www.instagram.com/p/C9SPRlaIJsr/embed"/>
+          <iframe width="600" height="920" src="https://www.instagram.com/p/C9SPRlaIJsr/embed"/>
           <img :src="get_image('greece_clothes.jpg')" class="grid_image" alt="">
         </div>
-        <h5></h5>
+        <h5 style="height:10px"></h5>
       </div>
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
-          <iframe width="600" height="850" src="https://www.instagram.com/p/C5-adSio5T6/embed"/>
+          <iframe width="600" height="920" src="https://www.instagram.com/p/C5-adSio5T6/embed"/>
           <img :src="get_image('tommy_kite.jpg')" class="grid_image" alt="">
         </div>
-        <h5></h5>
+        <h5 style="height:10px"></h5>
       </div>
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
-          <iframe width="600" height="850" src="https://www.instagram.com/p/C50QoqjIzJf/embed"/>
-          <img :src="get_image('greece_clothes.jpg')" class="grid_image" alt="">
+          <iframe width="600" height="920" src="https://www.instagram.com/p/C50QoqjIzJf/embed"/>
+          <img :src="get_image('tommy_plane.jpg')" class="grid_image" alt="">
         </div>
-        <h5></h5>
+        <h5 style="height:10px"></h5>
       </div>
 
     </template>

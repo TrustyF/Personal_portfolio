@@ -1,103 +1,76 @@
 [
   {
-    "title": "Hilfiger Viral marketing",
+    "title": "hilfiger_viral_marketing",
+    "folder": "tommy_clothes",
     "desc": "Integrating 3D product renders in live-action footage for viral Instagram marketing.",
-    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/tommy_clothes%2Fthumb_cloth.jpg?alt=media&token=11bd46cc-a9fd-427b-a8a6-ea5659c6f40f",
-    "route": "/tommy_dgenz",
     "created": "23/04/2024",
     "type": "freelance",
-    "software": [
-      "houdini",
-      "blender"
-    ],
-    "tags": [
-      "fx"
-    ]
+    "software": ["houdini", "blender", "marvelous", "after_effects", "syntheyes"],
+    "tags": ["fx"]
   },
   {
-    "title": "Pool rooms",
+    "title": "pool_rooms",
     "desc": "Exploring the aesthetics of the \"Pool Rooms\" using procedural modeling in Houdini. Custom water and caustic shaders created in Blender.",
-    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/pool_rooms%2Fthumb.jpg?alt=media&token=a2f6eba9-92db-4b11-8a37-3897350a93e2",
-    "route": "/pool_rooms",
     "created": "16/04/2024",
     "type": "personal",
-    "software": [
-      "houdini",
-      "blender"
-    ],
-    "tags": [
-      "procedural"
-    ]
+    "software": ["houdini", "blender", "photoshop"],
+    "tags": ["procedural"]
   },
   {
-    "title": "Skull rocket",
+    "title": "skull_rocket",
     "desc": "Smoke, explosion and debris simulation in Houdini. Terrain made using heightfields and procedural textures. Rendered using Solaris USD and Karma.",
-    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/skull_rocket%2Fthumb.jpg?alt=media&token=25e8f926-f6bc-4ce7-82bd-7b298316318d",
-    "route": "/skull_rocket",
     "created": "18/01/2024",
     "type": "personal",
-    "software": [
-      "houdini",
-      "karma"
-    ],
-    "tags": [
-      "fx"
-    ]
+    "software": ["houdini", "karma", "solaris", "after_effects"],
+    "tags": ["fx"]
   },
   {
-    "title": "Abyss",
+    "title": "abyss",
     "desc": "Large scale smoke and destruction effects in Houdini. Building destruction setups developed over 3 months by a small team",
-    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/abyss%2Fabyss_thumb.jpg?alt=media&token=d04da543-2161-407a-90cb-419b00bd4b1f",
-    "route": "/abyss",
     "created": "01/01/2023",
     "type": "movie",
-    "software": [
-      "houdini"
-    ],
-    "tags": [
-      "fx"
-    ]
+    "software": ["houdini"],
+    "tags": ["fx"]
   },
   {
-    "title": "Die Zweite Welle",
+    "title": "die_zweite_welle",
+    "folder": "zweite_welle",
     "desc": "Large scale water and destruction effect. Responsible for debris, mist, spray and secondary splashes.",
-    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/zweite_welle%2Fwz_thumb.jpg?alt=media&token=11bd46cc-a9fd-427b-a8a6-ea5659c6f40f",
-    "route": "/zweite_welle",
     "created": "01/05/2022",
     "type": "tv_show",
-    "software": [
-      "houdini"
-    ],
-    "tags": [
-      "fx"
-    ]
+    "software": ["houdini"],
+    "tags": ["fx"]
   },
   {
-    "title": "Novembre",
+    "title": "novembre",
     "desc": "Developed and animated a complete Iphone messaging interface, controlled programmatically in After Effects",
-    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/novembre%2Fnovembre_thumb.jpg?alt=media&token=11bd46cc-a9fd-427b-a8a6-ea5659c6f40f",
-    "route": "/novembre",
     "created": "01/04/2022",
     "type": "movie",
-    "software": [
-      "after_effects"
-    ],
-    "tags": [
-      "fx"
-    ]
+    "software": ["after_effects"],
+    "tags": ["fx"]
   },
   {
-    "title": "Theodosia",
+    "title": "theodosia",
     "desc": "Developed smoke and destruction setups in Houdini. Worked closely with the comp team to lookdev the final design",
-    "thumb": "https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/theodosia%2Ftheo_snake2.jpg?alt=media&token=11bd46cc-a9fd-427b-a8a6-ea5659c6f40f",
-    "route": "/theodosia",
     "created": "01/01/2022",
     "type": "tv_show",
-    "software": [
-      "houdini"
-    ],
-    "tags": [
-      "fx"
-    ]
+    "software": ["houdini"],
+    "tags": ["fx"]
+  },
+  {
+    "title": "spider_walker",
+    "desc": "Research project exam aimed at researching and implementing a novel solution for automatic foot placement in Houdini",
+    "created": "01/01/2022",
+    "type": "personal",
+    "software": ["houdini"],
+    "tags": ["fx"]
+  },
+  {
+    "title": "louis",
+    "desc": "Group project",
+    "created": "08/12/2021",
+    "type": "short_film",
+    "software": ["houdini","blender"],
+    "tags": ["fx"]
   }
 ]

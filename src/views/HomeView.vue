@@ -30,6 +30,7 @@ let articles = computed(() => {
   /*outline: 1px solid orange;*/
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  align-items: flex-start;
   gap: 20px;
 }
 </style>

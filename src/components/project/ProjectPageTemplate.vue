@@ -2,11 +2,17 @@
 import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
 import Spinner from "@/components/generic/Spinner.vue";
 import ReturnArrow from "@/components/generic/ReturnArrow.vue";
+import index from "@/project_pages/index.json";
+import SoftwareTag from "@/components/project/SoftwareTag.vue";
 
 let props = defineProps({
   image_loader: {
     type: Boolean,
     default: true,
+  },
+  project_name: {
+    type: String,
+    default: null,
   },
 });
 let emits = defineEmits(["test"]);
@@ -35,6 +41,13 @@ function handle_back_arrow() {
   back_arrow_vis.value = bound.top < 0;
 }
 
+let index_data = computed(() => {
+  let i = index.findIndex((proj) => {
+    return proj.title === props.project_name
+  })
+  return index[i]
+})
+
 onMounted(() => {
   if (props.image_loader) test_images_loaded()
   if (!props.image_loader) images_loaded.value = true
@@ -52,22 +65,11 @@ onUnmounted(() => {
   <div class="container">
 
     <div class="heading">
-
-      <!--      <div class="thumb">-->
-      <!--        <slot name="thumb"></slot>-->
-      <!--      </div>-->
-
       <div class="title_container">
-        <div class="title">
-          <slot name="title"/>
-        </div>
-
-        <div class="desc">
-          <slot name="desc"/>
-        </div>
-
+        <div class="title">{{ index_data.title.replaceAll('_',' ') }}</div>
+        <div class="desc">{{ index_data.desc }}</div>
         <div class="software">
-          <slot name="software"/>
+          <software-tag v-for="soft in index_data.software" :key="soft" :name="soft"></software-tag>
         </div>
       </div>
     </div>

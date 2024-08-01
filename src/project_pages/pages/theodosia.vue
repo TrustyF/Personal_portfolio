@@ -2,8 +2,6 @@
 import {inject, onMounted, watch, computed} from "vue";
 import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
-import LiteYouTubeEmbed from 'vue-lite-youtube-embed'
-import 'vue-lite-youtube-embed/style.css'
 
 let props = defineProps({
   test: {
@@ -12,30 +10,16 @@ let props = defineProps({
   },
 });
 
+let proj_name = 'theodosia'
+
 function get_image(path) {
-  return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/skull_rocket%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
+  return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${proj_name}%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
 }
 
 </script>
 
 <template>
-  <project-page-template>
-
-    <template #title>
-      Skull rocket
-    </template>
-    <template #desc>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque dicta error iure sed tempora! At
-      commodi consequatur deleniti doloremque eligendi laudantium obcaecati, odio omnis perspiciatis quasi, reiciendis
-      sunt tempora tenetur.
-    </template>
-    <template #software>
-      <software-tag name="houdini"></software-tag>
-      <software-tag name="solaris"></software-tag>
-      <software-tag name="karma"></software-tag>
-      <software-tag name="after_effects"></software-tag>
-    </template>
-
+  <project-page-template :project_name="proj_name">
     <template #content>
 
       <div class="youtube_video">

@@ -1,6 +1,7 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed} from "vue";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
+import index from "@/project_pages/index.json"
 
 let props = defineProps({
   data: {
@@ -10,20 +11,28 @@ let props = defineProps({
 });
 
 let thumb_loaded = ref(false)
+let thumb_path = computed(()=>{
+  let data = props.data
+  if (data['folder']){
+    return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${props.data['folder']}%2Fthumb.jpg?alt=media&token=a2f6eba9-92db-4b11-8a37-3897350a93e2`
+  } else {
+    return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${props.data['title']}%2Fthumb.jpg?alt=media&token=a2f6eba9-92db-4b11-8a37-3897350a93e2`
+  }
+})
 
 
 </script>
 
 <template>
-  <div class="container" @click="$router.push(data['route'])">
+  <div class="container" @click="$router.push('/' + data['title'])">
 
     <div class="cover">
-      <img :src="data['thumb']" alt="" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
+      <img :src="thumb_path" alt="" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
       <div class="thumb" style="background-color: #383838;z-index: -1"></div>
     </div>
 
     <div class="underlay">
-      <h1>{{ data['title'] }} </h1>
+      <h1>{{ data['title'].replaceAll('_', ' ') }} </h1>
       <div class="software_tags">
         <software-tag :name="data['type']"
                       padding="6"
@@ -32,7 +41,7 @@ let thumb_loaded = ref(false)
                       img_size="11"
                       bg_color="#494949"
         />
-        <software-tag v-for="soft in data['software']" :key="soft"
+        <software-tag v-for="soft in data['software'].slice(0,2)" :key="soft"
                       :name="soft"
                       padding="6"
                       gap="3"
@@ -96,7 +105,7 @@ let thumb_loaded = ref(false)
   /*position: absolute;*/
   margin: 10px 0 5px 0;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   /*bottom: 0;*/
   gap: 3px;
   z-index: 20;
@@ -110,8 +119,6 @@ let thumb_loaded = ref(false)
   flex-flow: column;
   /*gap: 5px;*/
   padding: 15px;
-
-  /*height: 85px;*/
 
   background-color: #2f2f2f;
   user-select: none;
@@ -128,7 +135,7 @@ h1 {
   flex: 0 0 auto;
   color: white;
   text-transform: uppercase;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
 }
 
 .proj_cont_desc {

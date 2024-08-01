@@ -1,6 +1,9 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
+import index from '/src/project_pages/index.json'
+import {computed} from "vue";
+
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
@@ -8,23 +11,17 @@ const router = createRouter({
             path: '/',
             name: 'home',
             component: HomeView
-        },
-        {
-            path: '/pool_rooms',
-            name: 'pool_rooms',
-            component: () => import('../project_pages/pool_rooms.vue')
-        },
-        {
-            path: '/skull_rocket',
-            name: 'skull_rocket',
-            component: () => import('../project_pages/skull_rocket.vue')
-        },
-        {
-            path: '/tommy_dgenz',
-            name: 'tommy_dgenz',
-            component: () => import('../project_pages/tommy_dgenz.vue')
-        },
+        }
     ]
 })
+
+for (let i = 0; i < index.length; i++) {
+    let project_route = {
+        path: `/${index[i].title}`,
+        name: `${index[i].title}`,
+        component: () => import(`../project_pages/pages/${index[i].title}.vue`)
+    }
+    router.addRoute(project_route)
+}
 
 export default router

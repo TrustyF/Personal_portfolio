@@ -42,9 +42,11 @@ const curr_api = inject("curr_api");
 
   transition: 100ms ease;
   opacity: 0;
+  visibility: hidden;
   transform: translate(-10px);
 }
 .visible {
+  visibility: visible;
   opacity: 1;
   transform: translate(0);
 }

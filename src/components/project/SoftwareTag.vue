@@ -22,6 +22,9 @@ let props = defineProps({
   font_size: {
     type: Number,
     default: 0.8,
+  },  bg_color: {
+    type: String,
+    default: '#383838',
   },
 });
 
@@ -51,7 +54,7 @@ let loaded = ref(false)
   /*outline: 1px solid red;*/
   display: flex;
   flex-flow: row nowrap;
-  background-color: #383838;
+  background-color: v-bind(bg_color);
   padding: v-bind(box_pad);
   gap: v-bind(box_gap);
   border-radius: 5px;

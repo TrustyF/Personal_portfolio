@@ -3,24 +3,8 @@ import {inject, onMounted, watch, ref, computed} from "vue";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
 
 let props = defineProps({
-  title: {
-    type: String,
-    default: null,
-  },
-  desc: {
-    type: String,
-    default: null,
-  },
-  thumb: {
-    type: String,
-    default: null,
-  },
-  route: {
-    type: String,
-    default: null,
-  },
-  software: {
-    type: Array,
+  data: {
+    type: Object,
     default: null,
   },
 });
@@ -31,26 +15,33 @@ let thumb_loaded = ref(false)
 </script>
 
 <template>
-  <div class="container" @click="$router.push(route)">
+  <div class="container" @click="$router.push(data['route'])">
 
     <div class="cover">
-      <img :src="thumb" alt="" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
+      <img :src="data['thumb']" alt="" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
       <div class="thumb" style="background-color: #383838;z-index: -1"></div>
+    </div>
 
+    <div class="underlay">
+      <h1>{{ data['title'] }} </h1>
       <div class="software_tags">
-        <software-tag v-for="soft in software" :key="soft"
+        <software-tag :name="data['type']"
+                      padding="6"
+                      gap="3"
+                      font_size="0.7"
+                      img_size="11"
+                      bg_color="#494949"
+        />
+        <software-tag v-for="soft in data['software']" :key="soft"
                       :name="soft"
                       padding="6"
                       gap="3"
                       font_size="0.7"
                       img_size="11"
+                      bg_color="#494949"
         />
       </div>
-    </div>
-
-    <div class="underlay">
-      <h1>{{ title }} </h1>
-      <div class="proj_cont_desc"> {{ desc }} </div>
+      <div class="proj_cont_desc"> {{ data['desc'] }}</div>
     </div>
 
   </div>
@@ -70,13 +61,15 @@ let thumb_loaded = ref(false)
 
   animation: fadein 0.25s;
 }
+
 .container:hover .underlay {
   background-color: rgb(19, 57, 44);
   transition: 50ms ease;
 }
-.container:hover .thumb {
-  transform: scale(1.01);
-}
+
+/*.container:hover .thumb {*/
+/*  transform: scale(1.03);*/
+/*}*/
 
 .cover {
   /*outline: 1px solid cornflowerblue;*/
@@ -91,19 +84,21 @@ let thumb_loaded = ref(false)
   aspect-ratio: 1;
   object-fit: cover;
 
+  filter: contrast(1.1);
+
   animation: fadein 0.5s;
-  transition: 200ms ease;
+  transition: 100ms ease;
 }
 
 .software_tags {
   /*outline: 1px solid orange;*/
 
-  position: absolute;
+  /*position: absolute;*/
+  margin: 10px 0 5px 0;
   display: flex;
-  flex-flow: row wrap;
-  bottom: 0;
+  flex-flow: row nowrap;
+  /*bottom: 0;*/
   gap: 3px;
-  padding: 3px;
   z-index: 20;
 }
 
@@ -113,11 +108,10 @@ let thumb_loaded = ref(false)
 
   display: flex;
   flex-flow: column;
-  gap: 5px;
-  justify-content: center;
+  /*gap: 5px;*/
   padding: 15px;
 
-  height: 85px;
+  /*height: 85px;*/
 
   background-color: #2f2f2f;
   user-select: none;
@@ -134,6 +128,7 @@ h1 {
   flex: 0 0 auto;
   color: white;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .proj_cont_desc {
@@ -148,7 +143,7 @@ h1 {
   margin-top: auto;
   padding-bottom: 1px;
 
-  /*height: 5px;*/
+  /*height: 28px;*/
 
   display: -webkit-box;
   -webkit-line-clamp: 2;

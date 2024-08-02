@@ -58,6 +58,7 @@ let loaded = ref(false)
   padding: v-bind(box_pad);
   gap: v-bind(box_gap);
   border-radius: 5px;
+  user-select: none;
 }
 
 .software_tag_img {

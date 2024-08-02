@@ -41,7 +41,7 @@ let thumb_path = computed(()=>{
                       img_size="11"
                       bg_color="#494949"
         />
-        <software-tag v-for="soft in data['software'].slice(0,2)" :key="soft"
+        <software-tag v-for="soft in data['software'].slice(0,1)" :key="soft"
                       :name="soft"
                       padding="6"
                       gap="3"
@@ -127,6 +127,7 @@ let thumb_path = computed(()=>{
 
 h1 {
   font-size: 1.2em;
+  line-height: 1;
   /*outline: 1px solid cornflowerblue;*/
   display: flex;
   flex-flow: column;
@@ -135,7 +136,6 @@ h1 {
   flex: 0 0 auto;
   color: white;
   text-transform: uppercase;
-  /*white-space: nowrap;*/
 }
 
 .proj_cont_desc {
@@ -149,6 +149,7 @@ h1 {
   /*flex: 1 0 auto;*/
   margin-top: auto;
   padding-bottom: 1px;
+  opacity: 0.7;
 
   /*height: 28px;*/
 
@@ -156,6 +157,5 @@ h1 {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  /*text-overflow: ellipsis;*/
 }
 </style>

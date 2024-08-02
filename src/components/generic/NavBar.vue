@@ -25,10 +25,9 @@ nav {
   /*border-bottom: 1px solid #383838;*/
   /*padding-bottom: 10px;*/
 
-  display: flex;
-  gap: 10px;
-
-  font-size: 1.1em;
+  /*display: flex;*/
+  /*gap: 5px;*/
+  /*font-size: 1.1em;*/
 }
 
 .nav_link {

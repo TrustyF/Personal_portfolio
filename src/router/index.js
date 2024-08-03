@@ -2,7 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 import index from '/src/project_pages/index.json'
-import {computed} from "vue";
+import {computed, defineAsyncComponent} from "vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,7 +19,7 @@ for (let i = 0; i < index.length; i++) {
     let project_route = {
         path: `/${index[i].title}`,
         name: `${index[i].title}`,
-        component: () => import(`../project_pages/pages/${index[i].title}.vue`)
+        component: defineAsyncComponent(() => import(`../project_pages/pages/${index[i].title}.vue`))
     }
     router.addRoute(project_route)
 }

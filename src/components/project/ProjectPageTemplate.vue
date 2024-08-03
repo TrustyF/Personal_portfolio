@@ -49,6 +49,7 @@ let index_data = computed(() => {
 })
 
 onMounted(() => {
+  window.scrollTo(0, 0)
   if (props.image_loader) test_images_loaded()
   if (!props.image_loader) images_loaded.value = true
   addEventListener('scroll', handle_back_arrow)
@@ -66,7 +67,7 @@ onUnmounted(() => {
 
     <div class="heading">
       <div class="title_container">
-        <div class="title">{{ index_data.title.replaceAll('_',' ') }}</div>
+        <div class="title">{{ index_data.title.replaceAll('_', ' ') }}</div>
         <div class="desc">{{ index_data.desc }}</div>
         <div class="software">
           <software-tag v-for="soft in index_data.software" :key="soft" :name="soft"></software-tag>

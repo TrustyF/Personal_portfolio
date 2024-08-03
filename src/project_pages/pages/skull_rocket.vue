@@ -71,7 +71,7 @@ function get_image(path) {
           <img :src="get_image('trail2.jpg')" class="grid_image" alt="">
           <img :src="get_image('temp2.jpg')" class="grid_image" alt="">
         </div>
-        <h5>Post-impact, trail smoke</h5>
+        <h5>Trail smoke, post-impact steam</h5>
       </div>
 
     </template>

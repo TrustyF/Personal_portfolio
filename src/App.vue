@@ -1,5 +1,5 @@
 <script setup>
-import NavBar from "@/components/generic/NavBar.vue";
+import NavBar from "@/components/nav/NavBar.vue";
 import BottomFooter from "@/components/generic/BottomFooter.vue";
 </script>
 

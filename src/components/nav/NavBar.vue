@@ -14,7 +14,7 @@ const curr_api = inject("curr_api");
 </script>
 
 <template>
-  <nav>
+  <nav id="nav_bar">
     <RouterLink class="nav_link" to="/">Home</RouterLink>
     <RouterLink class="nav_link" to="/about">About</RouterLink>
   </nav>

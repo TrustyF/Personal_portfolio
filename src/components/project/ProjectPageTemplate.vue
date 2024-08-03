@@ -1,9 +1,10 @@
 <script setup>
-import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
+import {inject, onMounted, watch, ref, computed, onUnmounted, nextTick} from "vue";
 import Spinner from "@/components/generic/Spinner.vue";
-import ReturnArrow from "@/components/generic/ReturnArrow.vue";
 import index from "@/project_pages/index.json";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
+import NavReturnArrow from "@/components/nav/NavReturnArrow.vue";
+import NavArrow from "@/components/nav/NavArrow.vue";
 
 let props = defineProps({
   image_loader: {
@@ -18,6 +19,7 @@ let props = defineProps({
 let emits = defineEmits(["test"]);
 const curr_api = inject("curr_api");
 
+let heading_loaded = ref(false)
 let images_loaded = ref(false)
 let images_check_timeout
 
@@ -33,14 +35,6 @@ function test_images_loaded() {
   }
 }
 
-let back_arrow_vis = ref(false)
-
-function handle_back_arrow() {
-  let content_cont = document.getElementsByClassName('content_container')[0]
-  let bound = content_cont.getBoundingClientRect()
-  back_arrow_vis.value = bound.top < 0;
-}
-
 let index_data = computed(() => {
   let i = index.findIndex((proj) => {
     return proj.title === props.project_name
@@ -49,19 +43,19 @@ let index_data = computed(() => {
 })
 
 onMounted(() => {
-  window.scrollTo(0, 0)
+  // window.scrollTo(0, 0)
   if (props.image_loader) test_images_loaded()
   if (!props.image_loader) images_loaded.value = true
-  addEventListener('scroll', handle_back_arrow)
-})
-onUnmounted(() => {
-  removeEventListener('scroll', handle_back_arrow)
+
+  nextTick(()=>{
+    heading_loaded.value = true
+  })
 })
 
 </script>
 
 <template>
-  <return-arrow :vis="back_arrow_vis"></return-arrow>
+  <nav-return-arrow/>
 
   <div class="container">
 
@@ -75,7 +69,7 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <div class="content_container">
+    <div class="content_container" v-show="heading_loaded">
       <div class="content" v-show="images_loaded">
         <slot name="content"/>
       </div>
@@ -160,7 +154,7 @@ onUnmounted(() => {
 }
 
 .footer {
-  height: 100px;
+  height: 30px;
 }
 
 </style>

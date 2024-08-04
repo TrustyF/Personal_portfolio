@@ -6,6 +6,8 @@ import {initializeApp} from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
 import {getStorage} from "firebase/storage";
 
+import VueLazyLoad from 'vue3-lazyload'
+
 import {createApp} from 'vue'
 
 const firebaseConfig = {
@@ -24,5 +26,8 @@ const analytics = getAnalytics(firebase);
 const app = createApp(App)
 
 app.use(router)
+app.use(VueLazyLoad, {
+    preLoad: 1.3,
+})
 
 app.mount('#app')

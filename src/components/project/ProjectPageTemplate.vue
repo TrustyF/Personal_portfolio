@@ -25,11 +25,20 @@ let images_check_timeout
 
 function test_images_loaded() {
   let images = document.getElementsByClassName('grid_image')
+
+  if (!images.length > 0) {
+    console.log(tit + ' no images, try again')
+    setTimeout(test_images_loaded, 100)
+    return
+  }
+
   for (let i = 0; i < images.length; i++) {
     if (!images[i].complete) {
+      console.log(tit + ' trying again')
       images_check_timeout = setTimeout(test_images_loaded, 100)
       break
     } else {
+      console.log(tit + ' images loaded')
       images_loaded.value = true
     }
   }
@@ -41,13 +50,15 @@ let index_data = computed(() => {
   })
   return index[i]
 })
+let tit = index_data.value.title
 
 onMounted(() => {
+  console.log(tit + ' header loaded')
   // window.scrollTo(0, 0)
   if (props.image_loader) test_images_loaded()
   if (!props.image_loader) images_loaded.value = true
 
-  nextTick(()=>{
+  nextTick(() => {
     heading_loaded.value = true
   })
 })
@@ -69,7 +80,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="content_container" v-show="heading_loaded">
+    <div class="content_container" v-if="heading_loaded">
       <div class="content" v-show="images_loaded">
         <slot name="content"/>
       </div>

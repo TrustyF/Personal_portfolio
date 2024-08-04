@@ -21,21 +21,24 @@ const curr_api = inject("curr_api");
 
 let heading_loaded = ref(false)
 let images_loaded = ref(false)
-let images_check_timeout
+
+function test_images_again(){
+  setTimeout(test_images_loaded, 500)
+}
 
 function test_images_loaded() {
   let images = document.getElementsByClassName('grid_image')
 
   if (!images.length > 0) {
     console.log(tit + ' no images, try again')
-    setTimeout(test_images_loaded, 100)
+    test_images_again()
     return
   }
 
   for (let i = 0; i < images.length; i++) {
     if (!images[i].complete) {
       console.log(tit + ' trying again')
-      images_check_timeout = setTimeout(test_images_loaded, 100)
+      test_images_again()
       break
     } else {
       console.log(tit + ' images loaded')

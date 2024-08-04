@@ -5,9 +5,8 @@ import router from './router'
 import {initializeApp} from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
 import {getStorage} from "firebase/storage";
-
 import VueLazyLoad from 'vue3-lazyload'
-
+import { createManager } from '@vue-youtube/core';
 import {createApp} from 'vue'
 
 const firebaseConfig = {
@@ -29,5 +28,6 @@ app.use(router)
 app.use(VueLazyLoad, {
     preLoad: 1.3,
 })
+app.use(createManager())
 
 app.mount('#app')

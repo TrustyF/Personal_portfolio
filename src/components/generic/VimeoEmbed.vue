@@ -7,34 +7,38 @@ let props = defineProps({
     type: String,
     default: null,
   },
+  autoplay: {
+    type: Number,
+    default: 0,
+  },
+  controls: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const youtube = ref();
 
-const {instance, onStateChange} = usePlayer(props.id, youtube, {
+const {instance} = usePlayer(props.id, youtube, {
   cookie: false,
   playerVars: {
-    autoplay: 0,
-    mute: 1,
-    controls: 1,
+    autoplay: props.autoplay,
+    mute: props.autoplay,
+    controls: props.controls,
     color: 'white',
     modestbranding: 0,
     rel: 0,
     playsinline: 1,
-    width: 1000,
+    enablejsapi: 1,
   },
 });
 
-onStateChange((event) => {
-  if (instance.value.getCurrentTime() > 0.99) {
-    instance.value.seekTo(0, true)
-  }
-})
 
 </script>
 
 <template>
-  <div ref="youtube" style="width: 100%"/>
+  <div ref="youtube" style="width: 100%;aspect-ratio: 16/9"/>
+<!--  <div style="background-color: rgba(255,0,0,0.1);width: 100%;aspect-ratio: 16/9"/>-->
 </template>
 
 <style scoped>

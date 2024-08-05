@@ -3,6 +3,7 @@ import {inject, onMounted, watch, computed} from "vue";
 import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
 import VimeoEmbed from "@/components/generic/VimeoEmbed.vue";
+import MovieHeader from "@/components/generic/MovieHeader.vue";
 
 let props = defineProps({
   test: {
@@ -24,9 +25,17 @@ function get_image(path) {
 
     <template #content>
 
+      <movie-header
+          video_id="TxS0Ba0otTs"
+          title="The Abyss"
+          desc="2023"
+          :poster="get_image('poster.webp')"
+      />
+
       <div class="vimeo_video">
         <vimeo-embed id="8_r8izUMoyY"/>
-        <h5 style="text-align: center;padding-top: 10px">Responsible for yellow building destruction + smoke. Additional debris and paper for main smoke</h5>
+        <h5 style="text-align: center;padding-top: 10px">Responsible for yellow building destruction + smoke. Additional
+          debris and paper for main smoke</h5>
       </div>
 
       <div class="vimeo_video">
@@ -49,13 +58,13 @@ function get_image(path) {
         <h5 style="text-align: center;padding-top: 10px">Background building destruction</h5>
       </div>
 
-<!--      <div class="single_image">-->
-<!--        <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">-->
-<!--          <img :src="get_image('terr1.jpg')" class="grid_image" alt="">-->
-<!--          <img :src="get_image('terr2.jpg')" class="grid_image" alt="">-->
-<!--        </div>-->
-<!--        <h5>Procedural height field + automated texture generation</h5>-->
-<!--      </div>-->
+      <!--      <div class="single_image">-->
+      <!--        <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">-->
+      <!--          <img :src="get_image('terr1.jpg')" class="grid_image" alt="">-->
+      <!--          <img :src="get_image('terr2.jpg')" class="grid_image" alt="">-->
+      <!--        </div>-->
+      <!--        <h5>Procedural height field + automated texture generation</h5>-->
+      <!--      </div>-->
 
     </template>
 
@@ -70,6 +79,7 @@ function get_image(path) {
   align-items: center;
   gap: 10px;
 }
+
 .vimeo_video {
   justify-content: center;
   width: 100%;

@@ -2,6 +2,8 @@
 import {inject, onMounted, watch, computed} from "vue";
 import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
+import VimeoEmbed from "@/components/generic/VimeoEmbed.vue";
+import MovieHeader from "@/components/generic/MovieHeader.vue";
 
 let props = defineProps({
   test: {
@@ -13,69 +15,37 @@ let props = defineProps({
 let proj_name = 'die_zweite_welle'
 
 function get_image(path) {
-  return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${proj_name}%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
+  return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/zweite_welle%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
 }
 
 </script>
 
 <template>
-  <project-page-template :project_name="proj_name">
+  <project-page-template :project_name="proj_name" :image_loader="false">
     <template #content>
 
-      <div class="youtube_video">
-        <LiteYouTubeEmbed
-            id="Mbi4wjNvTKc"
-            title="Houdini Skull Rocket"
-            params="autoplay=1&loop=1&?modestbranding=1&&showinfo=0"
-            poster="maxresdefault"
-        />
-        <h5 style="text-align: center;padding-top: 10px">Final render</h5>
+      <movie-header
+          video_id="YT9cLrch4HQ"
+          title="Die zweite Welle"
+          desc="2023"
+          :poster="get_image('poster.webp')"
+      />
+
+<!--      <div class="vimeo_video">-->
+<!--        <vimeo-embed id="ZSgBlWSlu_8"/>-->
+<!--        <h5 style="text-align: center;padding-top: 10px">Novembre trailer</h5>-->
+<!--      </div>-->
+
+      <div class="vimeo_video">
+        <vimeo-embed id="DHg-WKZC8dU"/>
+        <h5 style="text-align: center;padding-top: 10px">Final comp</h5>
       </div>
 
-      <div class="single_image">
-        <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
-          <img :src="get_image('terr1.jpg')" class="grid_image" alt="">
-          <img :src="get_image('terr2.jpg')" class="grid_image" alt="">
-        </div>
-        <h5>Procedural height field + automated texture generation</h5>
+      <div class="vimeo_video">
+        <vimeo-embed id="SGXP5I4Halk"/>
+        <h5 style="text-align: center;padding-top: 10px">Messaging setup demo</h5>
       </div>
 
-      <div class="single_image">
-        <div style="display: grid;  grid-template-columns: repeat(4, 1fr);gap: 0">
-          <img :src="get_image('skull1_crop.jpg')" class="grid_image" alt="">
-          <img :src="get_image('skull2_crop.jpg')" class="grid_image" alt="">
-          <img :src="get_image('skull3_crop.jpg')" class="grid_image" alt="">
-          <img :src="get_image('skull4_crop.jpg')" class="grid_image" alt="">
-        </div>
-        <h5>Integrating skull as temperature mask</h5>
-      </div>
-
-      <div class="single_image">
-        <div style="display: grid;  grid-template-columns: repeat(3, 1fr);gap: 0">
-          <img :src="get_image('traj.jpg')" class="grid_image" alt="">
-          <img :src="get_image('vel1.jpg')" class="grid_image" alt="">
-          <img :src="get_image('vel2.jpg')" class="grid_image" alt="">
-        </div>
-        <h5>Trajectory automatically finds nearest valid impact point. Generates impact velocities for debris and
-          sand</h5>
-      </div>
-
-      <div class="single_image">
-        <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
-          <img :src="get_image('def2.jpg')" class="grid_image" alt="">
-          <img :src="get_image('def1.jpg')" class="grid_image" alt="">
-        </div>
-        <h5>Deforms heightfield on impact</h5>
-      </div>
-
-      <div class="single_image">
-        <div style="display: grid;  grid-template-columns: repeat(3, 1fr);gap: 0">
-          <img :src="get_image('trail1.jpg')" class="grid_image" alt="">
-          <img :src="get_image('trail2.jpg')" class="grid_image" alt="">
-          <img :src="get_image('temp2.jpg')" class="grid_image" alt="">
-        </div>
-        <h5>Post-impact, trail smoke</h5>
-      </div>
 
     </template>
 
@@ -91,10 +61,7 @@ function get_image(path) {
   gap: 10px;
 }
 
-.youtube_video {
-  /*outline: 1px solid red;*/
-
-  /*justify-items: center;*/
+.vimeo_video {
   justify-content: center;
   width: 100%;
 }

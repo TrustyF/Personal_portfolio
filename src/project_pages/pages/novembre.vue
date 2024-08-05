@@ -3,6 +3,7 @@ import {inject, onMounted, watch, computed} from "vue";
 import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
 import VimeoEmbed from "@/components/generic/VimeoEmbed.vue";
+import MovieHeader from "@/components/generic/MovieHeader.vue";
 
 let props = defineProps({
   test: {
@@ -21,16 +22,30 @@ function get_image(path) {
 
 <template>
   <project-page-template :project_name="proj_name" :image_loader="false">
-
     <template #content>
 
+      <movie-header
+          video_id="J6sEwKbMdHw"
+          title="Novembre"
+          desc="2022"
+          :poster="get_image('poster.webp')"
+      />
+
+<!--      <div class="vimeo_video">-->
+<!--        <vimeo-embed id="ZSgBlWSlu_8"/>-->
+<!--        <h5 style="text-align: center;padding-top: 10px">Novembre trailer</h5>-->
+<!--      </div>-->
+
       <div class="vimeo_video">
-        <div style="display: grid;grid-template-columns: 3fr 1fr;">
-          <vimeo-embed id="994261948"/>
-          <vimeo-embed id="994261959"/>
-        </div>
-        <h5 style="text-align: center;padding-top: 10px">Final comp - Messaging setup demo</h5>
+        <vimeo-embed id="DHg-WKZC8dU"/>
+        <h5 style="text-align: center;padding-top: 10px">Final comp</h5>
       </div>
+
+      <div class="vimeo_video">
+        <vimeo-embed id="SGXP5I4Halk"/>
+        <h5 style="text-align: center;padding-top: 10px">Messaging setup demo</h5>
+      </div>
+
 
     </template>
 

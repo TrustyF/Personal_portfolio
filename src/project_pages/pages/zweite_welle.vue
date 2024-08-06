@@ -38,7 +38,7 @@ function get_image(path) {
 
       <div class="vimeo_video">
         <vimeo-embed id="901912656?h=c5afcf9527" :vimeo="true"/>
-        <h5 style="text-align: center;padding-top: 10px">Responsible for initial lookdev, water debris, mist, spray and secondary splashes.</h5>
+        <h5 style="text-align: center;padding-top: 10px">Responsible for wave's initial lookdev, water debris, mist, spray and secondary splashes.</h5>
       </div>
 
 

@@ -24,6 +24,7 @@ const curr_api = inject("curr_api");
 nav {
   /*border-bottom: 1px solid #383838;*/
   /*padding-bottom: 10px;*/
+  margin-bottom: 20px;
 
   /*display: flex;*/
   /*gap: 5px;*/

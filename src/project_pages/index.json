@@ -1,6 +1,6 @@
 [
   {
-    "title": "hilfiger_shirts",
+    "title": "hilfiger_ads",
     "folder": "tommy_clothes",
     "desc": "Integrating 3D product renders in live-action footage for viral Instagram marketing.",
     "created": "23/04/2024",
@@ -57,27 +57,26 @@
     "title": "theodosia",
     "folder": "theodosia",
     "desc": "Developed smoke and destruction setups in Houdini. Worked closely with the comp team to lookdev the final design.",
-    "created": "01/01/2022",
+    "created": "01/03/2022",
     "type": "tv_show",
-    "software": ["houdini"],
-    "tags": ["fx"]
-  },
-  {
-    "title": "spider_walker",
-    "folder": "spider_walker",
-    "desc": "Research project exam aimed at researching and implementing a novel solution for automatic foot placement in Houdini",
-    "created": "01/01/2022",
-    "type": "personal",
     "software": ["houdini"],
     "tags": ["fx"]
   },
   {
     "title": "louis",
     "folder": "louis",
-    "desc": "Group project",
-    "created": "08/12/2021",
+    "desc": "End of year school group project, developed over 3 months with a team of 5 artists",
+    "created": "29/01/2022",
     "type": "short_film",
     "software": ["houdini","blender"],
     "tags": ["fx"]
-  }
+  },  {
+  "title": "spider_walker",
+  "folder": "spider_walker",
+  "desc": "Research project exam aimed at researching and implementing a novel solution for automatic foot placement in Houdini",
+  "created": "01/01/2021",
+  "type": "personal",
+  "software": ["houdini"],
+  "tags": ["fx"]
+}
 ]

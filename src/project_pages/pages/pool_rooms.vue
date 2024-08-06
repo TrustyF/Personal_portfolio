@@ -46,7 +46,7 @@ function get_image(path) {
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="993726464"/>
+        <vimeo-embed id="993726464" :vimeo="true"/>
         <h5 style="text-align: center;padding-top: 10px">Procedural setup demo</h5>
       </div>
 

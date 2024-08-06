@@ -11,7 +11,7 @@ let props = defineProps({
   },
 });
 
-let proj_name = 'abyss'
+let proj_name = 'louis'
 
 function get_image(path) {
   return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${proj_name}%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
@@ -20,22 +20,27 @@ function get_image(path) {
 </script>
 
 <template>
-  <project-page-template :project_name="proj_name">
+  <project-page-template :project_name="proj_name" :poster="get_image('poster.webp')" :image_loader="false">
 
     <template #content>
 
       <div class="vimeo_video">
-        <vimeo-embed id="917254100"/>
-        <h5 style="text-align: center;padding-top: 10px">Final render</h5>
+        <vimeo-embed id="bkuLbLAn-JI"/>
+        <h5 style="text-align: center;padding-top: 10px">Final product</h5>
       </div>
 
-      <div class="single_image">
-        <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
-          <img :src="get_image('terr1.jpg')" class="grid_image" alt="">
-          <img :src="get_image('terr2.jpg')" class="grid_image" alt="">
-        </div>
-        <h5>Procedural height field + automated texture generation</h5>
+      <div class="vimeo_video">
+        <vimeo-embed id="s-PYWy9eDjw"/>
+        <h5 style="text-align: center;padding-top: 10px">Making of</h5>
       </div>
+
+      <!--      <div class="single_image">-->
+      <!--        <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">-->
+      <!--          <img :src="get_image('terr1.jpg')" class="grid_image" alt="">-->
+      <!--          <img :src="get_image('terr2.jpg')" class="grid_image" alt="">-->
+      <!--        </div>-->
+      <!--        <h5>Procedural height field + automated texture generation</h5>-->
+      <!--      </div>-->
 
     </template>
 
@@ -50,6 +55,7 @@ function get_image(path) {
   align-items: center;
   gap: 10px;
 }
+
 .vimeo_video {
   justify-content: center;
   width: 100%;

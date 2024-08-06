@@ -61,8 +61,7 @@ let index_data = computed(() => {
 let tit = index_data.value.title
 
 onMounted(() => {
-  console.log(tit + ' header loaded')
-  // window.scrollTo(0, 0)
+  window.scrollTo(0, 0)
   if (props.image_loader) test_images_loaded()
   if (!props.image_loader) images_loaded.value = true
 
@@ -91,7 +90,7 @@ onUnmounted(() => {
           <div class="desc">{{ index_data.desc }}</div>
         </div>
 
-        <div style="margin-top: 0px">
+        <div style="margin-top: 0">
           <div class="software">
             <software-tag :name="index_data.type"></software-tag>
             <software-tag v-for="soft in index_data.software" :key="soft" :name="soft"></software-tag>
@@ -101,11 +100,11 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <div class="content_container" v-if="heading_loaded">
-      <div class="content" v-show="images_loaded">
+    <div class="content_container">
+      <div class="content" v-show="image_loader ? images_loaded && heading_loaded : heading_loaded">
         <slot name="content"/>
       </div>
-      <spinner v-show="!images_loaded"></spinner>
+      <spinner v-show="image_loader ? !images_loaded && !heading_loaded : !heading_loaded"></spinner>
     </div>
 
     <div class="footer"></div>
@@ -129,7 +128,7 @@ onUnmounted(() => {
   flex-flow: row wrap;
   align-items: center;
   gap: 20px;
-  padding: 20px 20px 30px 20px;
+  padding: 0 20px 30px 20px;
   margin-bottom: 30px;
   /*background-color: #232323;*/
 
@@ -183,7 +182,7 @@ onUnmounted(() => {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  gap: 30px;
+  gap: 100px;
 
   /*-webkit-animation: fadein 1s; !* Safari, Chrome and Opera > 12.1 *!*/
   /*-moz-animation: fadein 1s; !* Firefox < 16 *!*/
@@ -193,7 +192,7 @@ onUnmounted(() => {
 }
 
 .footer {
-  height: 30px;
+  height: 100px;
 }
 
 </style>

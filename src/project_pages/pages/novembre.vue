@@ -32,13 +32,13 @@ function get_image(path) {
 <!--      />-->
 
       <div class="vimeo_video">
-        <vimeo-embed id="DHg-WKZC8dU"/>
-        <h5 style="text-align: center;padding-top: 10px">Final comp</h5>
+        <vimeo-embed id="3C6lr_KucyY"/>
+        <h5 style="text-align: center;padding-top: 10px">Final look for device UI</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="SGXP5I4Halk"/>
-        <h5 style="text-align: center;padding-top: 10px">Messaging setup demo</h5>
+        <vimeo-embed id="VB76KjtYdaM"/>
+        <h5 style="text-align: center;padding-top: 10px">UI setups demo. Assisted first 2 setups. Fully responsible for phone UI</h5>
       </div>
 
 

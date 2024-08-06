@@ -12,7 +12,7 @@ let props = defineProps({
   },
 });
 
-let proj_name = 'novembre'
+let proj_name = 'frost_prime'
 
 function get_image(path) {
   return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${proj_name}%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
@@ -21,24 +21,17 @@ function get_image(path) {
 </script>
 
 <template>
-  <project-page-template :project_name="proj_name" :image_loader="false" :poster="get_image('poster.webp')">
+  <project-page-template :project_name="proj_name" :image_loader="false">
     <template #content>
 
-<!--      <movie-header-->
-<!--          video_id="J6sEwKbMdHw"-->
-<!--          title="Novembre"-->
-<!--          desc="2022"-->
-<!--          :poster="get_image('poster.webp')"-->
-<!--      />-->
-
       <div class="vimeo_video">
-        <vimeo-embed id="3C6lr_KucyY"/>
-        <h5 style="text-align: center;padding-top: 10px">Computer and phone UI</h5>
+        <vimeo-embed id="z5PD0b3bWok"/>
+        <h5 style="text-align: center;padding-top: 10px">Compilation of various greenscreen scenes and animations</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="VB76KjtYdaM"/>
-        <h5 style="text-align: center;padding-top: 10px">UI setups demo. Assisted first 2 setups. Fully responsible for phone UI</h5>
+        <vimeo-embed id="C7kI0hgJplw"/>
+        <h5 style="text-align: center;padding-top: 10px">Bits donation alerts. Different amounts trigger their dedicated animation</h5>
       </div>
 
 

@@ -25,13 +25,18 @@ function get_image(path) {
     <template #content>
 
       <div class="vimeo_video">
-        <vimeo-embed id="DHg-WKZC8dU"/>
+        <vimeo-embed id="N25s_g0-sWY"/>
         <h5 style="text-align: center;padding-top: 10px">Final comp</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="SGXP5I4Halk"/>
-        <h5 style="text-align: center;padding-top: 10px">Messaging setup demo</h5>
+        <vimeo-embed id="0d0tyCBJvNc"/>
+        <h5 style="text-align: center;padding-top: 10px">Glass fx breakdown</h5>
+      </div>
+
+      <div class="vimeo_video">
+        <vimeo-embed id="GQQpE_n2K7A"/>
+        <h5 style="text-align: center;padding-top: 10px">Smoke snake lookdev</h5>
       </div>
 
 

@@ -125,7 +125,7 @@ onUnmounted(() => {
 
 .heading {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   align-items: center;
   gap: 20px;
   padding: 0 20px 30px 20px;

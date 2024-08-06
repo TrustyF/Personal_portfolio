@@ -10,18 +10,41 @@ const router = createRouter({
         {
             path: '/',
             name: 'home',
-            component: HomeView
+            redirect: '/portfolio'
+        },
+        {
+            path: '/portfolio',
+            name: 'portfolio',
+            children: [
+                {
+                    path: '',
+                    component: HomeView
+                }
+            ]
+
+        },
+        {
+            path: '/cv',
+            name: 'cv',
+            component: defineAsyncComponent(() => import('../views/CVView.vue'))
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: defineAsyncComponent(() => import('../views/AboutView.vue'))
         }
     ]
 })
 
+let project_route = router.options.routes.find((r) => r.name === 'portfolio')
 for (let i = 0; i < index.length; i++) {
-    let project_route = {
-        path: `/${index[i].folder}`,
-        name: `${index[i].folder}`,
+    let proj = {
+        path: `${index[i].folder}`,
+        name: `${index[i].folder}Proj`,
         component: defineAsyncComponent(() => import(`../project_pages/pages/${index[i].folder}.vue`))
     }
-    router.addRoute(project_route)
+    project_route.children.push(proj)
 }
+router.addRoute(project_route)
 
 export default router

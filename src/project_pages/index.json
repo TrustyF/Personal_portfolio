@@ -56,7 +56,7 @@
   {
     "title": "theodosia",
     "folder": "theodosia",
-    "desc": "Developed smoke and destruction setups in Houdini. Worked closely with the comp team to lookdev the final design.",
+    "desc": "Developed smoke creature setup in Houdini. Worked closely with the comp team to lookdev the final design.",
     "created": "01/03/2022",
     "type": "tv_show",
     "software": ["houdini"],
@@ -77,6 +77,14 @@
   "created": "01/01/2021",
   "type": "personal",
   "software": ["houdini"],
+  "tags": ["fx"]
+},  {
+  "title": "frost_prime",
+  "folder": "frost_prime",
+  "desc": "Creating greenscreen scenes and alerts for twitch streamer FrostPrime from 2018 to 2024",
+  "created": "01/01/2020",
+  "type": "freelance",
+  "software": ["after_effects","photoshop"],
   "tags": ["fx"]
 }
 ]

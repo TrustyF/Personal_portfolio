@@ -20,7 +20,7 @@ let thumb_path = computed(()=>{
 </script>
 
 <template>
-  <div class="container" @click="$router.push('/' + data['folder'])">
+  <div class="container" @click="$router.push('/portfolio/' + data['folder'])">
 
     <div class="cover">
       <img :src="thumb_path" alt="" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">

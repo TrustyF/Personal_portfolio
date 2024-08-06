@@ -21,16 +21,9 @@ function get_image(path) {
 </script>
 
 <template>
-  <project-page-template :project_name="proj_name" :image_loader="false">
+  <project-page-template :project_name="proj_name" :image_loader="false" :poster="get_image('poster.webp')">
 
     <template #content>
-
-      <movie-header
-          video_id="TxS0Ba0otTs"
-          title="The Abyss"
-          desc="2023"
-          :poster="get_image('poster.webp')"
-      />
 
       <div class="vimeo_video">
         <vimeo-embed id="8_r8izUMoyY"/>

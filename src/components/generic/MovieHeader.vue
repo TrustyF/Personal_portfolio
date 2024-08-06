@@ -20,6 +20,10 @@ let props = defineProps({
     type: String,
     default: "null",
   },
+  company: {
+    type: String,
+    default: "null",
+  },
 });
 
 </script>
@@ -27,15 +31,22 @@ let props = defineProps({
 <template>
   <div class="movie_header_cont">
 
-<!--      <div class="header">-->
-<!--        <h1>{{ title }}</h1>-->
-<!--        <p>{{ desc }}</p>-->
-<!--      </div>-->
-
-    <div class="content">
+    <div class="thumb">
       <img :src="poster" class="poster_image" alt="">
-      <vimeo-embed :id="video_id" :controls="1" style="height: 100%;width: auto"/>
     </div>
+
+    <div class="header">
+
+      <div class="title_cont">
+        <h1>{{ title }}</h1>
+        <p>{{ desc }}</p>
+      </div>
+
+      <div class="work_cont">
+        <h4>Working at: {{ company }}</h4>
+      </div>
+    </div>
+
 
   </div>
 </template>
@@ -44,12 +55,14 @@ let props = defineProps({
 .movie_header_cont {
   width: 100%;
   position: relative;
-  /*outline: 1px solid red;*/
+  outline: 1px solid red;
 
   padding: 20px 20px 20px 20px;
 
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 
   background-color: #282828;
@@ -58,29 +71,33 @@ let props = defineProps({
 }
 
 .header {
-  /*outline: 1px solid orange;*/
+  outline: 1px solid orange;
   display: flex;
   flex-flow: column nowrap;
-  gap: 5px;
+  gap: 15px;
 }
+
 h1 {
   color: white;
   font-size: 2em;
 }
+
 p {
   font-size: 0.8em;
 }
-.content {
-  /*outline: 1px solid blue;*/
+
+.thumb {
+  outline: 1px solid blue;
   display: flex;
   flex-flow: row nowrap;
-  gap: 5px;
-  height: 450px;
-  justify-content: space-between;
+  gap: 20px;
+  height: 300px;
 }
+
 .poster_image {
   height: 100%;
   object-fit: scale-down;
   border-radius: 8px;
 }
+
 </style>

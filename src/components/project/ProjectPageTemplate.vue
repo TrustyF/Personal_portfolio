@@ -15,15 +15,20 @@ let props = defineProps({
     type: String,
     default: null,
   },
+  poster: {
+    type: String,
+    default: null,
+  },
 });
 let emits = defineEmits(["test"]);
 const curr_api = inject("curr_api");
 
 let heading_loaded = ref(false)
 let images_loaded = ref(false)
+let images_test_timeout
 
-function test_images_again(){
-  setTimeout(test_images_loaded, 500)
+function test_images_again() {
+  images_test_timeout = setTimeout(test_images_loaded, 500)
 }
 
 function test_images_loaded() {
@@ -49,7 +54,7 @@ function test_images_loaded() {
 
 let index_data = computed(() => {
   let i = index.findIndex((proj) => {
-    return proj.title === props.project_name
+    return proj.folder === props.project_name
   })
   return index[i]
 })
@@ -65,6 +70,9 @@ onMounted(() => {
     heading_loaded.value = true
   })
 })
+onUnmounted(() => {
+  clearTimeout(images_test_timeout)
+})
 
 </script>
 
@@ -74,12 +82,22 @@ onMounted(() => {
   <div class="container">
 
     <div class="heading">
+      <img v-if="poster" class="poster" :src="poster" alt="poster">
+
       <div class="title_container">
-        <div class="title">{{ index_data.title.replaceAll('_', ' ') }}</div>
-        <div class="desc">{{ index_data.desc }}</div>
-        <div class="software">
-          <software-tag v-for="soft in index_data.software" :key="soft" :name="soft"></software-tag>
+
+        <div style="gap: 10px;display: flex;flex-flow: column">
+          <div class="title">{{ index_data.title.replaceAll('_', ' ') }}</div>
+          <div class="desc">{{ index_data.desc }}</div>
         </div>
+
+        <div style="margin-top: 0px">
+          <div class="software">
+            <software-tag :name="index_data.type"></software-tag>
+            <software-tag v-for="soft in index_data.software" :key="soft" :name="soft"></software-tag>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -107,11 +125,12 @@ onMounted(() => {
 }
 
 .heading {
-  /*outline: 1px dotted orange;*/
   display: flex;
-  flex-flow: row;
-  gap: 10px;
-  padding: 10px 0 30px 0;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 20px 30px 20px;
+  margin-bottom: 30px;
   /*background-color: #232323;*/
 
   border-bottom: 1px solid #383838;
@@ -120,7 +139,13 @@ onMounted(() => {
   min-width: 300px;
 }
 
-.thumb {
+.poster {
+  height: 200px;
+  width: 130px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .title_container {
@@ -131,7 +156,7 @@ onMounted(() => {
 
 .title {
   color: white;
-  font-size: 1.5em;
+  font-size: 2em;
   text-transform: uppercase;
   /*font-weight: 800;*/
 }

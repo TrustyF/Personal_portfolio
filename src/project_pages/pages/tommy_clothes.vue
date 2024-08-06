@@ -10,7 +10,7 @@ let props = defineProps({
   },
 });
 
-let proj_name = 'hilfiger_viral_marketing'
+let proj_name = 'tommy_clothes'
 
 function get_image(path) {
   return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/tommy_clothes%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`

@@ -46,7 +46,7 @@ function filter_articles(arr) {
   <div class="homepage_wrapper">
 
     <div class="feed">
-      <project-container v-for="article in articles" :key="article.title"
+      <project-container v-for="article in articles" :key="article.folder"
                          :data="article"/>
     </div>
 

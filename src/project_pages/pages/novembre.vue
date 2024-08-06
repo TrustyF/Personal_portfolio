@@ -21,20 +21,15 @@ function get_image(path) {
 </script>
 
 <template>
-  <project-page-template :project_name="proj_name" :image_loader="false">
+  <project-page-template :project_name="proj_name" :image_loader="false" :poster="get_image('poster.webp')">
     <template #content>
 
-      <movie-header
-          video_id="J6sEwKbMdHw"
-          title="Novembre"
-          desc="2022"
-          :poster="get_image('poster.webp')"
-      />
-
-<!--      <div class="vimeo_video">-->
-<!--        <vimeo-embed id="ZSgBlWSlu_8"/>-->
-<!--        <h5 style="text-align: center;padding-top: 10px">Novembre trailer</h5>-->
-<!--      </div>-->
+<!--      <movie-header-->
+<!--          video_id="J6sEwKbMdHw"-->
+<!--          title="Novembre"-->
+<!--          desc="2022"-->
+<!--          :poster="get_image('poster.webp')"-->
+<!--      />-->
 
       <div class="vimeo_video">
         <vimeo-embed id="DHg-WKZC8dU"/>

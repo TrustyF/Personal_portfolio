@@ -17,9 +17,9 @@ const router = createRouter({
 
 for (let i = 0; i < index.length; i++) {
     let project_route = {
-        path: `/${index[i].title}`,
-        name: `${index[i].title}`,
-        component: defineAsyncComponent(() => import(`../project_pages/pages/${index[i].title}.vue`))
+        path: `/${index[i].folder}`,
+        name: `${index[i].folder}`,
+        component: defineAsyncComponent(() => import(`../project_pages/pages/${index[i].folder}.vue`))
     }
     router.addRoute(project_route)
 }

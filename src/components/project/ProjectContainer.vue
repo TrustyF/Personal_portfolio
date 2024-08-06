@@ -13,18 +13,14 @@ let props = defineProps({
 let thumb_loaded = ref(false)
 let thumb_path = computed(()=>{
   let data = props.data
-  if (data['folder']){
     return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${props.data['folder']}%2Fthumb.jpg?alt=media&token=a2f6eba9-92db-4b11-8a37-3897350a93e2`
-  } else {
-    return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${props.data['title']}%2Fthumb.jpg?alt=media&token=a2f6eba9-92db-4b11-8a37-3897350a93e2`
-  }
 })
 
 
 </script>
 
 <template>
-  <div class="container" @click="$router.push('/' + data['title'])">
+  <div class="container" @click="$router.push('/' + data['folder'])">
 
     <div class="cover">
       <img :src="thumb_path" alt="" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">

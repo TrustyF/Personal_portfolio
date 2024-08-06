@@ -10,6 +10,7 @@
   },
   {
     "title": "pool_rooms",
+    "folder": "pool_rooms",
     "desc": "Exploring the aesthetics of the \"Pool Rooms\" using procedural modeling in Houdini. Custom water and caustic shaders created in Blender.",
     "created": "16/04/2024",
     "type": "personal",
@@ -18,6 +19,7 @@
   },
   {
     "title": "skull_rocket",
+    "folder": "skull_rocket",
     "desc": "Smoke, explosion and debris simulation in Houdini. Terrain made using heightfields and procedural textures. Rendered using Solaris USD and Karma.",
     "created": "18/01/2024",
     "type": "personal",
@@ -25,7 +27,8 @@
     "tags": ["fx"]
   },
   {
-    "title": "abyss",
+    "title": "the_abyss",
+    "folder": "abyss",
     "desc": "Large scale smoke and destruction effects in Houdini. Building destruction setups developed over 3 months by a small team",
     "created": "01/01/2023",
     "type": "movie",
@@ -35,7 +38,7 @@
   {
     "title": "die_zweite_welle",
     "folder": "zweite_welle",
-    "desc": "Large scale water and destruction effect. Responsible for debris, mist, spray and secondary splashes.",
+    "desc": "Large scale water and destruction effects.",
     "created": "01/05/2022",
     "type": "tv_show",
     "software": ["houdini"],
@@ -43,6 +46,7 @@
   },
   {
     "title": "novembre",
+    "folder": "novembre",
     "desc": "Developed and animated a complete Iphone messaging interface, controlled programmatically in After Effects",
     "created": "01/04/2022",
     "type": "movie",
@@ -51,7 +55,8 @@
   },
   {
     "title": "theodosia",
-    "desc": "Developed smoke and destruction setups in Houdini. Worked closely with the comp team to lookdev the final design",
+    "folder": "theodosia",
+    "desc": "Developed smoke and destruction setups in Houdini. Worked closely with the comp team to lookdev the final design.",
     "created": "01/01/2022",
     "type": "tv_show",
     "software": ["houdini"],
@@ -59,6 +64,7 @@
   },
   {
     "title": "spider_walker",
+    "folder": "spider_walker",
     "desc": "Research project exam aimed at researching and implementing a novel solution for automatic foot placement in Houdini",
     "created": "01/01/2022",
     "type": "personal",
@@ -67,6 +73,7 @@
   },
   {
     "title": "louis",
+    "folder": "louis",
     "desc": "Group project",
     "created": "08/12/2021",
     "type": "short_film",

@@ -35,7 +35,13 @@ let thumb_path = computed(() => {
     </div>
 
     <div class="underlay" v-show="!minimal">
-      <h1>{{ data['title'].replaceAll('_', ' ') }} </h1>
+
+      <div style="display: flex;gap: 10px;align-items: center">
+        <h1>{{ data['title'].replaceAll('_', ' ') }} </h1>
+        <div v-if="data['duration']" class="proj_cont_duration">-</div>
+        <div v-if="data['duration']" class="proj_cont_duration"> {{ data['duration'] }}</div>
+      </div>
+
       <div class="software_tags">
         <software-tag :name="data['type']"
                       padding="6"
@@ -44,7 +50,7 @@ let thumb_path = computed(() => {
                       img_size="11"
                       bg_color="#494949"
         />
-        <software-tag v-for="soft in data['software'].slice(0,1)" :key="soft"
+        <software-tag v-for="soft in data['software'].slice(0,3)" :key="soft"
                       :name="soft"
                       padding="6"
                       gap="3"
@@ -63,11 +69,12 @@ let thumb_path = computed(() => {
 .container {
   /*outline: 1px solid orange;*/
   cursor: pointer;
-  width: 100%;
+  height: 100%;
 
   display: flex;
-  flex-flow: column nowrap;
-  align-content: flex-start;
+  flex-flow: row wrap;
+  /*align-content: left;*/
+  /*align-items: left;*/
 
   position: relative;
   border-radius: 10px;
@@ -80,15 +87,18 @@ let thumb_path = computed(() => {
   background-color: rgb(19, 57, 44);
   transition: 50ms ease;
 }
+
 .cover {
   /*outline: 1px solid cornflowerblue;*/
   position: relative;
+  height: 100%;
   aspect-ratio: 1;
 }
+
 .thumb {
   z-index: 0;
-  position: absolute;
-  width: 100%;
+  /*position: absolute;*/
+  height: 100%;
   aspect-ratio: 1;
   object-fit: cover;
 
@@ -106,7 +116,7 @@ let thumb_path = computed(() => {
   display: flex;
   flex-flow: row wrap;
   /*bottom: 0;*/
-  gap: 3px;
+  gap: 5px;
   z-index: 20;
 }
 
@@ -116,6 +126,8 @@ let thumb_path = computed(() => {
 
   display: flex;
   flex-flow: column;
+  justify-items: center;
+  justify-content: center;
   /*gap: 5px;*/
   padding: 15px;
 
@@ -146,15 +158,20 @@ h1 {
 
   line-height: 1.2;
   /*flex: 1 0 auto;*/
-  margin-top: auto;
+  /*margin-top: auto;*/
   padding-bottom: 1px;
   opacity: 0.7;
+  width: 400px;
 
   /*height: 28px;*/
 
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.proj_cont_duration {
+  font-size: 0.9em;
 }
 </style>

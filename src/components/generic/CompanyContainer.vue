@@ -2,6 +2,7 @@
 import {inject, onMounted, watch, ref, computed} from "vue";
 import index from "@/project_pages/index.json"
 import ProjectContainer from "@/components/project/ProjectContainer.vue";
+import ProjectContainerHorizontal from "@/components/project/ProjectContainerHorizontal.vue";
 
 let props = defineProps({
   data: {
@@ -25,8 +26,9 @@ let articles = computed(() => {
 </script>
 
 <template>
-  <div style="display: flex;flex-flow: row nowrap;align-items: center;">
+  <div class="top_cont">
     <div class="arrow_cont"></div>
+    <div class="arrow_ball"></div>
     <div class="company_cont">
 
       <img :src="`./src/assets/company_icons/${data['img']}.webp`"
@@ -42,28 +44,45 @@ let articles = computed(() => {
 
         <h2 class="desc">{{ data['desc'] }}</h2>
 
-        <div style="display:flex;flex-flow: row; gap: 20px;  align-items: flex-start;">
-          <project-container class="proj_cont" :minimal="false"
-                             v-for="article in articles" :key="article.folder"
+        <div v-if="data['projects']" style="display:flex;flex-flow: column; gap: 20px;  align-items: flex-start;">
+          <project-container-horizontal class="proj_cont"
+                             v-for="article in articles" :key="`${article.folder}_cv`"
                              :data="article"
-                             style="width: 200px;height: 300px"
+                             style="height: 150px"
           />
         </div>
 
       </div>
+
+      <div class="filler"></div>
 
     </div>
   </div>
 </template>
 
 <style scoped>
+.top_cont {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  animation: fadein 0.5s;
+}
+
 .arrow_cont {
-  /*width: 0;*/
-  /*height: 0;*/
-  /*margin: 30px auto;*/
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
   border-right: 15px solid #282828;
+}
+.arrow_ball{
+  position: absolute;
+  left: -36px;
+  top: calc(50% - 5px);
+  background-color: #383838;
+  outline: 10px solid #181818;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
 }
 
 .company_cont {
@@ -72,7 +91,9 @@ let articles = computed(() => {
   background-color: #282828;
   gap: 15px;
   align-items: flex-start;
-  padding: 20px 50px 30px 20px;
+  /*padding: 20px 70px 30px 20px;*/
+  padding: 20px;
+  width: 100%;
   border-radius: 10px;
   box-shadow: 10px 10px 10px #101010
 }
@@ -81,6 +102,12 @@ let articles = computed(() => {
   display: flex;
   flex-flow: column wrap;
   gap: 20px;
+}
+.filler {
+  width: 50px
+}
+.proj_cont {
+  /*box-shadow: 5px 5px 2px #222222;*/
 }
 
 .desc {
@@ -92,21 +119,12 @@ let articles = computed(() => {
 }
 
 h1 {
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: 600;
 }
 
 h2 {
   font-size: 0.9em;
-}
-
-.proj_cont {
-  transition: 100ms ease;
-}
-
-.proj_cont:hover {
-  /*outline: 2px solid #267359;*/
-  filter: brightness(1.1);
 }
 
 </style>

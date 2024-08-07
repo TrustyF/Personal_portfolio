@@ -61,7 +61,6 @@ let index_data = computed(() => {
 let tit = index_data.value.title
 
 onMounted(() => {
-  window.scrollTo(0, 0)
   if (props.image_loader) test_images_loaded()
   if (!props.image_loader) images_loaded.value = true
 
@@ -93,6 +92,7 @@ onUnmounted(() => {
         <div style="margin-top: 0">
           <div class="software">
             <software-tag :name="index_data.type"></software-tag>
+            <software-tag v-if="index_data.scale" :name="index_data.scale"></software-tag>
             <software-tag v-for="soft in index_data.software" :key="soft" :name="soft"></software-tag>
           </div>
         </div>
@@ -182,7 +182,7 @@ onUnmounted(() => {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  gap: 100px;
+  gap: 40px;
 
   /*-webkit-animation: fadein 1s; !* Safari, Chrome and Opera > 12.1 *!*/
   /*-moz-animation: fadein 1s; !* Firefox < 16 *!*/

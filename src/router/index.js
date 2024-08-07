@@ -6,6 +6,9 @@ import {computed, defineAsyncComponent} from "vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
+    scrollBehavior(to, from, savedPosition) {
+        return {top: 0}
+    },
     routes: [
         {
             path: '/',
@@ -26,7 +29,7 @@ const router = createRouter({
         {
             path: '/cv',
             name: 'cv',
-            component: defineAsyncComponent(() => import('../views/CVView.vue'))
+            component: defineAsyncComponent(() => import('../views/CurriculumView.vue'))
         },
         {
             path: '/about',
@@ -40,7 +43,7 @@ let project_route = router.options.routes.find((r) => r.name === 'portfolio')
 for (let i = 0; i < index.length; i++) {
     let proj = {
         path: `${index[i].folder}`,
-        name: `${index[i].folder}Proj`,
+        name: `${index[i].folder}`,
         component: defineAsyncComponent(() => import(`../project_pages/pages/${index[i].folder}.vue`))
     }
     project_route.children.push(proj)

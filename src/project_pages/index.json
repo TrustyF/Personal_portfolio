@@ -5,6 +5,7 @@
     "desc": "Integrating 3D product renders in live-action footage for viral Instagram marketing.",
     "created": "23/04/2024",
     "type": "freelance",
+    "scale": "solo",
     "software": ["houdini", "blender", "marvelous", "after_effects", "syntheyes"],
     "tags": ["fx"]
   },
@@ -29,9 +30,11 @@
   {
     "title": "the_abyss",
     "folder": "abyss",
-    "desc": "Large scale smoke and destruction effects in Houdini. Building destruction setups developed over 3 months by a small team",
+    "desc": "Large scale smoke and destruction effects in Houdini. Building destruction setups developed by a small team",
     "created": "01/01/2023",
+    "duration": "10 mos",
     "type": "movie",
+    "scale": "production",
     "software": ["houdini"],
     "tags": ["fx"]
   },
@@ -40,7 +43,9 @@
     "folder": "zweite_welle",
     "desc": "Large scale water and destruction effects.",
     "created": "01/05/2022",
+    "duration": "8 mos",
     "type": "tv_show",
+    "scale": "production",
     "software": ["houdini"],
     "tags": ["fx"]
   },
@@ -49,7 +54,9 @@
     "folder": "novembre",
     "desc": "Developed and animated a complete Iphone messaging interface, controlled programmatically in After Effects. Assisted Arno Ringoet in the creation of computer UI elements",
     "created": "01/04/2022",
+    "duration": "4 mos",
     "type": "movie",
+    "scale": "production",
     "software": ["after_effects"],
     "tags": ["fx"]
   },
@@ -58,7 +65,9 @@
     "folder": "theodosia",
     "desc": "Developed smoke creature setup in Houdini. Worked closely with the comp team to lookdev the final design.",
     "created": "01/03/2022",
+    "duration": "3 mos",
     "type": "tv_show",
+    "scale": "production",
     "software": ["houdini"],
     "tags": ["fx"]
   },
@@ -68,6 +77,7 @@
     "desc": "End of year school group project, developed over 3 months with a team of 5 artists",
     "created": "29/01/2022",
     "type": "short_film",
+    "scale": "mid_sized",
     "software": ["houdini","blender"],
     "tags": ["fx"]
   },  {
@@ -84,6 +94,7 @@
   "desc": "Creating greenscreen scenes and alerts for twitch streamer FrostPrime from 2018 to 2024",
   "created": "01/01/2020",
   "type": "freelance",
+  "scale": "solo",
   "software": ["after_effects","photoshop"],
   "tags": ["fx"]
 }

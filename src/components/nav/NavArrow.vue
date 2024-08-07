@@ -2,6 +2,14 @@
 import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
 import arrow from "/src/assets/icons/arrow-left-circle-fill.svg"
 
+let props = defineProps({
+  up: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+
 let back_arrow_vis = ref(false)
 
 function handle_back_arrow() {
@@ -10,7 +18,7 @@ function handle_back_arrow() {
   back_arrow_vis.value = bound.top < -100;
 }
 
-onMounted(()=>{
+onMounted(() => {
   addEventListener('scroll', handle_back_arrow)
 })
 onUnmounted(() => {
@@ -20,7 +28,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="arrow_container">
+  <div :class="`arrow_container + ${up ? 'facing_up':''}`">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
          viewBox="0 0 16 16">
       <path fill-rule="evenodd"
@@ -42,16 +50,25 @@ onUnmounted(() => {
   justify-content: flex-start;
   align-items: center;
   transition: 100ms ease-in-out;
+  box-shadow: 2px 2px 2px #181818;
+}
+.facing_up {
+  transform: rotate(90deg);
+  width: 70px;
+  height: 50px;
 }
 .bi-arrow-left {
   transition: 100ms ease-in-out;
 }
+
 .arrow_container:hover {
   background-color: #267359;
 }
+
 .arrow_container:hover .bi-arrow-left {
   transform: translate(-4px);
 }
+
 svg {
   width: 30px;
   height: 30px;

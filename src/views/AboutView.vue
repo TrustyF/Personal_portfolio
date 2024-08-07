@@ -38,6 +38,15 @@ const curr_api = inject("curr_api");
 
     </div>
 
+    <div class="contact" style="max-width: 1000px;">
+      <h1 style="color: white;font-size: 1.3em;">About</h1>
+      <div class="contact_links" style="line-height: 1.5">
+        Creative tech artist focused on simulations and procedural tools development. Strong background
+        in film production and visual effects. Looking to be part of, and learn more about the professional
+        pipeline and related fields. Interested in new technologies and their practical applications.
+      </div>
+    </div>
+
     <div class="contact">
       <h1 style="color: white;font-size: 1.3em;">Contact</h1>
       <div class="contact_links">
@@ -98,7 +107,7 @@ const curr_api = inject("curr_api");
 .contact {
   display: flex;
   flex-flow: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .contact_links {

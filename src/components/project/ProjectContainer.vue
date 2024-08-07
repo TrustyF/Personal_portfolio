@@ -8,6 +8,10 @@ let props = defineProps({
     type: Object,
     default: null,
   },
+  minimal: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 let thumb_loaded = ref(false)
@@ -27,7 +31,7 @@ let thumb_path = computed(()=>{
       <div class="thumb" style="background-color: #383838;z-index: -1"></div>
     </div>
 
-    <div class="underlay">
+    <div class="underlay" v-show="!minimal">
       <h1>{{ data['title'].replaceAll('_', ' ') }} </h1>
       <div class="software_tags">
         <software-tag :name="data['type']"

@@ -36,7 +36,7 @@ onUnmounted(() => {
   z-index: 9999;
   position: fixed;
   left: 20px;
-  top: 30px;
+  bottom: 30px;
 
   transition: 200ms ease-in-out;
   opacity: 0;

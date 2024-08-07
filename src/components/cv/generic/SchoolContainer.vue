@@ -17,24 +17,16 @@ function getImg(name) {
   return new URL(`/src/assets/company_icons/${name}.webp`, import.meta.url)
 }
 
-let articles = computed(() => {
-  if (props.data['projects']) {
-    return index.filter(item => props.data['projects'].includes(item['folder']))
-  } else {
-    return []
-  }
-})
-
+const openNewTab = (path) => {
+  window.open(path, '_blank')
+}
 
 </script>
 
 <template>
   <div class="top_cont">
-    <div class="arrow_cont"></div>
-    <div class="arrow_ball"></div>
-    <div class="company_cont">
-      <img :src="getImg(data['img'])"
-           style="width: 70px;aspect-ratio: 1;object-fit: cover;border-radius: 5px" alt="logo">
+    <div class="school_cont">
+      <img class="logo" :src="getImg(data['img'])" alt="logo" @click="openNewTab(data['link'])">
 
       <div class="title_cont">
 
@@ -43,17 +35,6 @@ let articles = computed(() => {
           <h2 style="color: white">{{ data['name'] }}</h2>
           <h2 style="margin-top: -5px">{{ data['date'] + (data['time'] ? ' . ' + data['time'] : '') }}</h2>
         </div>
-
-        <h2 class="desc">{{ data['desc'] }}</h2>
-
-        <div v-if="data['projects']" style="display:flex;flex-flow: column; gap: 20px;  align-items: flex-start;">
-          <project-container-horizontal class="proj_cont"
-                                        v-for="article in articles" :key="`${article.folder}_cv`"
-                                        :data="article"
-                                        style="height: 150px"
-          />
-        </div>
-
       </div>
 
       <div class="filler"></div>
@@ -70,32 +51,21 @@ let articles = computed(() => {
   align-items: center;
   animation: fadein 0.5s;
 }
-
-.arrow_cont {
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
-  border-right: 15px solid #282828;
+.logo {
+  cursor: pointer;
+  width: 70px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 5px
 }
-
-.arrow_ball {
-  position: absolute;
-  left: -36px;
-  top: calc(50% - 5px);
-  background-color: #383838;
-  outline: 10px solid #181818;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.company_cont {
+.school_cont {
   display: flex;
   flex-flow: row nowrap;
   background-color: #282828;
   gap: 15px;
-  align-items: flex-start;
+  align-items: center;
   /*padding: 20px 70px 30px 20px;*/
-  padding: 20px;
+  padding: 10px 30px 10px 10px;
   width: 100%;
   border-radius: 10px;
   box-shadow: 10px 10px 10px #101010
@@ -108,7 +78,7 @@ let articles = computed(() => {
 }
 
 .filler {
-  width: 50px
+  width: 0
 }
 
 .proj_cont {
@@ -124,12 +94,13 @@ let articles = computed(() => {
 }
 
 h1 {
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 h2 {
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 </style>

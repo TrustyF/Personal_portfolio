@@ -72,9 +72,7 @@ let thumb_path = computed(() => {
   height: 100%;
 
   display: flex;
-  flex-flow: row wrap;
-  /*align-content: left;*/
-  /*align-items: left;*/
+  flex-flow: row nowrap;
 
   position: relative;
   border-radius: 10px;
@@ -126,7 +124,6 @@ let thumb_path = computed(() => {
 
   display: flex;
   flex-flow: column;
-  justify-items: center;
   justify-content: center;
   /*gap: 5px;*/
   padding: 15px;

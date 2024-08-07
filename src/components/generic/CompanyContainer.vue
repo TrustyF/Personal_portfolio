@@ -13,6 +13,9 @@ let props = defineProps({
 let emits = defineEmits(["test"]);
 const curr_api = inject("curr_api");
 
+function getImg(name) {
+  return new URL(`/src/assets/company_icons/${name}.webp`, import.meta.url)
+}
 
 let articles = computed(() => {
   if (props.data['projects']) {
@@ -30,9 +33,8 @@ let articles = computed(() => {
     <div class="arrow_cont"></div>
     <div class="arrow_ball"></div>
     <div class="company_cont">
-
-      <img :src="`./src/assets/company_icons/${data['img']}.webp`"
-           style="width: 70px;object-fit: cover;border-radius: 5px" alt="logo">
+      <img :src="getImg(data['img'])"
+           style="width: 70px;aspect-ratio: 1;object-fit: cover;border-radius: 5px" alt="logo">
 
       <div class="title_cont">
 
@@ -46,9 +48,9 @@ let articles = computed(() => {
 
         <div v-if="data['projects']" style="display:flex;flex-flow: column; gap: 20px;  align-items: flex-start;">
           <project-container-horizontal class="proj_cont"
-                             v-for="article in articles" :key="`${article.folder}_cv`"
-                             :data="article"
-                             style="height: 150px"
+                                        v-for="article in articles" :key="`${article.folder}_cv`"
+                                        :data="article"
+                                        style="height: 150px"
           />
         </div>
 
@@ -74,7 +76,8 @@ let articles = computed(() => {
   border-bottom: 15px solid transparent;
   border-right: 15px solid #282828;
 }
-.arrow_ball{
+
+.arrow_ball {
   position: absolute;
   left: -36px;
   top: calc(50% - 5px);
@@ -103,9 +106,11 @@ let articles = computed(() => {
   flex-flow: column wrap;
   gap: 20px;
 }
+
 .filler {
   width: 50px
 }
+
 .proj_cont {
   /*box-shadow: 5px 5px 2px #222222;*/
 }

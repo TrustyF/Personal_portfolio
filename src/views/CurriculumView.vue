@@ -47,9 +47,9 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
       <company-container :data="{
       title:'Video Editor',
       img:'youtube',
-      desc:'Freelance video editor',
-      date:'2016 - 2017',
-      time:'1 yr',
+      desc:'Freelance youtube video editor. Music reviews, gameplay videos and short films',
+      date:'2015 - 2017',
+      time:'2 yr',
     }"/>
     </div>
   </div>

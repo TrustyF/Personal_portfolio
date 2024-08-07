@@ -29,12 +29,12 @@ const router = createRouter({
         {
             path: '/cv',
             name: 'cv',
-            component: defineAsyncComponent(() => import('../views/CurriculumView.vue'))
+            component: import('../views/CurriculumView.vue')
         },
         {
             path: '/about',
             name: 'about',
-            component: defineAsyncComponent(() => import('../views/AboutView.vue'))
+            component: import('../views/AboutView.vue')
         }
     ]
 })
@@ -44,10 +44,21 @@ for (let i = 0; i < index.length; i++) {
     let proj = {
         path: `${index[i].folder}`,
         name: `${index[i].folder}`,
-        component: defineAsyncComponent(() => import(`../project_pages/pages/${index[i].folder}.vue`))
+        component: import(`../project_pages/pages/${index[i].folder}.vue`)
     }
     project_route.children.push(proj)
 }
 router.addRoute(project_route)
+
+router.beforeResolve((to, from, next) => {
+    if (to.name) {
+        // Start the route progress bar.
+    }
+    next()
+})
+
+router.afterEach((to, from) => {
+    // Complete the animation of the route progress bar.
+})
 
 export default router

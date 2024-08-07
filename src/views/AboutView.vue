@@ -1,9 +1,9 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed} from "vue";
 import profile from '../assets/about/profile.webp'
-import location from '../assets/software_icons/location.webp'
-import envelope from '../assets/software_icons/envelope.webp'
-import linkedin from '../assets/software_icons/linkedin.webp'
+import location from '../../public/assets/software_icons/location.webp'
+import envelope from '../../public/assets/software_icons/envelope.webp'
+import linkedin from '../../public/assets/software_icons/linkedin.webp'
 
 const openNewTab = (path) => {
   window.open(path, '_blank')
@@ -24,14 +24,14 @@ const curr_api = inject("curr_api");
   <div class="about_cont">
 
     <div class="personal">
-      <img :src="profile" alt="profile" class="prof_pic">
+      <img :src="profile" alt="profile" class="prof_pic" rel="preload">
 
       <div class="info">
         <h1 style="color: white;font-size: 2em">Arthur Sirjacobs</h1>
         <h2>Houdini FX Artist</h2>
 
         <div style="display: flex;gap: 5px;align-items: center;margin-top: 20px">
-          <img style="width: 15px;opacity: 50%" :src="location" alt="location">
+          <img style="width: 15px;opacity: 50%" :src="location" alt="location" rel="preload">
           <h2 style="font-size: 0.8em;transform: translate(0,-1px)">Vancouver BC - Canada</h2>
         </div>
       </div>
@@ -52,12 +52,12 @@ const curr_api = inject("curr_api");
       <div class="contact_links">
 
         <div class="contact_cont" style="cursor: text">
-          <img :src="envelope" alt="envelope" style="width: 15px">
+          <img :src="envelope" alt="envelope" style="width: 15px" rel="preload">
           <h2 style="transform: translate(0,-2px)">sirjacobs.arthur@gmail.com</h2>
         </div>
 
         <div class="contact_cont" @click="openNewTab('https://www.linkedin.com/in/arthur-sirjacobs/')">
-          <img :src="linkedin" alt="linkedin" style="width: 15px">
+          <img :src="linkedin" alt="linkedin" style="width: 15px" rel="preload">
           <h2 style="transform: translate(0,-1px)">LinkedIn</h2>
         </div>
 

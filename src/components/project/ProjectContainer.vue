@@ -31,7 +31,7 @@ let thumb_path = computed(() => {
   <div class="container" @click="$router.push('/portfolio/' + data['folder'])">
 
     <div class="cover">
-      <img :src="thumb_path" alt="" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
+      <img :src="thumb_path" alt="" rel="preload" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
     </div>
 
     <div class="underlay" v-show="!minimal">

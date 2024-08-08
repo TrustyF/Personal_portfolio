@@ -1,9 +1,9 @@
 <script setup>
-import {inject, onMounted, watch, ref, computed} from "vue";
-import profile from '../assets/about/profile.webp'
-import location from '../../public/assets/software_icons/location.webp'
-import envelope from '../../public/assets/software_icons/envelope.webp'
-import linkedin from '../../public/assets/software_icons/linkedin.webp'
+import {inject, onMounted, watch, ref, computed, onBeforeMount} from "vue";
+import profile from '../assets/people_icons/arthur_s.webp'
+import location from '../assets/software_icons/location.webp'
+import envelope from '../assets/software_icons/envelope.webp'
+import linkedin from '../assets/software_icons/linkedin.webp'
 
 const openNewTab = (path) => {
   window.open(path, '_blank')

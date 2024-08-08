@@ -16,7 +16,7 @@ const curr_api = inject("curr_api");
 <template>
   <div>
     <div class="edu_cont">
-      <h1 style="color: white;padding-bottom:35px">Recommendations</h1>
+      <h1 class="title">Recommendations</h1>
       <rec-container :data="{
       title:`Damien Fransolet`,
       name:'Houdini Fx artist - Fx TD',
@@ -66,4 +66,11 @@ const curr_api = inject("curr_api");
   gap: 10px;
 }
 
+.title {
+  color: white;
+  padding-bottom: 15px;
+  font-size: 1.5em;
+  text-decoration: underline #484848;
+  text-underline-offset: 5px;
+}
 </style>

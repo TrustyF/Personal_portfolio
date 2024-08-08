@@ -52,17 +52,17 @@ const openNewTab = (path) => {
   align-items: flex-start;
   animation: fadein 0.5s;
   background-color: #282828;
-  box-shadow: 10px 10px 10px #101010;
+  box-shadow: 5px 5px 10px #101010;
 
   padding: 20px;
   width: 100%;
   border-radius: 10px;
-  gap: 10px;
+  gap: 20px;
 }
 
 .logo {
   cursor: pointer;
-  width: 50px;
+  width: 70px;
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: 50%
@@ -92,7 +92,7 @@ const openNewTab = (path) => {
 
 .desc {
   max-width: 450px;
-  line-height: normal;
+  line-height: 1.5;
   color: white;
   /*display: -webkit-box;*/
   /*-webkit-line-clamp: 2;*/

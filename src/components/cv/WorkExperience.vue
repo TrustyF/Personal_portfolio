@@ -78,9 +78,15 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
   display: inline-flex;
   background-color: #383838;
   width: 2px;
+  margin-left: 40px;
 }
 
 .footer {
   height: 100px;
+}
+h1 {
+  font-size: 1.5em;
+  text-decoration: underline #484848;
+  text-underline-offset: 5px;
 }
 </style>

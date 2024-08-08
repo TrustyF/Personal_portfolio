@@ -57,7 +57,7 @@ const curr_api = inject("curr_api");
   padding: 10px 30px 10px 10px;
   width: 100%;
   border-radius: 10px;
-  box-shadow: 10px 10px 10px #101010
+  box-shadow: 5px 5px 10px #101010
 }
 
 .title_cont {

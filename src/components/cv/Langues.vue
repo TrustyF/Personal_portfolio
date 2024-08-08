@@ -17,7 +17,7 @@ const curr_api = inject("curr_api");
 <template>
   <div>
     <div class="edu_cont">
-      <h1 style="color: white;padding-bottom:35px">Languages</h1>
+      <h1 class="title">Languages</h1>
       <lang-container :data="{
       title:`English`,
       date:'Full professional proficiency'}"/>
@@ -38,4 +38,11 @@ const curr_api = inject("curr_api");
   gap: 5px;
 }
 
+.title {
+  color: white;
+  padding-bottom: 15px;
+  font-size: 1.5em;
+  text-decoration: underline #484848;
+  text-underline-offset: 5px;
+}
 </style>

@@ -16,7 +16,7 @@ const curr_api = inject("curr_api");
 <template>
   <div>
     <div class="edu_cont">
-      <h1 style="color: white;padding-bottom:35px">Education</h1>
+      <h1 class="title">Education</h1>
       <school-container :data="{
       title:`Bachelor's degree, 3D & VFX`,
       name:'Digital Arts & Entertainment',
@@ -48,5 +48,11 @@ const curr_api = inject("curr_api");
   flex-flow: column nowrap;
   gap: 5px;
 }
-
+.title {
+  color: white;
+  padding-bottom: 15px;
+  font-size: 1.5em;
+  text-decoration: underline #484848;
+  text-underline-offset: 5px;
+}
 </style>

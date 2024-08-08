@@ -5,6 +5,7 @@ import index from "@/project_pages/index.json";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
 import NavReturnArrow from "@/components/nav/NavReturnArrow.vue";
 import NavArrow from "@/components/nav/NavArrow.vue";
+import NavUpArrow from "@/components/nav/NavUpArrow.vue";
 
 let props = defineProps({
   image_loader: {
@@ -75,16 +76,16 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav-return-arrow/>
 
   <div class="container">
+    <nav-up-arrow/>
 
     <div class="heading">
       <img v-if="poster" class="poster" :src="poster" alt="poster">
-
       <div class="title_container">
-
         <div style="gap: 10px;display: flex;flex-flow: column">
+          <nav-arrow style="background-color: unset;position: absolute;top: -40px;transform: translate(-10px)"
+                     @click="$router.go(-1)"/>
           <div class="title">{{ index_data.title.replaceAll('_', ' ') }}</div>
           <div class="desc">{{ index_data.desc }}</div>
         </div>
@@ -115,6 +116,7 @@ onUnmounted(() => {
 <style scoped>
 .container {
   /*outline: 1px dotted cornflowerblue;*/
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   /*display: grid;*/
@@ -128,14 +130,10 @@ onUnmounted(() => {
   flex-flow: row nowrap;
   align-items: center;
   gap: 20px;
-  padding: 0 20px 30px 20px;
+  padding-bottom: 30px;
   margin-bottom: 30px;
-  /*background-color: #232323;*/
-
   border-bottom: 1px solid #383838;
-  /*border-radius: 10px;*/
-
-  min-width: 300px;
+  /*min-width: 300px;*/
 }
 
 .poster {
@@ -148,6 +146,7 @@ onUnmounted(() => {
 }
 
 .title_container {
+  position: relative;
   display: flex;
   flex-flow: column;
   gap: 10px;

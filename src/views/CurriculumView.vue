@@ -19,7 +19,7 @@ const curr_api = inject("curr_api");
 
 <template>
   <div class="cv_view_wrapper">
-    <div style="display: flex;flex-flow: column nowrap;gap: 40px">
+    <div style="display: flex;flex-flow: column nowrap;gap: 50px">
       <education/>
       <langues/>
       <softwares/>

@@ -22,7 +22,7 @@ let mastered_software = ['blender', 'maya', '3ds_max', 'creative_cloud', 'synthe
 
 <template>
   <div class="soft_wrapper">
-    <h1 style="color: white;padding-bottom:10px">Skills</h1>
+    <h1 class="title">Skills</h1>
     <div class="box">
       <h4>Specialized</h4>
       <div class="soft_list">
@@ -58,4 +58,11 @@ let mastered_software = ['blender', 'maya', '3ds_max', 'creative_cloud', 'synthe
   gap: 5px;
 }
 
+.title {
+  color: white;
+  padding-bottom: 5px;
+  font-size: 1.5em;
+  text-decoration: underline #484848;
+  text-underline-offset: 5px;
+}
 </style>

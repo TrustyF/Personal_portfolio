@@ -5,7 +5,6 @@ import BottomFooter from "@/components/generic/BottomFooter.vue";
 
 <template>
   <nav-bar/>
-  <div style="height: 20px"/>
   <router-view/>
   <bottom-footer/>
 </template>

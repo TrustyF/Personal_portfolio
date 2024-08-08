@@ -33,9 +33,10 @@ const openNewTab = (path) => {
 
 <template>
   <div class="top_cont">
-    <div class="arrow_cont"></div>
     <div class="arrow_ball"></div>
     <div class="company_cont">
+      <div class="arrow_cont"></div>
+
 
       <img v-if="data['link']" :src="getImg(data['img'])" @click="openNewTab(data['link'])" class="logo" alt="logo">
       <img v-if="!data['link']" :src="getImg(data['img'])" class="logo" style="cursor: default" alt="logo">
@@ -83,6 +84,9 @@ const openNewTab = (path) => {
   border-radius: 5px
 }
 .arrow_cont {
+  position: absolute;
+  top: calc(50% - 15px);
+  left: -15px;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
   border-right: 15px solid #282828;
@@ -100,6 +104,7 @@ const openNewTab = (path) => {
 }
 
 .company_cont {
+  position: relative;
   display: flex;
   flex-flow: row nowrap;
   background-color: #282828;
@@ -109,7 +114,7 @@ const openNewTab = (path) => {
   padding: 20px;
   width: 100%;
   border-radius: 10px;
-  box-shadow: 10px 10px 10px #101010
+  box-shadow: 5px 5px 10px #101010;
 }
 
 .title_cont {

@@ -21,16 +21,23 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div :class="`return_arrow_container ${back_arrow_vis ? 'visible' : ''}`" @click="$router.go(-1)">
-    <nav-arrow></nav-arrow>
+  <div class="abs_box">
+    <div :class="`return_arrow_container ${back_arrow_vis ? 'visible' : ''}`" @click="$router.go(-1)">
+      <nav-arrow></nav-arrow>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.abs_box {
+  position: absolute;
+  left: -100px;
+  /*bottom: 50%;*/
+}
 .return_arrow_container {
   z-index: 9999;
   position: fixed;
-  left: 30px;
+  /*left: 30px;*/
   top: 30px;
 
   transition: 200ms ease-in-out;

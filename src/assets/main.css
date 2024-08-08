@@ -1,34 +1,22 @@
 @import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 #app {
-  /*outline: 1px solid rebeccapurple;*/
-  position: relative;
-  max-width: 1280px;
-  min-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-  min-height: 100vh;
+    /*outline: 1px solid rebeccapurple;*/
+    position: relative;
+    max-width: 1280px;
+    min-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem 0 2rem;
+    font-weight: normal;
+    min-height: 100vh;
 }
 
 @keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
-
-/*@media (min-width: 1024px) {*/
-/*  body {*/
-/*    display: flex;*/
-/*    place-items: center;*/
-/*  }*/
-
-/*  #app {*/
-/*    display: grid;*/
-/*    grid-template-columns: 1fr 1fr;*/
-/*    padding: 0 2rem;*/
-/*  }*/
-/*}*/

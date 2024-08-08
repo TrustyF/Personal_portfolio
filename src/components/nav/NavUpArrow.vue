@@ -9,14 +9,15 @@ function handle_back_arrow() {
   let bound = content_cont.getBoundingClientRect()
   back_arrow_vis.value = bound.top < -100;
 }
-function scrollTop(){
+
+function scrollTop() {
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
   });
 }
 
-onMounted(()=>{
+onMounted(() => {
   addEventListener('scroll', handle_back_arrow)
 })
 onUnmounted(() => {
@@ -27,26 +28,35 @@ onUnmounted(() => {
 
 <template>
   <div :class="`return_arrow_container ${back_arrow_vis ? 'visible' : ''}`" @click="scrollTop">
-    <nav-arrow :up="true"></nav-arrow>
+    <nav-arrow class="nav_arrow" :up="true"></nav-arrow>
   </div>
 </template>
 
 <style scoped>
+
 .return_arrow_container {
   z-index: 9999;
   position: fixed;
-  left: 20px;
+  /*right: 20px;*/
+  right: 20px;
   bottom: 30px;
 
   transition: 200ms ease-in-out;
   opacity: 0;
   visibility: hidden;
-  transform: translate(0,-10px);
+  transform: translate(0, -10px);
 }
+
 .visible {
   visibility: visible;
   opacity: 1;
-  transform: translate(0,0);
+  transform: translate(0, 0);
+}
+
+.nav_arrow {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
 
 </style>

@@ -16,7 +16,7 @@ const curr_api = inject("curr_api");
 let specialized_software = ['houdini', 'after_effects', 'photoshop']
 let mastered_software = ['blender', 'maya', '3ds_max', 'creative_cloud', 'syntheyes',
   'nuke','marvelous', 'gaffer','cinema_4D',
-  'python', 'git', 'vue.js', 'javascript', 'MySQL']
+  'python', 'git', 'vue.js', 'javascript', 'mySQL']
 
 </script>
 

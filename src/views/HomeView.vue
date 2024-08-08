@@ -12,6 +12,10 @@ function convert_date(date) {
   return new Date(`${parts[1]}-${parts[0]}-${parts[2]}`);
 }
 
+let category_filters = computed(() => {
+  return ['fx', 'mograph', 'code']
+})
+let sel_category_filters = ref([])
 let scale_filters = computed(() => {
   return ['production', 'mid_sized', 'solo']
 })
@@ -27,6 +31,11 @@ let articles = computed(() => filter_articles(index))
 
 function filter_articles(arr) {
   let filtered = arr
+
+  //category filters
+  if (sel_category_filters.value.length > 0) {
+    filtered = filtered.filter(item => sel_category_filters.value.includes(item['category']))
+  }
 
   //scale filters
   if (sel_scale_filters.value.length > 0) {
@@ -60,11 +69,20 @@ function filter_articles(arr) {
     </div>
 
     <div class="filters_container">
+
+      <div class="filter">
+        <p>Project category</p>
+        <project-filter-bar :filters="category_filters"
+                            @selected_filters="sel_category_filters=$event"
+                            :multi="false"
+        />
+      </div>
+
       <div class="filter">
         <p>Project scale</p>
         <project-filter-bar :filters="scale_filters"
                             @selected_filters="sel_scale_filters=$event"
-                            :multi="false"
+                            :multi="true"
         />
       </div>
 
@@ -75,6 +93,7 @@ function filter_articles(arr) {
                             :multi="false"
         />
       </div>
+
       <div class="filter">
         <p>Main software</p>
         <project-filter-bar :filters="software_filters"

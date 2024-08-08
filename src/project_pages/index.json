@@ -7,7 +7,7 @@
     "type": "freelance",
     "scale": "solo",
     "software": ["houdini", "blender", "marvelous", "after_effects", "syntheyes"],
-    "tags": ["fx"]
+    "category": "fx"
   },
   {
     "title": "pool_rooms",
@@ -16,7 +16,7 @@
     "created": "16/04/2024",
     "type": "personal",
     "software": ["houdini", "blender", "photoshop"],
-    "tags": ["procedural"]
+    "category": "fx"
   },
   {
     "title": "skull_rocket",
@@ -25,7 +25,16 @@
     "created": "18/01/2024",
     "type": "personal",
     "software": ["houdini", "karma", "solaris", "after_effects"],
-    "tags": ["fx"]
+    "category": "fx"
+  },
+  {
+    "title": "Trusty's Corner",
+    "folder": "trusty_corner",
+    "desc": "Personal media review website/blog written in Vue.js with flask backend",
+    "created": "16/11/2023",
+    "type": "personal",
+    "software": ["vue.js", "javascript", "mySQL","python","git"],
+    "category": "code"
   },
   {
     "title": "the_abyss",
@@ -36,7 +45,7 @@
     "type": "movie",
     "scale": "production",
     "software": ["houdini"],
-    "tags": ["fx"]
+    "category": "fx"
   },
   {
     "title": "die_zweite_welle",
@@ -47,7 +56,7 @@
     "type": "tv_show",
     "scale": "production",
     "software": ["houdini"],
-    "tags": ["fx"]
+    "category": "fx"
   },
   {
     "title": "novembre",
@@ -58,7 +67,7 @@
     "type": "movie",
     "scale": "production",
     "software": ["after_effects"],
-    "tags": ["fx"]
+    "category": "mograph"
   },
   {
     "title": "theodosia",
@@ -69,7 +78,7 @@
     "type": "tv_show",
     "scale": "production",
     "software": ["houdini"],
-    "tags": ["fx"]
+    "category": "fx"
   },
   {
     "title": "louis",
@@ -79,7 +88,7 @@
     "type": "short_film",
     "scale": "mid_sized",
     "software": ["houdini","blender"],
-    "tags": ["fx"]
+    "category": "fx"
   },  {
   "title": "spider_walker",
   "folder": "spider_walker",
@@ -87,7 +96,7 @@
   "created": "01/01/2021",
   "type": "personal",
   "software": ["houdini"],
-  "tags": ["fx"]
+  "category": "code"
 },  {
   "title": "frost_prime",
   "folder": "frost_prime",
@@ -96,6 +105,15 @@
   "type": "freelance",
   "scale": "solo",
   "software": ["after_effects","photoshop"],
-  "tags": ["fx"]
+  "category": "mograph"
+}, {
+  "title": "OneFox branding",
+  "folder": "onefox",
+  "desc": "Creating into sequences and on-brand lower-thirds",
+  "created": "01/01/2020",
+  "type": "personal",
+  "scale": "solo",
+  "software": ["after_effects"],
+  "category": "mograph"
 }
 ]

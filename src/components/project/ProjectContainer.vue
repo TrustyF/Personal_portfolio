@@ -37,7 +37,16 @@ let thumb_path = computed(() => {
     <div class="underlay" v-show="!minimal">
       <h1>{{ data['title'].replaceAll('_', ' ') }} </h1>
       <div class="software_tags">
+<!--        <software-tag :name="data['category']"-->
+<!--                      :title="false"-->
+<!--                      padding="6"-->
+<!--                      gap="3"-->
+<!--                      font_size="0.7"-->
+<!--                      img_size="11"-->
+<!--                      bg_color="#494949"-->
+<!--        />-->
         <software-tag :name="data['type']"
+                      :title="true"
                       padding="6"
                       gap="3"
                       font_size="0.7"
@@ -104,7 +113,9 @@ let thumb_path = computed(() => {
   /*position: absolute;*/
   margin: 10px 0 5px 0;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  /*height: 20px;*/
   /*bottom: 0;*/
   gap: 3px;
   z-index: 20;

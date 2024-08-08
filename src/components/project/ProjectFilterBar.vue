@@ -44,6 +44,7 @@ function handle_select(name) {
     <software-tag :class="(selected.includes(f) ? 'selected':'') + ' filter_tag'"
                   v-for="f in filters" :key="f" :name="f"
                   @click="handle_select(f)"
+                  :gap="5"
     ></software-tag>
   </div>
 </template>

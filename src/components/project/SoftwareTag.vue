@@ -6,6 +6,10 @@ let props = defineProps({
     type: String,
     default: null,
   },
+  title: {
+    type: Boolean,
+    default: true,
+  },
   img_size: {
     type: Number,
     default: 15,
@@ -45,7 +49,7 @@ let loaded = ref(false)
   <div class="software_tag_container">
     <img rel="preload" :src="logo" alt="" class="software_tag_img" @load="loaded=true" v-show="loaded">
     <div class="placeholder software_tag_img" v-show="!loaded"></div>
-    <h1>{{ name.slice(0, 1).toUpperCase() + name.slice(1).replace('_',' ') }}</h1>
+    <h1 v-if="title">{{ name.slice(0, 1).toUpperCase() + name.slice(1).replace('_',' ') }}</h1>
   </div>
 </template>
 
@@ -71,5 +75,6 @@ h1 {
   color: white;
   font-size: v-bind(font_height);
   line-height: 1;
+  white-space: nowrap;
 }
 </style>

@@ -4,6 +4,7 @@ import profile from '../assets/people_icons/arthur_s.webp'
 import location from '../assets/software_icons/location.webp'
 import envelope from '../assets/software_icons/envelope.webp'
 import linkedin from '../assets/software_icons/linkedin.webp'
+import github from '../assets/software_icons/github.webp'
 
 const openNewTab = (path) => {
   window.open(path, '_blank')
@@ -59,6 +60,11 @@ const curr_api = inject("curr_api");
         <div class="contact_cont" @click="openNewTab('https://www.linkedin.com/in/arthur-sirjacobs/')">
           <img :src="linkedin" alt="linkedin" style="width: 15px" rel="preload">
           <h2 style="transform: translate(0,-1px)">LinkedIn</h2>
+        </div>
+
+        <div class="contact_cont" @click="openNewTab('https://github.com/TrustyF')">
+          <img :src="github" alt="github" style="width: 15px" rel="preload">
+          <h2 style="transform: translate(0,-1px)">Github</h2>
         </div>
 
       </div>

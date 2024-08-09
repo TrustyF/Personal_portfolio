@@ -2,6 +2,8 @@
 import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
 import arrow from "/src/assets/icons/arrow-left-circle-fill.svg"
 import NavArrow from "@/components/nav/NavArrow.vue";
+import router from "@/router/index.js";
+import {analytics_track} from "@/scripts/AnalyticsTracker.js";
 
 let back_arrow_vis = ref(false)
 
@@ -9,6 +11,11 @@ function handle_back_arrow() {
   let content_cont = document.getElementById('nav_bar')
   let bound = content_cont.getBoundingClientRect()
   back_arrow_vis.value = bound.top < -100;
+}
+
+function handle_click(){
+  analytics_track('nav_arrow','returning with arrow')
+  router.go(-1)
 }
 
 onMounted(()=>{
@@ -22,7 +29,7 @@ onUnmounted(() => {
 
 <template>
   <div class="abs_box">
-    <div :class="`return_arrow_container ${back_arrow_vis ? 'visible' : ''}`" @click="$router.go(-1)">
+    <div :class="`return_arrow_container ${back_arrow_vis ? 'visible' : ''}`" @click="handle_click">
       <nav-arrow></nav-arrow>
     </div>
   </div>

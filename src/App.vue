@@ -10,9 +10,9 @@ function check_mobile() {
   if (in_width > 1000) is_mobile.value = 0
   if (in_width <= 1000) is_mobile.value = 1
   if (in_width <= 660) is_mobile.value = 2
-
 }
-
+//todo add github
+//todo add reel
 provide('is_mobile', is_mobile)
 
 onMounted(() => {

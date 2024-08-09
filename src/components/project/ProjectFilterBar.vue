@@ -1,6 +1,7 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed} from "vue";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
+import {analytics_track} from "@/scripts/AnalyticsTracker.js";
 
 let props = defineProps({
   filters: {
@@ -20,21 +21,24 @@ function handle_select(name) {
 
   if (!props.multi) {
     if (selected.value.includes(name)) {
+      analytics_track('filter_use',`removed filter: ${name}`)
       selected.value = []
     } else {
+      analytics_track('filter_use',`filtering by: ${name}`)
       selected.value = [name]
     }
   } else {
     const index = selected.value.indexOf(name);
     if (index === -1) {
       selected.value.push(name);
+      analytics_track('filter_use',`filtering by: ${name}`)
     } else {
       selected.value.splice(index, 1);
+      analytics_track('filter_use',`removed filter: ${name}`)
     }
   }
 
   emits('selected_filters', selected.value)
-  // console.log(selected.value)
 }
 
 </script>

@@ -1,6 +1,8 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
 import NavArrow from "@/components/nav/NavArrow.vue";
+import {analytics_track} from "@/scripts/AnalyticsTracker.js";
+import router from "@/router/index.js";
 
 let back_arrow_vis = ref(false)
 
@@ -17,6 +19,11 @@ function scrollTop() {
   });
 }
 
+function handle_click() {
+  analytics_track('nav_arrow','scrolling up with arrow')
+  scrollTop()
+}
+
 onMounted(() => {
   addEventListener('scroll', handle_back_arrow)
 })
@@ -27,7 +34,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div :class="`return_arrow_container ${back_arrow_vis ? 'visible' : ''}`" @click="scrollTop">
+  <div :class="`return_arrow_container ${back_arrow_vis ? 'visible' : ''}`" @click="handle_click">
     <nav-arrow class="nav_arrow" :up="true"></nav-arrow>
   </div>
 </template>

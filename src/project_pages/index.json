@@ -1,5 +1,15 @@
 [
   {
+    "title": "Fx_Reel_2024",
+    "folder": "fx_reel",
+    "desc": "Montage of the bigger projects I've recently been a part of",
+    "created": "1/08/2024",
+    "type": "personal",
+    "scale": "solo",
+    "software": [],
+    "category": ["fx"]
+  },
+  {
     "title": "hilfiger_ads",
     "folder": "tommy_clothes",
     "desc": "Integrating 3D product renders in live-action footage for viral Instagram marketing.",

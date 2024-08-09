@@ -54,6 +54,8 @@ function filter_articles(arr) {
     filtered = filtered.filter(f => f['software'].some(item => sel_software_filters.value.includes(item)))
   }
 
+  filtered = filtered.filter(item => item['folder'] !== 'fx_reel')
+
   // sorting
   filtered.sort((a, b) => convert_date(b.created) - convert_date(a.created))
 
@@ -90,6 +92,10 @@ onMounted(() => {
 </script>
 
 <template>
+  <div class="reel_button" @click="$router.push('/portfolio/fx_reel')">
+    <h3>Watch FX Reel</h3>
+    <img class="arrow right" src="/src/assets/icons/arrow-right.webp" alt="arrow">
+  </div>
   <div class="homepage_wrapper">
 
     <div class="feed" v-if="is_mobile===0">
@@ -163,6 +169,38 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.reel_button {
+  position: relative;
+  left: 0;
+  width: fit-content;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+
+  border: 2px solid #267359;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.8em;
+  line-height: 0.7;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 200ms ease;
+}
+.reel_button:hover {
+  background-color: #267359;
+}
+.reel_button:hover .arrow {
+  transform: translate(5px);
+}
+.arrow {
+  height: 10px;
+  object-fit: contain;
+  transition: 200ms ease;
+}
 .homepage_wrapper {
   display: grid;
   grid-template-columns: 1fr 0fr;

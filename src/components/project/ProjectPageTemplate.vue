@@ -6,11 +6,13 @@ import SoftwareTag from "@/components/project/SoftwareTag.vue";
 import NavReturnArrow from "@/components/nav/NavReturnArrow.vue";
 import NavArrow from "@/components/nav/NavArrow.vue";
 import NavUpArrow from "@/components/nav/NavUpArrow.vue";
+import {analytics_track} from "@/scripts/AnalyticsTracker.js";
+import router from "@/router/index.js";
 
 let props = defineProps({
   image_loader: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   project_name: {
     type: String,
@@ -36,21 +38,26 @@ function test_images_loaded() {
   let images = document.getElementsByClassName('grid_image')
 
   if (!images.length > 0) {
-    console.log(tit + ' no images, try again')
+    // console.log(tit + ' no images, try again')
     test_images_again()
     return
   }
 
   for (let i = 0; i < images.length; i++) {
     if (!images[i].complete) {
-      console.log(tit + ' trying again')
+      // console.log(tit + ' trying again')
       test_images_again()
       break
     } else {
-      console.log(tit + ' images loaded')
+      // console.log(tit + ' images loaded')
       images_loaded.value = true
     }
   }
+}
+
+function handle_back_arrow_click() {
+  analytics_track('nav_arrow','returning with arrow')
+  router.go(-1)
 }
 
 let index_data = computed(() => {
@@ -62,6 +69,7 @@ let index_data = computed(() => {
 let tit = index_data.value.title
 
 onMounted(() => {
+  // analytics_track(`opened project page: ${props.project_name}`)
   if (props.image_loader) test_images_loaded()
   if (!props.image_loader) images_loaded.value = true
 
@@ -84,8 +92,9 @@ onUnmounted(() => {
       <img v-if="poster" class="poster" :src="poster" alt="poster">
       <div class="title_container">
         <div style="gap: 10px;display: flex;flex-flow: column">
-          <nav-arrow style="background-color: unset;position: absolute;top: -40px;transform: translate(-10px);box-shadow: unset"
-                     @click="$router.go(-1)"/>
+          <nav-arrow
+              style="background-color: unset;position: absolute;top: -40px;transform: translate(-10px);box-shadow: unset"
+              @click="handle_back_arrow_click"/>
           <div class="title">{{ index_data.title.replaceAll('_', ' ') }}</div>
           <div class="desc">{{ index_data.desc }}</div>
         </div>

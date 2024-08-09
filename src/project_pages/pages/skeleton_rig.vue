@@ -11,7 +11,7 @@ let props = defineProps({
   },
 });
 
-let proj_name = 'onefox'
+let proj_name = 'skeleton_rig'
 
 function get_image(path) {
   return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${proj_name}%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
@@ -23,15 +23,20 @@ function get_image(path) {
   <project-page-template :project_name="proj_name" :image_loader="false">
     <template #content>
 
-      <div class="vimeo_video">
-        <vimeo-embed id="cHX2Odvo2L4"/>
-        <h5 style="text-align: center;padding-top: 10px">Gaming channel intro versions</h5>
+      <div class="single_image">
+        <img :src="get_image('arthur-sirjacobs-double.jpeg')" class="grid_image" alt="">
+        <h5>Presentation renders in Blender</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="1DCenLr7GEM"/>
-        <h5 style="text-align: center;padding-top: 10px">Film channel intro</h5>
+        <vimeo-embed id="8s3T5ie6ICY"/>
+        <h5 style="text-align: center;padding-top: 10px">Rig + script demo</h5>
       </div>
+
+<!--      <div class="vimeo_video">-->
+<!--        <vimeo-embed id="1DCenLr7GEM"/>-->
+<!--        <h5 style="text-align: center;padding-top: 10px">Film channel intro</h5>-->
+<!--      </div>-->
 
 
     </template>

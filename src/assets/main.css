@@ -3,6 +3,9 @@
 
 #app {
     /*outline: 1px solid rebeccapurple;*/
+    /*todo might break layout in the future, disable flex*/
+    display: flex;
+    flex-flow: column;
     position: relative;
     max-width: 1280px;
     min-width: 1100px;

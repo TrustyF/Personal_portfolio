@@ -28,7 +28,7 @@ let thumb_path = computed(() => {
 </script>
 
 <template>
-  <div class="container" @click="$router.push('/portfolio/' + data['folder'])">
+  <div class="project_container" @click="$router.push('/portfolio/' + data['folder'])">
 
     <div class="cover">
       <img :src="thumb_path" alt="" rel="preload" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
@@ -37,14 +37,6 @@ let thumb_path = computed(() => {
     <div class="underlay" v-show="!minimal">
       <h1>{{ data['title'].replaceAll('_', ' ') }} </h1>
       <div class="software_tags">
-<!--        <software-tag :name="data['category']"-->
-<!--                      :title="false"-->
-<!--                      padding="6"-->
-<!--                      gap="3"-->
-<!--                      font_size="0.7"-->
-<!--                      img_size="11"-->
-<!--                      bg_color="#494949"-->
-<!--        />-->
         <software-tag :name="data['type']"
                       :title="true"
                       padding="6"
@@ -61,6 +53,14 @@ let thumb_path = computed(() => {
                       img_size="11"
                       bg_color="#494949"
         />
+        <software-tag :name="data['category'].slice(0,1)"
+                      :title="false"
+                      padding="6"
+                      gap="3"
+                      font_size="0.7"
+                      img_size="11"
+                      bg_color="#494949"
+        />
       </div>
       <div class="proj_cont_desc"> {{ data['desc'] }}</div>
     </div>
@@ -69,10 +69,11 @@ let thumb_path = computed(() => {
 </template>
 
 <style scoped>
-.container {
+.project_container {
   /*outline: 1px solid orange;*/
   cursor: pointer;
   width: 100%;
+  height: 100%;
 
   display: flex;
   flex-flow: column nowrap;
@@ -85,15 +86,17 @@ let thumb_path = computed(() => {
   animation: fadein 0.25s;
 }
 
-.container:hover .underlay {
+.project_container:hover .underlay {
   background-color: rgb(19, 57, 44);
   transition: 50ms ease;
 }
+
 .cover {
   /*outline: 1px solid cornflowerblue;*/
   position: relative;
   aspect-ratio: 1;
 }
+
 .thumb {
   z-index: 0;
   position: absolute;

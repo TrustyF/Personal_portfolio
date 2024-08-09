@@ -11,12 +11,13 @@ import {inject, onMounted, watch, ref, computed} from "vue";
 
 <style scoped>
 .footer_container {
-  /*outline: 1px solid rebeccapurple;*/
+  /*outline: 1px solid red;*/
   position: absolute;
+  left: 0;
+  bottom: 0;
   display: flex;
   width: 100%;
   justify-content: center;
-  bottom: 0;
   margin: 10px 0 20px 0;
 }
 .bottom_footer {

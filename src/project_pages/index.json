@@ -7,7 +7,7 @@
     "type": "freelance",
     "scale": "solo",
     "software": ["houdini", "blender", "marvelous", "after_effects", "syntheyes"],
-    "category": "fx"
+    "category": ["generalist", "fx"]
   },
   {
     "title": "pool_rooms",
@@ -16,7 +16,7 @@
     "created": "16/04/2024",
     "type": "personal",
     "software": ["houdini", "blender", "photoshop"],
-    "category": "fx"
+    "category": ["generalist", "fx"]
   },
   {
     "title": "skull_rocket",
@@ -25,7 +25,7 @@
     "created": "18/01/2024",
     "type": "personal",
     "software": ["houdini", "karma", "solaris", "after_effects"],
-    "category": "fx"
+    "category": ["fx", "generalist"]
   },
   {
     "title": "Trusty's Corner",
@@ -33,8 +33,8 @@
     "desc": "Personal media review website/blog written in Vue.js with flask backend",
     "created": "16/11/2023",
     "type": "personal",
-    "software": ["vue.js", "javascript", "mySQL","python","git"],
-    "category": "code"
+    "software": ["vue.js", "javascript", "mySQL", "python", "git"],
+    "category": ["code"]
   },
   {
     "title": "the_abyss",
@@ -45,7 +45,7 @@
     "type": "movie",
     "scale": "production",
     "software": ["houdini"],
-    "category": "fx"
+    "category": ["fx"]
   },
   {
     "title": "die_zweite_welle",
@@ -56,7 +56,7 @@
     "type": "tv_show",
     "scale": "production",
     "software": ["houdini"],
-    "category": "fx"
+    "category": ["fx"]
   },
   {
     "title": "novembre",
@@ -67,7 +67,7 @@
     "type": "movie",
     "scale": "production",
     "software": ["after_effects"],
-    "category": "mograph"
+    "category": ["mograph"]
   },
   {
     "title": "theodosia",
@@ -78,7 +78,7 @@
     "type": "tv_show",
     "scale": "production",
     "software": ["houdini"],
-    "category": "fx"
+    "category": ["fx"]
   },
   {
     "title": "louis",
@@ -87,33 +87,70 @@
     "created": "29/01/2022",
     "type": "short_film",
     "scale": "mid_sized",
-    "software": ["houdini","blender"],
-    "category": "fx"
-  },  {
+    "software": ["houdini", "blender"],
+    "category": ["generalist", "fx"]
+  }, {
+  "title": "Light painter",
+  "folder": "light_painter",
+  "desc": "Lighting helper script written in PyMel. Easily light a scene by simply clicking on the area of the object",
+  "created": "06/06/2021",
+  "type": "personal",
+  "scale": "solo",
+  "software": ["maya", "python"],
+  "category": ["code"]
+}, {
+  "title": "Skeleton rig",
+  "folder": "skeleton_rig",
+  "desc": "Model completely rigged in Maya with modern features. Comes with a fully-fledged bone picker script. Rendered in Blender",
+  "created": "06/06/2021",
+  "type": "personal",
+  "scale": "solo",
+  "software": ["maya", "python", "blender"],
+  "category": ["generalist", "code"]
+}, {
   "title": "spider_walker",
   "folder": "spider_walker",
-  "desc": "Research project exam aimed at researching and implementing a novel solution for automatic foot placement in Houdini",
+  "desc": "Research project aimed at implementing a naive solution for automatic foot placement in Houdini. Written in VEX",
+  "created": "01/05/2021",
+  "type": "personal",
+  "scale": "solo",
+  "software": ["houdini"],
+  "category": ["code"]
+}, {
+  "title": "shrine_sculpt",
+  "folder": "shrine_sculpt",
+  "desc": "Zbrush sculpt based on artwork by Maeve B. Base modeled in Blender and finalized in Zbrush",
+  "created": "01/02/2021",
+  "type": "personal",
+  "scale": "solo",
+  "software": ["zbrush","blender"],
+  "category": ["generalist"]
+}, {
+  "title": "invisible_sphere",
+  "folder": "invis_sphere",
+  "desc": "Series of Houdini simulations themed around revealing an invisible ball",
   "created": "01/01/2021",
   "type": "personal",
+  "scale": "solo",
   "software": ["houdini"],
-  "category": "code"
-},  {
+  "category": ["fx"]
+},{
   "title": "frost_prime",
   "folder": "frost_prime",
   "desc": "Creating greenscreen scenes and alerts for twitch streamer FrostPrime from 2018 to 2024",
   "created": "01/01/2020",
   "type": "freelance",
   "scale": "solo",
-  "software": ["after_effects","photoshop"],
-  "category": "mograph"
+  "software": ["after_effects", "photoshop"],
+  "category": ["mograph", "generalist"]
 }, {
   "title": "OneFox branding",
   "folder": "onefox",
-  "desc": "Creating into sequences and on-brand lower-thirds",
-  "created": "01/01/2020",
+  "desc": "Creating into sequences and on-brand lower-thirds for youtube channel",
+  "created": "26/01/2017",
   "type": "personal",
   "scale": "solo",
   "software": ["after_effects"],
-  "category": "mograph"
+  "category": ["mograph"]
 }
 ]

@@ -11,6 +11,10 @@ let props = defineProps({
     type: Number,
     default: 1,
   },
+  muted: {
+    type: Number,
+    default: 1,
+  },
   controls: {
     type: Number,
     default: 1,
@@ -43,8 +47,8 @@ let props = defineProps({
   <!--  <div ref="youtube" style="width: 100%;aspect-ratio: 16/9"/>-->
 
   <div v-if="!vimeo" class="yt_embed">
-    <iframe :src="`https://www.youtube.com/embed/${id}?controls=1&color=white&modestbranding=1
-    &rel=0&playsinline=1&enablejsapi=1&showinfo=0&loop=0&mute=0`"
+    <iframe :src="`https://www.youtube.com/embed/${id}?controls=${autoplay?0:1}&color=white&modestbranding=1
+    &rel=0&playsinline=1&enablejsapi=1&showinfo=0&loop=1&mute=${muted}&autoplay=${autoplay}${autoplay ? '&playlist='+id : ''}`"
             title="YouTube video player" frameborder="0" loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%;height: 100%"></iframe>

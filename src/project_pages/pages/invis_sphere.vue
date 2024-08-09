@@ -11,7 +11,7 @@ let props = defineProps({
   },
 });
 
-let proj_name = 'spider_walker'
+let proj_name = 'invis_sphere'
 
 function get_image(path) {
   return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${proj_name}%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
@@ -25,23 +25,33 @@ function get_image(path) {
     <template #content>
 
       <div class="vimeo_video">
-        <vimeo-embed id="nAKInKlDe98" :autoplay="1"/>
-        <h5 style="text-align: center;padding-top: 10px">Side view</h5>
+        <vimeo-embed id="Qn-TCYAb7ws" :autoplay="1"/>
+        <h5 style="text-align: center;padding-top: 10px">Smoke</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="9PC4HGrhimY" :autoplay="1"/>
-        <h5 style="text-align: center;padding-top: 10px">Top view</h5>
+        <vimeo-embed id="FoX7hEGPXM4" :autoplay="1"/>
+        <h5 style="text-align: center;padding-top: 10px">Fluid + RDB interactions</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="3Iu9PXNqqW8" :autoplay="1"/>
-        <h5 style="text-align: center;padding-top: 10px">Close-up demo</h5>
+        <vimeo-embed id="eQVpVLaN1y8" :autoplay="1"/>
+        <h5 style="text-align: center;padding-top: 10px">Wire deform</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="vNffUkPK-RI" :autoplay="1"/>
-        <h5 style="text-align: center;padding-top: 10px">Houdini setup demo</h5>
+        <vimeo-embed id="ODL1GItVryg" :autoplay="1"/>
+        <h5 style="text-align: center;padding-top: 10px">Chain wires</h5>
+      </div>
+
+      <div class="vimeo_video">
+        <vimeo-embed id="ng3Afg16xGI" :autoplay="1"/>
+        <h5 style="text-align: center;padding-top: 10px">Various particle interactions</h5>
+      </div>
+
+      <div class="vimeo_video">
+        <vimeo-embed id="RJA0a0ArD0E" :autoplay="1"/>
+        <h5 style="text-align: center;padding-top: 10px">Water interaction</h5>
       </div>
 
       <!--      <div class="single_image">-->

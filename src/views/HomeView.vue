@@ -4,7 +4,7 @@ import {RouterLink} from 'vue-router'
 import ProjectContainer from "@/components/project/ProjectContainer.vue";
 import index from "@/project_pages/index.json"
 import tags from "@/assets/tags.json"
-import {computed, ref} from "vue";
+import {computed, onMounted, ref, watch} from "vue";
 import ProjectFilterBar from "@/components/project/ProjectFilterBar.vue";
 
 function convert_date(date) {
@@ -13,7 +13,7 @@ function convert_date(date) {
 }
 
 let category_filters = computed(() => {
-  return ['fx', 'mograph', 'code']
+  return ['fx', 'generalist', 'mograph', 'code']
 })
 let sel_category_filters = ref([])
 let scale_filters = computed(() => {
@@ -24,17 +24,18 @@ let type_filters = computed(() => {
   return [...new Set(index.map(x => x.type))]
 })
 let sel_type_filters = ref([])
-let software_filters = computed(() => ["houdini", "blender", "after_effects"])
+let software_filters = computed(() => ["houdini", "blender", "maya", "after_effects"])
 let sel_software_filters = ref([])
 
-let articles = computed(() => filter_articles(index))
+let articles = computed(() => index);
+let filtered_articles = computed(() => filter_articles(index));
 
 function filter_articles(arr) {
   let filtered = arr
 
   //category filters
   if (sel_category_filters.value.length > 0) {
-    filtered = filtered.filter(item => sel_category_filters.value.includes(item['category']))
+    filtered = filtered.filter(f => f['category'].some(item => sel_category_filters.value.includes(item)))
   }
 
   //scale filters
@@ -49,7 +50,7 @@ function filter_articles(arr) {
 
   //software filters
   if (sel_software_filters.value.length > 0) {
-    filtered = filtered.filter(item => sel_software_filters.value.includes(item['software'][0]))
+    filtered = filtered.filter(f => f['software'].some(item => sel_software_filters.value.includes(item)))
   }
 
   // sorting
@@ -58,14 +59,30 @@ function filter_articles(arr) {
   return filtered
 }
 
+let container_width = ref()
+let container_height = ref()
+
+function calc_container_size() {
+  let elem = window.document.getElementsByClassName('project_container')[0].getBoundingClientRect()
+
+  container_width.value = `${elem.width}px`
+  container_height.value = `${elem.height}px`
+}
+
+onMounted(()=>{
+  calc_container_size()
+})
+
 </script>
 
 <template>
   <div class="homepage_wrapper">
 
     <div class="feed">
-      <project-container v-for="article in articles" :key="article.folder"
-                         :data="article"/>
+      <transition-group name="list">
+        <project-container class="setSize" v-for="article in filtered_articles" :key="article.folder" :title="article.folder"
+                           :data="article"/>
+      </transition-group>
     </div>
 
     <div class="filters_container">
@@ -95,7 +112,7 @@ function filter_articles(arr) {
       </div>
 
       <div class="filter">
-        <p>Main software</p>
+        <p>Software</p>
         <project-filter-bar :filters="software_filters"
                             @selected_filters="sel_software_filters=$event"
                             :multi="false"
@@ -111,12 +128,15 @@ function filter_articles(arr) {
   display: grid;
   grid-template-columns: 1fr 0fr;
   gap: 20px;
-  /*display: flex;*/
-  /*flex-flow: row nowrap;*/
-  /*gap: 20px;*/
+  margin-bottom: 100px;
 }
 
+.setSize {
+  width: v-bind(container_width);
+  height: v-bind(container_height);
+}
 .feed {
+  position: relative;
   width: auto;
   /*outline: 1px solid orange;*/
   display: grid;
@@ -125,8 +145,25 @@ function filter_articles(arr) {
   gap: 20px;
 }
 
+.list-move,
+.list-enter-active,
+.list-leave-active {
+  transition: transform 500ms ease, opacity 200ms linear;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+.list-leave-active {
+  display: none;
+  /*position: absolute;*/
+  /*z-index: -1;*/
+}
+
+
 .filters_container {
-  min-width: 250px;
+  width: 250px;
   display: flex;
   flex-flow: column wrap;
   padding: 10px;

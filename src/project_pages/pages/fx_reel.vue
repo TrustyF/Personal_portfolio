@@ -26,7 +26,6 @@ function get_image(path) {
 
       <div class="vimeo_video">
         <vimeo-embed id="917254100" :vimeo="true" :autoplay="1"/>
-        <h5 style="text-align: center;padding-top: 10px">Smoke</h5>
       </div>
 
       <!--      <div class="single_image">-->

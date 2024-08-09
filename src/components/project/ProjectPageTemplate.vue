@@ -84,7 +84,7 @@ onUnmounted(() => {
       <img v-if="poster" class="poster" :src="poster" alt="poster">
       <div class="title_container">
         <div style="gap: 10px;display: flex;flex-flow: column">
-          <nav-arrow style="background-color: unset;position: absolute;top: -40px;transform: translate(-10px)"
+          <nav-arrow style="background-color: unset;position: absolute;top: -40px;transform: translate(-10px);box-shadow: unset"
                      @click="$router.go(-1)"/>
           <div class="title">{{ index_data.title.replaceAll('_', ' ') }}</div>
           <div class="desc">{{ index_data.desc }}</div>

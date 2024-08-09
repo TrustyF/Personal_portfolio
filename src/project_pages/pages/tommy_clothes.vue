@@ -19,32 +19,34 @@ function get_image(path) {
 </script>
 
 <template>
-  <project-page-template :project_name="proj_name">
+  <project-page-template :project_name="proj_name" :image_loader="false">
     <template #content>
 
       <div class="single_image">
-        <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
-          <iframe frameborder="0" width="100%" height="900" src="https://www.instagram.com/p/C50QoqjIzJf/embed"/>
-          <img :src="get_image('tommy_plane.jpg')" class="grid_image" alt="">
+        <div style="display: grid;grid-template-columns: repeat(1,1fr)">
+          <iframe frameborder="0" src="https://www.instagram.com/p/C50QoqjIzJf/embed"
+                  scrolling="no"/>
+<!--          <h5 style="text-align: center;padding-top: 10px">383K views</h5>-->
         </div>
-        <h5 style="height:10px"></h5>
       </div>
 
       <div class="single_image">
-        <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
-          <iframe frameborder="0" width="100%" height="900" src="https://www.instagram.com/p/C9SPRlaIJsr/embed"/>
-          <img :src="get_image('greece_clothes.jpg')" class="grid_image" alt="">
+        <div style="display: flex;flex-flow: column">
+          <iframe frameborder="0" src="https://www.instagram.com/p/C9SPRlaIJsr/embed"
+                  scrolling="no"/>
+          <img :src="get_image('tommy_post.webp')" class="grid_image" style="margin-top: 30px" alt="">
         </div>
-        <h5 style="height:10px"></h5>
+        <h5 style="text-align: center;padding-top: 10px">Topped 9.3M views, a record for the account</h5>
       </div>
 
       <div class="single_image">
-        <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
-          <iframe frameborder="0" width="100%" height="900" src="https://www.instagram.com/p/C5-adSio5T6/embed"/>
-          <img :src="get_image('tommy_kite.jpg')" class="grid_image" alt="">
+        <div style="display: grid;grid-template-columns: repeat(1,1fr)">
+          <iframe frameborder="0" src="https://www.instagram.com/p/C5-adSio5T6/embed"
+                  scrolling="no"/>
+<!--          <h5 style="text-align: center;padding-top: 10px">292K views</h5>-->
         </div>
-        <h5 style="height:10px"></h5>
       </div>
+
 
     </template>
 
@@ -63,7 +65,23 @@ function get_image(path) {
 .grid_image {
   width: 100%;
   height: 100%;
-  /*max-height: 80vh;*/
+
+  max-height: 60vh;
   object-fit: cover
+}
+
+iframe {
+  width: 612px;
+  height: 935px;
+  margin-left: calc(50% - 306px);
+}
+
+
+@media only screen  and (max-width: 660px) {
+  iframe {
+    height: 550px;
+    width: 100%;
+    margin-left: 0;
+  }
 }
 </style>

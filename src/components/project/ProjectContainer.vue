@@ -149,6 +149,7 @@ h1 {
   flex: 0 0 auto;
   color: white;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .proj_cont_desc {

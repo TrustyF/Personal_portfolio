@@ -10,6 +10,7 @@ let props = defineProps({
     default: null,
   },
 });
+let is_mobile = inject('is_mobile')
 let emits = defineEmits(["test"]);
 const curr_api = inject("curr_api");
 
@@ -37,31 +38,42 @@ const openNewTab = (path) => {
     <div class="company_cont">
       <div class="arrow_cont"></div>
 
-
-      <img v-if="data['link']" :src="getImg(data['img'])" @click="openNewTab(data['link'])" class="logo" alt="logo">
-      <img v-if="!data['link']" :src="getImg(data['img'])" class="logo" style="cursor: default" alt="logo">
-
       <div class="title_cont">
 
-        <div style="gap: 10px;display: flex;flex-flow: column">
-          <h1 style="color: white">{{ data['title'] }}</h1>
-          <h2 style="color: white">{{ data['name'] }}</h2>
-          <h2 style="margin-top: -5px">{{ data['date'] + (data['time'] ? ' . ' + data['time'] : '') }}</h2>
+        <div style="display: flex;flex-flow: row; gap: 15px">
+          <img v-if="data['link']" :src="getImg(data['img'])" @click="openNewTab(data['link'])"
+               class="logo" alt="logo">
+          <img v-if="!data['link']" :src="getImg(data['img'])" class="logo" style="cursor: default"
+               alt="logo">
+
+          <div style="gap: 10px;display: flex;flex-flow: column">
+            <h1 style="color: white">{{ data['title'] }}</h1>
+            <h2 style="color: white">{{ data['name'] }}</h2>
+            <h2 style="margin-top: -5px">{{ data['date'] + (data['time'] ? ' . ' + data['time'] : '') }}</h2>
+          </div>
         </div>
 
         <h2 class="desc">{{ data['desc'] }}</h2>
 
         <div v-if="data['projects']" style="display:flex;flex-flow: column; gap: 20px;  align-items: flex-start;">
-          <project-container-horizontal class="proj_cont"
+          <project-container-horizontal v-show="is_mobile<2"
+                                        class="proj_cont"
                                         v-for="article in articles" :key="`${article.folder}_cv`"
                                         :data="article"
                                         style="height: 150px"
+          />
+          <project-container-horizontal v-show="is_mobile===2"
+                                        class="proj_cont"
+                                        v-for="article in articles" :key="`${article.folder}_cv`"
+                                        :data="article"
+                                        :minimal="true"
+                                        style="height: 100px"
           />
         </div>
 
       </div>
 
-      <div class="filler"></div>
+<!--      <div v-if="is_mobile<2" class="filler"></div>-->
 
     </div>
   </div>
@@ -83,10 +95,11 @@ const openNewTab = (path) => {
   object-fit: cover;
   border-radius: 5px
 }
+
 .arrow_cont {
   position: absolute;
   top: calc(50% - 15px);
-  left: -15px;
+  left: -14px;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
   border-right: 15px solid #282828;
@@ -104,6 +117,7 @@ const openNewTab = (path) => {
 }
 
 .company_cont {
+  /*outline: 1px solid red;*/
   position: relative;
   display: flex;
   flex-flow: row nowrap;
@@ -121,6 +135,7 @@ const openNewTab = (path) => {
   display: flex;
   flex-flow: column wrap;
   gap: 20px;
+  width: 100%;
 }
 
 .filler {
@@ -132,7 +147,7 @@ const openNewTab = (path) => {
 }
 
 .desc {
-  max-width: 450px;
+  /*max-width: 450px;*/
   line-height: normal;
   /*display: -webkit-box;*/
   /*-webkit-line-clamp: 2;*/
@@ -146,6 +161,12 @@ h1 {
 
 h2 {
   font-size: 0.9em;
+}
+
+@media only screen and (max-width: 660px) {
+  .company_cont {
+    flex-flow: column;
+  }
 }
 
 </style>

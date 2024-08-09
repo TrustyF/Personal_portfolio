@@ -11,6 +11,8 @@ let props = defineProps({
 let emits = defineEmits(["test"]);
 const curr_api = inject("curr_api");
 
+let is_mobile = inject('is_mobile')
+
 </script>
 
 <template>
@@ -28,25 +30,20 @@ const curr_api = inject("curr_api");
 nav {
   margin-bottom: 20px;
   position: relative;
-
   font-family: "Work Sans", sans-serif;
-
   display: flex;
   flex-flow: row;
   justify-content: flex-start;
   align-items: center;
   gap: 100px;
-  /*font-size: 1.1em;*/
 }
 .website_title {
-    left: 0;
+  left: 0;
   margin-bottom: -7px;
   color: hsla(160, 100%, 37%, 1);
   text-align: left;
-  /*text-transform: lowercase;*/
   font-size: 1.5em;
-  /*font-weight: 0;*/
-  /*word-break: break-word;*/
+  white-space: nowrap;
 }
 .nav_link_wrapper {
   display: flex;
@@ -58,17 +55,8 @@ nav {
   text-decoration: underline #181818;
   text-underline-offset: 10px;
   color: hsl(160, 51%, 31%);
-
-  /*transition: 100ms ease-in-out;*/
   padding: 40px;
   font-size: 1.2em;
-  /*text-transform: uppercase;*/
-  /*background-color: hsla(160, 100%, 37%, 0.3);*/
-}
-
-.nav_link:hover {
-  /*background-color: hsla(160, 100%, 37%, 0.2);*/
-  /*text-decoration: underline hsla(160, 100%, 37%, 0);*/
 }
 
 .router-link-active {
@@ -77,4 +65,23 @@ nav {
   /*transform: translate(0,5px);*/
 }
 
+@media only screen and (max-width: 1000px) {
+  nav {
+    gap: 50px;
+  }
+}
+@media only screen and (max-width: 660px) {
+  nav {
+    flex-flow: column;
+    gap: 10px;
+  }
+  .website_title {
+    margin: 20px;
+  }
+  .nav_link {
+    padding: 20px;
+  }
+  .nav_link_wrapper {
+  }
+}
 </style>

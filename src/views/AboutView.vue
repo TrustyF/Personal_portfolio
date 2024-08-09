@@ -63,14 +63,14 @@ const curr_api = inject("curr_api");
 
       </div>
     </div>
-
   </div>
+  <div style="height: 70px"></div>
 </template>
 
 <style scoped>
 .about_cont {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
   gap: 50px;
 }
 
@@ -133,5 +133,13 @@ const curr_api = inject("curr_api");
 
 h2 {
   font-size: 1em;
+}
+@media only screen and (max-width: 660px) {
+  .personal {
+    flex-flow: column;
+  }
+  .contact_links {
+    flex-flow: row wrap;
+  }
 }
 </style>

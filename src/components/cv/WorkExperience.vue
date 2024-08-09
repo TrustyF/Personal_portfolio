@@ -76,9 +76,9 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
 
 .timeline {
   display: inline-flex;
-  background-color: #383838;
+  background-color: #484848;
   width: 2px;
-  margin-left: 40px;
+  /*margin-left: 40px;*/
 }
 
 .footer {

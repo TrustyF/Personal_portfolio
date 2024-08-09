@@ -9,7 +9,7 @@ let props = defineProps({
   },
   autoplay: {
     type: Number,
-    default: 1,
+    default: 0,
   },
   muted: {
     type: Number,

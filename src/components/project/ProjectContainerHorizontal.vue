@@ -28,30 +28,39 @@ let thumb_path = computed(() => {
 </script>
 
 <template>
-  <div class="container" @click="$router.push('/portfolio/' + data['folder'])">
+  <div class="project_container" @click="$router.push('/portfolio/' + data['folder'])">
 
     <div class="cover">
       <img :src="thumb_path" alt="" rel="preload" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
     </div>
 
-    <div class="underlay" v-show="!minimal">
+    <div class="underlay">
 
       <div style="display: flex;gap: 10px;align-items: center">
         <h1>{{ data['title'].replaceAll('_', ' ') }} </h1>
-        <div v-if="data['duration']" class="proj_cont_duration">-</div>
-        <div v-if="data['duration']" class="proj_cont_duration"> {{ data['duration'] }}</div>
+        <div v-if="data['duration'] && !minimal" class="proj_cont_duration">-</div>
+        <div v-if="data['duration'] && !minimal" class="proj_cont_duration"> {{ data['duration'] }}</div>
       </div>
 
       <div class="software_tags">
         <software-tag :name="data['type']"
+                      :title="!minimal"
                       padding="6"
                       gap="3"
                       font_size="0.7"
                       img_size="11"
                       bg_color="#494949"
         />
-        <software-tag v-for="soft in data['software'].slice(0,3)" :key="soft"
-                      :name="soft"
+        <software-tag :name="data['category'][0]"
+                      :title="!minimal"
+                      padding="6"
+                      gap="3"
+                      font_size="0.7"
+                      img_size="11"
+                      bg_color="#494949"
+        />
+        <software-tag :name="data['software'][0]"
+                      :title="!minimal"
                       padding="6"
                       gap="3"
                       font_size="0.7"
@@ -66,10 +75,11 @@ let thumb_path = computed(() => {
 </template>
 
 <style scoped>
-.container {
-  /*outline: 1px solid orange;*/
+.project_container {
+  /*outline: 1px solid red;*/
   cursor: pointer;
   height: 100%;
+  width: 100%;
 
   display: flex;
   flex-flow: row nowrap;
@@ -78,10 +88,13 @@ let thumb_path = computed(() => {
   border-radius: 10px;
   overflow: hidden;
 
+  background-color: #2f2f2f;
+  transition: 100ms ease;
+
   animation: fadein 0.25s;
 }
 
-.container:hover .underlay {
+.project_container:hover {
   background-color: rgb(19, 57, 44);
   transition: 50ms ease;
 }
@@ -108,7 +121,6 @@ let thumb_path = computed(() => {
 
 .software_tags {
   /*outline: 1px solid orange;*/
-
   /*position: absolute;*/
   margin: 10px 0 5px 0;
   display: flex;
@@ -128,9 +140,7 @@ let thumb_path = computed(() => {
   /*gap: 5px;*/
   padding: 15px;
 
-  background-color: #2f2f2f;
   user-select: none;
-  transition: 100ms ease;
 }
 
 h1 {
@@ -154,13 +164,7 @@ h1 {
   justify-content: center;
 
   line-height: 1.2;
-  /*flex: 1 0 auto;*/
-  /*margin-top: auto;*/
-  padding-bottom: 1px;
   opacity: 0.7;
-  width: 400px;
-
-  /*height: 28px;*/
 
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -170,5 +174,23 @@ h1 {
 
 .proj_cont_duration {
   font-size: 0.9em;
+}
+
+@media only screen and (max-width: 660px) {
+  .underlay {
+    gap: 3px;
+  }
+  h1 {
+    font-size: 1em;
+    line-height: normal;
+  }
+
+  .proj_cont_desc {
+    /*margin-top: 5px;*/
+    font-size: 0.65em;
+  }
+  .software_tags {
+    margin: 0;
+  }
 }
 </style>

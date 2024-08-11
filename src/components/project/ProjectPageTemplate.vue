@@ -56,9 +56,29 @@ function test_images_loaded() {
 }
 
 function handle_back_arrow_click() {
-  analytics_track('nav_arrow','returning with arrow')
+  analytics_track('nav_arrow', 'returning with arrow')
   router.go(-1)
 }
+
+function number_to_month(num) {
+  const monthLabel = {
+    [1]: 'January',
+    [2]: 'February',
+    [3]: 'March',
+    [4]: 'April',
+    [5]: 'May',
+    [6]: 'June',
+    [7]: 'July',
+    [8]: 'August',
+    [9]: 'September',
+    [10]: 'October',
+    [11]: 'November',
+    [12]: 'December',
+  }
+
+  return monthLabel[num]
+}
+
 
 let index_data = computed(() => {
   let i = index.findIndex((proj) => {
@@ -98,7 +118,6 @@ onUnmounted(() => {
           <div class="title">{{ index_data.title.replaceAll('_', ' ') }}</div>
           <div class="desc">{{ index_data.desc }}</div>
         </div>
-
         <div style="margin-top: 0">
           <div class="software">
             <software-tag :name="index_data.type"></software-tag>
@@ -106,7 +125,10 @@ onUnmounted(() => {
             <software-tag v-for="soft in index_data.software" :key="soft" :name="soft"></software-tag>
           </div>
         </div>
-
+        <h4 style="font-size: 0.8em;font-style: italic;color: #686868">
+          {{
+            'Created ' + number_to_month(Number(index_data.created.split('/')[1])) + " " + index_data.created.split('/')[2]
+          }}</h4>
       </div>
     </div>
 

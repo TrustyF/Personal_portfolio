@@ -35,13 +35,13 @@ function handle_select(name) {
     const index = props.ref_filters.indexOf(name);
     if (index === -1) {
       let temp = props.ref_filters
-      temp.value.push(name);
+      temp.push(name);
       emits('selected_filters', temp)
 
       analytics_track('filter_use', `filtering by: ${name}`)
     } else {
       let temp = props.ref_filters
-      temp.value.splice(index, 1);
+      temp.splice(index, 1);
       emits('selected_filters', temp)
 
       analytics_track('filter_use', `removed filter: ${name}`)

@@ -14,7 +14,7 @@ function handle_back_arrow() {
 }
 
 function handle_click(){
-  analytics_track('nav_arrow','returning with arrow')
+  analytics_track('nav_return_arrow','returning with arrow')
   router.go(-1)
 }
 

@@ -51,7 +51,7 @@ for (let i = 0; i < index.length; i++) {
 router.addRoute(project_route)
 
 router.beforeEach((to, from) => {
-    analytics_track('page_nav', {'from': from.name, 'to': to.name})
+    analytics_track('router_nav', `from ${from.name}, to ${to.name}`)
 })
 
 export default router

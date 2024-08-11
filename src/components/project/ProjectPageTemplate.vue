@@ -56,7 +56,7 @@ function test_images_loaded() {
 }
 
 function handle_back_arrow_click() {
-  analytics_track('nav_arrow', 'returning with arrow')
+  analytics_track('nav_return_arrow', 'returning with arrow')
   router.go(-1)
 }
 
@@ -89,7 +89,7 @@ let index_data = computed(() => {
 let tit = index_data.value.title
 
 onMounted(() => {
-  // analytics_track(`opened project page: ${props.project_name}`)
+  analytics_track('project_view',`${props.project_name}`)
   if (props.image_loader) test_images_loaded()
   if (!props.image_loader) images_loaded.value = true
 

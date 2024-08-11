@@ -20,7 +20,7 @@ function scrollTop() {
 }
 
 function handle_click() {
-  analytics_track('nav_arrow','scrolling up with arrow')
+  analytics_track('nav_up_arrow','scrolling up with arrow')
   scrollTop()
 }
 

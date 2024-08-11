@@ -5,10 +5,7 @@ import location from '../assets/software_icons/location.webp'
 import envelope from '../assets/software_icons/envelope.webp'
 import linkedin from '../assets/software_icons/linkedin.webp'
 import github from '../assets/software_icons/github.webp'
-
-const openNewTab = (path) => {
-  window.open(path, '_blank')
-}
+import {openNewTab} from "@/scripts/helpers.js";
 
 let props = defineProps({
   test: {
@@ -18,7 +15,6 @@ let props = defineProps({
 });
 let emits = defineEmits(["test"]);
 const curr_api = inject("curr_api");
-
 </script>
 
 <template>
@@ -140,10 +136,12 @@ const curr_api = inject("curr_api");
 h2 {
   font-size: 1em;
 }
+
 @media only screen and (max-width: 660px) {
   .personal {
     flex-flow: column;
   }
+
   .contact_links {
     flex-flow: row wrap;
   }

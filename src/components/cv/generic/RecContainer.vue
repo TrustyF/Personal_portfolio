@@ -3,6 +3,7 @@ import {inject, onMounted, watch, ref, computed} from "vue";
 import index from "@/project_pages/index.json"
 import ProjectContainer from "@/components/project/ProjectContainer.vue";
 import ProjectContainerHorizontal from "@/components/project/ProjectContainerHorizontal.vue";
+import {openNewTab} from "@/scripts/helpers.js";
 
 let props = defineProps({
   data: {
@@ -15,10 +16,6 @@ const curr_api = inject("curr_api");
 
 function getImg(name) {
   return new URL(`/src/assets/people_icons/${name}.webp`, import.meta.url)
-}
-
-const openNewTab = (path) => {
-  window.open(path, '_blank')
 }
 
 </script>

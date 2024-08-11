@@ -4,7 +4,11 @@ import SoftwareTag from "@/components/project/SoftwareTag.vue";
 import {analytics_track} from "@/scripts/AnalyticsTracker.js";
 
 let props = defineProps({
-  filters: {
+  base_filters: {
+    type: Array,
+    default: () => [],
+  },
+  ref_filters: {
     type: Array,
     default: () => [],
   },
@@ -15,38 +19,42 @@ let props = defineProps({
 });
 let emits = defineEmits(["selected_filters"]);
 
-let selected = ref([])
-
 function handle_select(name) {
 
   if (!props.multi) {
-    if (selected.value.includes(name)) {
-      analytics_track('filter_use',`removed filter: ${name}`)
-      selected.value = []
+    if (props.ref_filters.includes(name)) {
+      analytics_track('filter_use', `removed filter: ${name}`)
+      emits('selected_filters', [])
+
     } else {
-      analytics_track('filter_use',`filtering by: ${name}`)
-      selected.value = [name]
+      analytics_track('filter_use', `filtering by: ${name}`)
+      emits('selected_filters', [name])
+
     }
   } else {
-    const index = selected.value.indexOf(name);
+    const index = props.ref_filters.indexOf(name);
     if (index === -1) {
-      selected.value.push(name);
-      analytics_track('filter_use',`filtering by: ${name}`)
+      let temp = props.ref_filters
+      temp.value.push(name);
+      emits('selected_filters', temp)
+
+      analytics_track('filter_use', `filtering by: ${name}`)
     } else {
-      selected.value.splice(index, 1);
-      analytics_track('filter_use',`removed filter: ${name}`)
+      let temp = props.ref_filters
+      temp.value.splice(index, 1);
+      emits('selected_filters', temp)
+
+      analytics_track('filter_use', `removed filter: ${name}`)
     }
   }
-
-  emits('selected_filters', selected.value)
 }
 
 </script>
 
 <template>
   <div class="proj_filter_cont">
-    <software-tag :class="(selected.includes(f) ? 'selected':'') + ' filter_tag'"
-                  v-for="f in filters" :key="f" :name="f"
+    <software-tag :class="(ref_filters.includes(f) ? 'selected':'') + ' filter_tag'"
+                  v-for="f in base_filters" :key="f" :name="f"
                   @click="handle_select(f)"
                   :gap="5"
     ></software-tag>

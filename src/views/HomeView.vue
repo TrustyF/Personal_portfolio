@@ -5,6 +5,7 @@ import {computed, inject, onMounted, ref, watch} from "vue";
 import ProjectFilterBar from "@/components/project/ProjectFilterBar.vue";
 import ProjectContainerHorizontal from "@/components/project/ProjectContainerHorizontal.vue";
 import NavUpArrow from "@/components/nav/NavUpArrow.vue";
+import router from "@/router/index.js";
 
 let is_mobile = inject('is_mobile')
 
@@ -56,8 +57,18 @@ function filter_articles(arr) {
 
   filtered = filtered.filter(item => item['folder'] !== 'fx_reel')
 
-  // sorting
+  //sorting
   filtered.sort((a, b) => convert_date(b.created) - convert_date(a.created))
+
+  //grouping by date
+  filtered = Object.groupBy(filtered, x => x.created.split('/')[2])
+
+  // sort top dates
+  filtered = Object.keys(filtered)
+      .sort().reverse() // Sort keys in ascending order
+      .map(key => ({key: key, value: filtered[key]}));
+
+  console.log(filtered)
 
   return filtered
 }
@@ -84,9 +95,17 @@ function calc_container_size() {
   }
 }
 
+function set_filter_from_url() {
+  let route_query = router.currentRoute.value.query
+  if (route_query.category) sel_category_filters.value = Array(route_query.category)
+  if (route_query.scale) sel_scale_filters.value = Array(route_query.scale)
+  if (route_query.type) sel_type_filters.value = Array(route_query.type)
+}
+
 onMounted(() => {
   calc_container_size()
   addEventListener('resize', calc_container_size)
+  set_filter_from_url()
 })
 
 </script>
@@ -98,12 +117,14 @@ onMounted(() => {
   </div>
   <div class="homepage_wrapper">
 
-    <div class="feed" v-if="is_mobile===0">
+    <div class="feed_wrapper" v-show="is_mobile===0">
       <transition-group name="list">
-        <project-container class="setSize" v-for="article in filtered_articles" :key="article.folder"
-                           :title="article.folder"
-                           :data="article"/>
-
+        <div class="feed" v-for="date in filtered_articles" :key="date">
+          <h1 class="feed_title">{{date.key}}</h1>
+          <project-container class="setSize" v-for="article in date.value" :key="article.folder"
+                             :title="article.folder"
+                             :data="article"/>
+        </div>
       </transition-group>
     </div>
 
@@ -134,7 +155,8 @@ onMounted(() => {
 
       <div class="filter">
         <p>Project category</p>
-        <project-filter-bar :filters="category_filters"
+        <project-filter-bar :base_filters="category_filters"
+                            :ref_filters="sel_category_filters"
                             @selected_filters="sel_category_filters=$event"
                             :multi="false"
         />
@@ -142,7 +164,8 @@ onMounted(() => {
 
       <div class="filter">
         <p>Project scale</p>
-        <project-filter-bar :filters="scale_filters"
+        <project-filter-bar :base_filters="scale_filters"
+                            :ref_filters="sel_scale_filters"
                             @selected_filters="sel_scale_filters=$event"
                             :multi="true"
         />
@@ -150,7 +173,8 @@ onMounted(() => {
 
       <div class="filter">
         <p>Project type</p>
-        <project-filter-bar :filters="type_filters"
+        <project-filter-bar :base_filters="type_filters"
+                            :ref_filters="sel_type_filters"
                             @selected_filters="sel_type_filters=$event"
                             :multi="false"
         />
@@ -190,17 +214,21 @@ onMounted(() => {
   cursor: pointer;
   transition: 200ms ease;
 }
+
 .reel_button:hover {
   background-color: #267359;
 }
+
 .reel_button:hover .arrow {
   transform: translate(5px);
 }
+
 .arrow {
   height: 10px;
   object-fit: contain;
   transition: 200ms ease;
 }
+
 .homepage_wrapper {
   display: grid;
   grid-template-columns: 1fr 0fr;
@@ -212,7 +240,12 @@ onMounted(() => {
   width: v-bind(container_width);
   height: v-bind(container_height);
 }
-
+.feed_wrapper {
+  display: flex;
+  flex-flow: column;
+  gap: 90px;
+  margin-top: 60px;
+}
 .feed {
   position: relative;
   width: auto;
@@ -221,6 +254,16 @@ onMounted(() => {
   grid-template-columns: repeat(4, 1fr);
   align-items: flex-start;
   gap: 20px;
+}
+.feed_title {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  z-index: 10;
+  border-bottom: 1px solid #383838;
+  width: 100%;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .tablet_feed {

@@ -3,6 +3,7 @@ import {inject, onMounted, watch, ref, computed} from "vue";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
 import index from "@/project_pages/index.json"
 import {useRouter} from "vue-router";
+import OutdatedTag from "@/components/generic/OutdatedTag.vue";
 
 let router = useRouter()
 
@@ -31,8 +32,8 @@ let thumb_path = computed(() => {
 </script>
 
 <template>
-  <div :class="`project_container ${data['outdated'] ? 'dimmed':''}`" @click="router.push('/portfolio/' + data['folder'])">
-
+  <div class="project_container" @click="router.push('/portfolio/' + data['folder'])">
+    <outdated-tag v-if="data['outdated']"/>
     <div class="cover">
       <img :src="thumb_path" alt="" rel="preload" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
     </div>

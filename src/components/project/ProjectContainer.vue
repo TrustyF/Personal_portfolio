@@ -3,6 +3,7 @@ import {inject, onMounted, watch, ref, computed} from "vue";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
 import index from "@/project_pages/index.json"
 import {useRouter} from "vue-router";
+import OutdatedTag from "@/components/generic/OutdatedTag.vue";
 
 let router = useRouter()
 
@@ -32,12 +33,7 @@ let thumb_path = computed(() => {
 
 <template>
   <div class="project_container" @click="router.push('/portfolio/' + data['folder'])">
-    <div class="outdated" v-if="data['outdated']">
-      <div class="outdated_text">
-        <h1 style="font-size: 1em;color: white;margin-bottom: 5px">Archived</h1>
-        <h4 style="font-size: 0.7em;color: lightgrey">Not representative</h4>
-      </div>
-    </div>
+    <outdated-tag v-if="data['outdated']"/>
     <div class="cover">
       <img :src="thumb_path" alt="" rel="preload" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
     </div>
@@ -99,14 +95,6 @@ let thumb_path = computed(() => {
   transition: 50ms ease;
 }
 
-.project_container:hover .outdated {
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.project_container:hover .outdated_text {
-  opacity: 0;
-}
-
 .cover {
   position: relative;
   aspect-ratio: 1;
@@ -121,28 +109,6 @@ let thumb_path = computed(() => {
   filter: contrast(1.1);
   animation: fadein 0.5s;
   transition: 100ms ease;
-}
-
-.outdated {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  background-color: rgba(0, 0, 0, 0.4);
-  transition: 100ms ease;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  text-align: center;
-}
-
-.outdated_text {
-  opacity: 1;
-  transition: 200ms ease;
-  background-color: hsla(160, 100%, 10%, 0.5);;
-  margin-top: calc(50% - 5px);
-  padding: 10px;
-  width: 100%;
 }
 
 .software_tags {

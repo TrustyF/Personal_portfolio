@@ -25,7 +25,8 @@ function get_image(path) {
 
       <div class="vimeo_video">
         <vimeo-embed id="xvvaOdXaeJY" muted="0"/>
-        <!--        <h5 style="text-align: center;padding-top: 10px">Final product</h5>-->
+        <h5 style="text-align: center;padding-top: 10px">Final product, not representative of current skill. Keeping it
+          around for archival purposes</h5>
       </div>
 
       <div class="vimeo_video">

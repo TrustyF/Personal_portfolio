@@ -2,10 +2,11 @@
 import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
 import arrow from "/src/assets/icons/arrow-left-circle-fill.svg"
 import NavArrow from "@/components/nav/NavArrow.vue";
-import router from "@/router/index.js";
 import {analytics_track} from "@/scripts/AnalyticsTracker.js";
+import {useRouter} from "vue-router";
 
 let back_arrow_vis = ref(false)
+let router = useRouter()
 
 function handle_back_arrow() {
   let content_cont = document.getElementById('nav_bar')

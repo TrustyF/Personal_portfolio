@@ -2,7 +2,6 @@
 import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
 import NavArrow from "@/components/nav/NavArrow.vue";
 import {analytics_track} from "@/scripts/AnalyticsTracker.js";
-import router from "@/router/index.js";
 
 let back_arrow_vis = ref(false)
 

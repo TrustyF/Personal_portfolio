@@ -7,7 +7,9 @@ import NavReturnArrow from "@/components/nav/NavReturnArrow.vue";
 import NavArrow from "@/components/nav/NavArrow.vue";
 import NavUpArrow from "@/components/nav/NavUpArrow.vue";
 import {analytics_track} from "@/scripts/AnalyticsTracker.js";
-import router from "@/router/index.js";
+import {useRouter} from "vue-router";
+
+let router = useRouter()
 
 let props = defineProps({
   image_loader: {

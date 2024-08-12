@@ -1,13 +1,14 @@
 <script setup>
 import ProjectContainer from "@/components/project/ProjectContainer.vue";
 import index from "@/project_pages/index.json"
-import {computed, inject, onMounted, ref, watch} from "vue";
+import {computed, inject, onMounted, onUnmounted, ref, watch} from "vue";
 import ProjectFilterBar from "@/components/project/ProjectFilterBar.vue";
 import ProjectContainerHorizontal from "@/components/project/ProjectContainerHorizontal.vue";
 import NavUpArrow from "@/components/nav/NavUpArrow.vue";
-import router from "@/router/index.js";
+import {useRouter} from 'vue-router'
 
 let is_mobile = inject('is_mobile')
+let router = useRouter()
 
 function convert_date(date) {
   let parts = date.split('/');
@@ -64,7 +65,6 @@ function filter_articles(arr) {
 
 let container_width = ref()
 let container_height = ref()
-
 function calc_container_size() {
   let elems = window.document.getElementsByClassName('project_container')
 
@@ -84,6 +84,13 @@ function calc_container_size() {
   }
 }
 
+let feed_height = ref()
+function calc_feed_height(){
+  let elem = window.document.getElementById('feed')
+  let box = elem.getBoundingClientRect()
+  feed_height.value = `${box.height}px`
+}
+
 function set_filter_from_url() {
   let route_query = router.currentRoute.value.query
   if (route_query.category) sel_category_filters.value = Array(route_query.category)
@@ -94,8 +101,16 @@ function set_filter_from_url() {
 
 onMounted(() => {
   calc_container_size()
+  calc_feed_height()
+
   addEventListener('resize', calc_container_size)
+  addEventListener('resize', calc_feed_height)
+
   set_filter_from_url()
+})
+onUnmounted(()=>{
+  removeEventListener('resize', calc_container_size)
+  removeEventListener('resize', calc_feed_height)
 })
 
 </script>
@@ -107,7 +122,7 @@ onMounted(() => {
   </div>
   <div class="homepage_wrapper">
 
-    <div class="feed" v-if="is_mobile===0">
+    <div id="feed" class="feed" v-if="is_mobile===0">
       <transition-group name="list">
         <project-container class="setSize" v-for="article in filtered_articles" :key="article.folder"
                            :title="article.folder"
@@ -116,7 +131,7 @@ onMounted(() => {
       </transition-group>
     </div>
 
-    <div class="tablet_feed" v-if="is_mobile===1">
+    <div id="feed" class="tablet_feed" v-if="is_mobile===1">
       <nav-up-arrow/>
       <transition-group name="list">
         <project-container-horizontal v-for="article in filtered_articles" :key="article.folder"
@@ -127,7 +142,7 @@ onMounted(() => {
       </transition-group>
     </div>
 
-    <div class="mobile_feed" v-if="is_mobile===2">
+    <div id="feed" class="mobile_feed" v-if="is_mobile===2">
       <nav-up-arrow/>
       <transition-group name="list">
         <project-container-horizontal v-for="article in filtered_articles" :key="article.folder"
@@ -231,13 +246,15 @@ onMounted(() => {
 }
 
 .feed {
+  /*outline: 1px solid orange;*/
   position: relative;
   width: auto;
-  /*outline: 1px solid orange;*/
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  align-content: flex-start;
   align-items: flex-start;
   gap: 20px;
+  height: v-bind(feed_height);
 }
 
 .tablet_feed {

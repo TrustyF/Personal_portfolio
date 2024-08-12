@@ -93,13 +93,22 @@
   {
     "title": "louis",
     "folder": "louis",
-    "desc": "End of year school group project, developed over 3 months with a team of 5 artists",
+    "desc": "End of year school group project, developed over 3 months with a team of 5 artists. Open theme project with complete short film production pipeline",
     "created": "29/01/2022",
     "type": "short_film",
     "scale": "mid_sized",
     "software": ["houdini", "blender"],
     "category": ["generalist", "fx"]
   }, {
+  "title": "balloon_stairs",
+  "folder": "balloon_stairs",
+  "desc": "Group project exam, lasted 1 month with a group of 4 artists. Assigned goal was to pick part of the building and warp it with vfx",
+  "created": "05/08/2021",
+  "type": "personal",
+  "scale": "mid_sized",
+  "software": ["houdini", "maya"],
+  "category": ["generalist", "fx"]
+}, {
   "title": "Light painter",
   "folder": "light_painter",
   "desc": "Lighting helper script written in PyMel. Easily light a scene by simply clicking on the area of the object",
@@ -133,7 +142,7 @@
   "created": "01/02/2021",
   "type": "personal",
   "scale": "solo",
-  "software": ["zbrush","blender"],
+  "software": ["zbrush", "blender"],
   "category": ["generalist"]
 }, {
   "title": "invisible_sphere",
@@ -144,7 +153,7 @@
   "scale": "solo",
   "software": ["houdini"],
   "category": ["fx"]
-},{
+}, {
   "title": "frost_prime",
   "folder": "frost_prime",
   "desc": "Creating greenscreen scenes and alerts for twitch streamer FrostPrime from 2018 to 2024",

@@ -27,7 +27,6 @@ const curr_api = inject("curr_api");
   margin: auto;
   position: relative;
   padding: 25px;
-
 }
 
 .block {

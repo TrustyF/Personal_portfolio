@@ -17,7 +17,7 @@ function get_image(path) {
 </script>
 
 <template>
-  <project-page-template :project_name="proj_name">
+  <project-page-template :project_name="proj_name" :image_loader="true">
 
     <template #content>
 

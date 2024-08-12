@@ -19,7 +19,7 @@ function get_image(path) {
 </script>
 
 <template>
-  <project-page-template :project_name="proj_name" :poster="get_image('poster.webp')" :image_loader="true">
+  <project-page-template :project_name="proj_name" :poster="get_image('poster.webp')" :image_loader="false">
 
     <template #content>
 

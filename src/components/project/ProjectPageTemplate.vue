@@ -40,20 +40,16 @@ function test_images_loaded() {
   let images = document.getElementsByClassName('grid_image')
 
   if (!images.length > 0) {
-    // console.log(tit + ' no images, try again')
     test_images_again()
     return
   }
 
-  for (let i = 0; i < images.length; i++) {
-    if (!images[i].complete) {
-      // console.log(tit + ' trying again')
-      test_images_again()
-      break
-    } else {
-      // console.log(tit + ' images loaded')
-      images_loaded.value = true
-    }
+  console.log(images[0])
+
+  if (!images[0].complete) {
+    test_images_again()
+  } else {
+    images_loaded.value = true
   }
 }
 
@@ -91,7 +87,7 @@ let index_data = computed(() => {
 let tit = index_data.value.title
 
 onMounted(() => {
-  analytics_track('project_view',`${props.project_name}`)
+  analytics_track('project_view', `${props.project_name}`)
   if (props.image_loader) test_images_loaded()
   if (!props.image_loader) images_loaded.value = true
 
@@ -138,7 +134,7 @@ onUnmounted(() => {
       <div class="content" v-show="image_loader ? images_loaded && heading_loaded : heading_loaded">
         <slot name="content"/>
       </div>
-      <spinner v-show="image_loader ? !images_loaded && !heading_loaded : !heading_loaded"></spinner>
+      <spinner v-show="image_loader && !images_loaded"></spinner>
     </div>
 
     <div class="footer"></div>

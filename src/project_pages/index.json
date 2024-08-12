@@ -45,18 +45,26 @@
     "type": "personal",
     "software": ["vue.js", "javascript", "mySQL", "python", "git"],
     "category": ["code"]
-  },
-  {
-    "title": "the_abyss",
-    "folder": "abyss",
-    "desc": "Large scale smoke and destruction effects in Houdini. Building destruction setups developed by a small team",
-    "created": "01/01/2023",
-    "duration": "10 mos",
-    "type": "movie",
-    "scale": "production",
-    "software": ["houdini"],
-    "category": ["fx"]
-  },
+  }, {
+  "title": "INC.",
+  "folder": "inc_short",
+  "desc": "Short film by Kazuo Chaed. Hired late into the production for the final shot to break the office wall. Simulated in Houdini and rendered with Blender.",
+  "created": "19/04/2023",
+  "type": "short_film",
+  "scale": "mid_sized",
+  "software": ["houdini", "blender","after_effects"],
+  "category": ["generalist","fx"]
+}, {
+  "title": "the_abyss",
+  "folder": "abyss",
+  "desc": "Large scale smoke and destruction effects in Houdini. Building destruction setups developed by a small team",
+  "created": "01/01/2023",
+  "duration": "10 mos",
+  "type": "movie",
+  "scale": "production",
+  "software": ["houdini"],
+  "category": ["fx"]
+},
   {
     "title": "die_zweite_welle",
     "folder": "zweite_welle",
@@ -163,6 +171,16 @@
   "software": ["after_effects", "photoshop"],
   "category": ["mograph", "generalist"]
 }, {
+  "title": "Sentry and the rain",
+  "folder": "sentry_rain",
+  "desc": "Short film assignment, very outdated. Showcases cinematography exploration and tracked HUD elements",
+  "created": "01/02/2018",
+  "type": "short_film",
+  "scale": "solo",
+  "software": ["after_effects"],
+  "category": ["generalist", "mograph"],
+  "outdated": true
+}, {
   "title": "OneFox branding",
   "folder": "onefox",
   "desc": "Creating into sequences and on-brand lower-thirds for youtube channel",
@@ -171,5 +189,15 @@
   "scale": "solo",
   "software": ["after_effects"],
   "category": ["mograph"]
+}, {
+  "title": "lab 13",
+  "folder": "lab_13",
+  "desc": "Short film assignment, very outdated. Showcases cinematography exploration and tracked HUD elements",
+  "created": "07/07/2016",
+  "type": "short_film",
+  "scale": "solo",
+  "software": ["after_effects"],
+  "category": ["generalist", "mograph"],
+  "outdated": true
 }
 ]

@@ -32,7 +32,12 @@ let thumb_path = computed(() => {
 
 <template>
   <div class="project_container" @click="router.push('/portfolio/' + data['folder'])">
-
+    <div class="outdated" v-if="data['outdated']">
+      <div class="outdated_text">
+        <h1 style="font-size: 1em;color: white;margin-bottom: 5px">Archived</h1>
+        <h4 style="font-size: 0.7em;color: lightgrey">Not representative</h4>
+      </div>
+    </div>
     <div class="cover">
       <img :src="thumb_path" alt="" rel="preload" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
     </div>
@@ -94,8 +99,15 @@ let thumb_path = computed(() => {
   transition: 50ms ease;
 }
 
+.project_container:hover .outdated {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.project_container:hover .outdated_text {
+  opacity: 0;
+}
+
 .cover {
-  /*outline: 1px solid cornflowerblue;*/
   position: relative;
   aspect-ratio: 1;
 }
@@ -106,36 +118,47 @@ let thumb_path = computed(() => {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-
   filter: contrast(1.1);
-
   animation: fadein 0.5s;
   transition: 100ms ease;
 }
 
-.software_tags {
-  /*outline: 1px solid orange;*/
+.outdated {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: 100ms ease;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+}
 
-  /*position: absolute;*/
+.outdated_text {
+  opacity: 1;
+  transition: 200ms ease;
+  background-color: hsla(160, 100%, 10%, 0.5);;
+  margin-top: calc(50% - 5px);
+  padding: 10px;
+  width: 100%;
+}
+
+.software_tags {
   margin: 10px 0 5px 0;
   display: flex;
   flex-flow: row nowrap;
   overflow: hidden;
-  /*height: 20px;*/
-  /*bottom: 0;*/
   gap: 3px;
   z-index: 20;
 }
 
 .underlay {
-  /*outline: 1px solid cornflowerblue;*/
   z-index: 50;
-
   display: flex;
   flex-flow: column;
-  /*gap: 5px;*/
   padding: 15px;
-
   background-color: #2f2f2f;
   user-select: none;
   transition: 100ms ease;
@@ -144,11 +167,9 @@ let thumb_path = computed(() => {
 h1 {
   font-size: 1.2em;
   line-height: 1;
-  /*outline: 1px solid cornflowerblue;*/
   display: flex;
   flex-flow: column;
   justify-content: center;
-
   flex: 0 0 auto;
   color: white;
   text-transform: uppercase;
@@ -157,19 +178,13 @@ h1 {
 
 .proj_cont_desc {
   font-size: 0.7em;
-  /*outline: 1px solid cornflowerblue;*/
   display: flex;
   flex-flow: column;
   justify-content: center;
-
   line-height: 1.2;
-  /*flex: 1 0 auto;*/
   margin-top: auto;
   padding-bottom: 1px;
   opacity: 0.7;
-
-  /*height: 28px;*/
-
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

@@ -58,13 +58,19 @@ function filter_articles(arr) {
   filtered = filtered.filter(item => item['folder'] !== 'fx_reel')
 
   // sorting
-  filtered.sort((a, b) => convert_date(b.created) - convert_date(a.created))
+  filtered.sort((a, b) => convert_date(b['created']) - convert_date(a['created']))
+  filtered.sort((a, b) => {
+    let test1 = 'outdated' in b;
+    let test2 = 'outdated' in a
+    return test2 - test1
+  })
 
   return filtered
 }
 
 let container_width = ref()
 let container_height = ref()
+
 function calc_container_size() {
   let elems = window.document.getElementsByClassName('project_container')
 
@@ -85,10 +91,16 @@ function calc_container_size() {
 }
 
 let feed_height = ref()
-function calc_feed_height(){
+
+function calc_feed_height() {
   let elem = window.document.getElementById('feed')
+
+  elem.classList.remove('setFeedHeight')
+
   let box = elem.getBoundingClientRect()
   feed_height.value = `${box.height}px`
+
+  elem.classList.add('setFeedHeight')
 }
 
 function set_filter_from_url() {
@@ -108,7 +120,7 @@ onMounted(() => {
 
   set_filter_from_url()
 })
-onUnmounted(()=>{
+onUnmounted(() => {
   removeEventListener('resize', calc_container_size)
   removeEventListener('resize', calc_feed_height)
 })
@@ -245,6 +257,10 @@ onUnmounted(()=>{
   height: v-bind(container_height);
 }
 
+.setFeedHeight {
+  height: v-bind(feed_height);
+}
+
 .feed {
   /*outline: 1px solid orange;*/
   position: relative;
@@ -254,7 +270,6 @@ onUnmounted(()=>{
   align-content: flex-start;
   align-items: flex-start;
   gap: 20px;
-  height: v-bind(feed_height);
 }
 
 .tablet_feed {

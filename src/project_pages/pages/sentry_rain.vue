@@ -10,7 +10,7 @@ let props = defineProps({
   },
 });
 
-let proj_name = 'theodosia'
+let proj_name = 'sentry_rain'
 
 function get_image(path) {
   return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${proj_name}%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
@@ -19,24 +19,14 @@ function get_image(path) {
 </script>
 
 <template>
-  <project-page-template :project_name="proj_name" :image_loader="false" :poster="get_image('poster.webp')">
+  <project-page-template :project_name="proj_name" :image_loader="false">
+
     <template #content>
 
       <div class="vimeo_video">
-        <vimeo-embed id="N25s_g0-sWY"/>
-        <h5 style="text-align: center;padding-top: 10px">Final comp</h5>
+        <vimeo-embed id="m241RXUiQFU" muted="0"/>
+        <h5 style="text-align: center;padding-top: 10px">Final product, not representative of current skill. Keeping it around for archival purposes</h5>
       </div>
-
-      <div class="vimeo_video">
-        <vimeo-embed id="0d0tyCBJvNc"/>
-        <h5 style="text-align: center;padding-top: 10px">Glass fx breakdown</h5>
-      </div>
-
-      <div class="vimeo_video">
-        <vimeo-embed id="GQQpE_n2K7A"/>
-        <h5 style="text-align: center;padding-top: 10px">Smoke snake lookdev</h5>
-      </div>
-
 
     </template>
 

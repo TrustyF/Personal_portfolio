@@ -31,7 +31,7 @@ let thumb_path = computed(() => {
 </script>
 
 <template>
-  <div class="project_container" @click="router.push('/portfolio/' + data['folder'])">
+  <div :class="`project_container ${data['outdated'] ? 'dimmed':''}`" @click="router.push('/portfolio/' + data['folder'])">
 
     <div class="cover">
       <img :src="thumb_path" alt="" rel="preload" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
@@ -102,6 +102,9 @@ let thumb_path = computed(() => {
   transition: 50ms ease;
 }
 
+.project_container:hover {
+  opacity: 1;
+}
 .cover {
   /*outline: 1px solid cornflowerblue;*/
   position: relative;
@@ -121,7 +124,9 @@ let thumb_path = computed(() => {
   animation: fadein 0.5s;
   transition: 100ms ease;
 }
-
+.dimmed {
+  opacity: 0.3;
+}
 .software_tags {
   /*outline: 1px solid orange;*/
   /*position: absolute;*/

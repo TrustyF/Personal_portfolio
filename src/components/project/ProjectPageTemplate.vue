@@ -44,8 +44,6 @@ function test_images_loaded() {
     return
   }
 
-  console.log(images[0])
-
   if (!images[0].complete) {
     test_images_again()
   } else {
@@ -118,7 +116,7 @@ onUnmounted(() => {
         </div>
         <div style="margin-top: 0">
           <div class="software">
-            <software-tag :name="index_data.type"></software-tag>
+            <software-tag v-if="index_data.type" :name="index_data.type"></software-tag>
             <software-tag v-if="index_data.scale" :name="index_data.scale"></software-tag>
             <software-tag v-for="soft in index_data.software" :key="soft" :name="soft"></software-tag>
           </div>

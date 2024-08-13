@@ -1,7 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import ReelView from '../views/ReelView.vue'
 import index from '/src/project_pages/index.json'
-import {computed, defineAsyncComponent} from "vue";
 import {analytics_track} from "@/scripts/AnalyticsTracker.js";
 
 const router = createRouter({
@@ -12,8 +11,8 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            name: 'home',
-            redirect: '/portfolio'
+            name: 'reel',
+            component: ReelView
         },
         {
             path: '/portfolio',
@@ -22,7 +21,7 @@ const router = createRouter({
                 {
                     path: '',
                     name: 'portfolio',
-                    component: HomeView
+                    component: () => import('../views/HomeView.vue')
                 }
             ]
         },
@@ -52,9 +51,7 @@ router.addRoute(project_route)
 
 router.beforeEach((to, from) => {
     // track page changes
-    if (from.name){
-        analytics_track('router_nav', `from ${from.name}, to ${to.name}`)
-    }
+    analytics_track('router_nav', `from ${from.name ? from.name : 'outside'}, to ${to.name}`)
 })
 
 export default router

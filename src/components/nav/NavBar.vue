@@ -19,6 +19,7 @@ let is_mobile = inject('is_mobile')
   <nav id="nav_bar">
     <h1 class="website_title">Arthur Sirjacobs</h1>
     <div class="nav_link_wrapper">
+      <RouterLink class="nav_link" to="/">reel</RouterLink>
       <RouterLink class="nav_link" to="/portfolio">portfolio</RouterLink>
       <RouterLink class="nav_link" to="/cv">cv</RouterLink>
       <RouterLink class="nav_link" to="/about">about</RouterLink>
@@ -37,6 +38,7 @@ nav {
   align-items: center;
   gap: 100px;
 }
+
 .website_title {
   left: 0;
   margin-bottom: -7px;
@@ -45,6 +47,7 @@ nav {
   font-size: 1.5em;
   white-space: nowrap;
 }
+
 .nav_link_wrapper {
   display: flex;
   flex-flow: row;
@@ -67,21 +70,30 @@ nav {
 
 @media only screen and (max-width: 1000px) {
   nav {
-    gap: 50px;
+    gap: 20px;
+  }
+
+  .nav_link {
+    padding: 20px;
   }
 }
+
 @media only screen and (max-width: 660px) {
   nav {
     flex-flow: column;
     gap: 10px;
   }
+
   .website_title {
     margin: 20px;
   }
+
   .nav_link {
     padding: 20px;
   }
+
   .nav_link_wrapper {
+    flex-flow: row wrap;
   }
 }
 </style>

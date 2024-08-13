@@ -1,6 +1,6 @@
 <script setup>
-import {inject, onMounted, watch, ref, computed, onBeforeMount} from "vue";
-// import {usePlayer} from '@vue-youtube/core';
+import {inject, onMounted, watch, ref, computed, onBeforeMount, onUnmounted} from "vue";
+import {analytics_track} from "@/scripts/AnalyticsTracker.js";
 
 let props = defineProps({
   id: {
@@ -25,26 +25,25 @@ let props = defineProps({
   },
 });
 
-// const youtube = ref();
-//
-// const {instance} = usePlayer(props.id, youtube, {
-//   cookie: false,
-//   playerVars: {
-//     autoplay: props.autoplay,
-//     mute: props.autoplay,
-//     controls: props.controls,
-//     color: 'white',
-//     modestbranding: 0,
-//     rel: 0,
-//     playsinline: 1,
-//     enablejsapi: 1,
-//   },
-// });
+function log_click() {
+  setTimeout(() => {
+    if (document.activeElement === document.querySelector('iframe')) {
+      analytics_track('iframe_use', `id: ${props.id}`)
+    }
+  });
+}
+
+onMounted(() => {
+  window.focus();
+  window.addEventListener('blur', log_click);
+})
+onUnmounted(() => {
+  window.removeEventListener('blur', log_click)
+})
 
 </script>
 
 <template>
-  <!--  <div ref="youtube" style="width: 100%;aspect-ratio: 16/9"/>-->
 
   <div v-if="!vimeo" class="yt_embed">
     <iframe :src="`https://www.youtube.com/embed/${id}?controls=${autoplay?0:1}&color=white&modestbranding=1

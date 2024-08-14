@@ -36,32 +36,36 @@ function filter_articles(arr) {
   let filtered = arr
 
   //category filters
-  if (sel_category_filters.value.length > 0) {
+  if (sel_category_filters.value.length) {
     filtered = filtered.filter(f => f['category'].some(item => sel_category_filters.value.includes(item)))
   }
 
   //scale filters
-  if (sel_scale_filters.value.length > 0) {
+  if (sel_scale_filters.value.length) {
     filtered = filtered.filter(item => sel_scale_filters.value.includes(item['scale']))
   }
 
   //type filters
-  if (sel_type_filters.value.length > 0) {
+  if (sel_type_filters.value.length) {
     filtered = filtered.filter(item => sel_type_filters.value.includes(item['type']))
   }
 
   //software filters
-  if (sel_software_filters.value.length > 0) {
+  if (sel_software_filters.value.length) {
     filtered = filtered.filter(f => f['software'].some(item => sel_software_filters.value.includes(item)))
   }
 
+  //remove archived from filter results
+  if (sel_category_filters.value.length ||
+      sel_scale_filters.value.length ||
+      sel_type_filters.value.length ||
+      sel_software_filters.value.length
+  ) filtered = filtered.filter(f => !('outdated' in f))
+
   // sorting
   filtered.sort((a, b) => convert_date(b['created']) - convert_date(a['created']))
-  filtered.sort((a, b) => {
-    let test1 = 'outdated' in b;
-    let test2 = 'outdated' in a
-    return test2 - test1
-  })
+  // sort outdated at the bottom
+  filtered.sort((a,b) => ('outdated' in a) - ('outdated' in b))
 
   return filtered
 }

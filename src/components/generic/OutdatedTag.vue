@@ -19,17 +19,22 @@ import archived from '/src/assets/icons/archived.webp'
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 100;
-  /*background-color: rgba(0, 0, 0, 0.4);*/
   display: flex;
   flex-flow: column;
   align-items: center;
   text-align: center;
 }
 
-.outdated_wrapper {
-  opacity: 1;
+.project_container:hover .outdated_wrapper {
   background-color: hsla(160, 100%, 15%, 1);
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0);
+}
+
+.outdated_wrapper {
+  /*opacity: 0;*/
+  background-color: hsla(160, 100%, 15%, 0);
   padding: 10px;
   border-radius: 0 0 0 5px;
   margin-bottom: auto;
@@ -39,5 +44,9 @@ import archived from '/src/assets/icons/archived.webp'
   justify-content: center;
   align-items: center;
   gap: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 200ms ease;
+  transform: translate(0, -10px);
 }
 </style>

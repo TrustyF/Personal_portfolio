@@ -33,8 +33,8 @@ let thumb_path = computed(() => {
 
 <template>
   <div class="project_container" @click="router.push('/portfolio/' + data['folder'])">
-    <outdated-tag v-if="data['outdated']"/>
-    <div class="cover">
+
+    <div :class="`cover ${data['outdated'] ? 'faded':''}`">
       <img :src="thumb_path" alt="" rel="preload" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
     </div>
 
@@ -71,6 +71,7 @@ let thumb_path = computed(() => {
 
     <div class="underlay_shadow"></div>
 
+    <outdated-tag v-show="data['outdated']"/>
   </div>
 </template>
 
@@ -88,8 +89,6 @@ let thumb_path = computed(() => {
   position: relative;
   border-radius: 5px;
   overflow: hidden;
-
-  animation: fadein 0.25s;
 }
 
 .project_container:hover .underlay {
@@ -105,6 +104,9 @@ let thumb_path = computed(() => {
 .cover {
   position: relative;
   aspect-ratio: 1;
+}
+.faded {
+  opacity: 0.25;
 }
 
 .thumb {

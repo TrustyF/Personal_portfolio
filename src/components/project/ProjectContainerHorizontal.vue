@@ -89,7 +89,7 @@ let thumb_path = computed(() => {
   flex-flow: row nowrap;
 
   position: relative;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
 
   background-color: #2f2f2f;
@@ -99,7 +99,8 @@ let thumb_path = computed(() => {
 }
 
 .project_container:hover {
-  background-color: rgb(19, 57, 44);
+  /*background-color: rgb(19, 57, 44);*/
+  background-color: hsla(160, 100%, 10%, 1);
   transition: 50ms ease;
 }
 

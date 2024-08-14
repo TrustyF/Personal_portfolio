@@ -57,17 +57,19 @@ let thumb_path = computed(() => {
                       img_size="11"
                       bg_color="#494949"
         />
-        <software-tag :name="data['category'].slice(0,1)"
-                      :title="false"
-                      padding="6"
-                      gap="3"
-                      font_size="0.7"
-                      img_size="11"
-                      bg_color="#494949"
-        />
+<!--        <software-tag :name="data['category'].slice(0,1)"-->
+<!--                      :title="false"-->
+<!--                      padding="6"-->
+<!--                      gap="3"-->
+<!--                      font_size="0.7"-->
+<!--                      img_size="11"-->
+<!--                      bg_color="#494949"-->
+<!--        />-->
       </div>
-      <div class="proj_cont_desc"> {{ data['desc'] }}</div>
+<!--      <div class="proj_cont_desc"> {{ data['desc'] }}</div>-->
     </div>
+
+    <div class="underlay_shadow"></div>
 
   </div>
 </template>
@@ -84,15 +86,20 @@ let thumb_path = computed(() => {
   align-content: flex-start;
 
   position: relative;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
 
   animation: fadein 0.25s;
 }
 
 .project_container:hover .underlay {
-  background-color: rgb(19, 57, 44);
-  transition: 50ms ease;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0);
+}
+.project_container:hover .underlay_shadow {
+  opacity: 1;
+  visibility: visible;
 }
 
 .cover {
@@ -106,7 +113,7 @@ let thumb_path = computed(() => {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  filter: contrast(1.1);
+  filter: contrast(1.1) brightness(1) blur(0);
   animation: fadein 0.5s;
   transition: 100ms ease;
 }
@@ -121,13 +128,28 @@ let thumb_path = computed(() => {
 }
 
 .underlay {
-  z-index: 50;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  z-index: 5000;
   display: flex;
   flex-flow: column;
   padding: 15px;
-  background-color: #2f2f2f;
   user-select: none;
-  transition: 100ms ease;
+  transition: 200ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-10px);
+}
+.underlay_shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(10deg, hsla(160, 100%, 30%, 1) 0%, rgba(0, 0, 0, 0) 60%);
+  opacity: 0;
+  visibility: hidden;
+  transition: 200ms ease-out;
 }
 
 h1 {
@@ -140,6 +162,7 @@ h1 {
   color: white;
   text-transform: uppercase;
   white-space: nowrap;
+  text-shadow: black 1px 1px 2px, black 1px 1px 2px, black 0 0 2px;
 }
 
 .proj_cont_desc {
@@ -152,7 +175,7 @@ h1 {
   padding-bottom: 1px;
   opacity: 0.7;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

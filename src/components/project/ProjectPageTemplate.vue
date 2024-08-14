@@ -103,6 +103,7 @@ onUnmounted(() => {
 
   <div class="container">
     <nav-up-arrow/>
+    <nav-return-arrow/>
 
     <div class="heading">
       <img v-if="poster" class="poster" :src="poster" alt="poster">

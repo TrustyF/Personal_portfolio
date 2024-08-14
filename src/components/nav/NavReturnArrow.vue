@@ -11,15 +11,15 @@ let router = useRouter()
 function handle_back_arrow() {
   let content_cont = document.getElementById('nav_bar')
   let bound = content_cont.getBoundingClientRect()
-  back_arrow_vis.value = bound.top < -100;
+  back_arrow_vis.value = bound.top < -250;
 }
 
-function handle_click(){
-  analytics_track('nav_return_arrow','returning with arrow')
+function handle_click() {
+  analytics_track('nav_return_arrow', 'returning with arrow')
   router.go(-1)
 }
 
-onMounted(()=>{
+onMounted(() => {
   addEventListener('scroll', handle_back_arrow)
 })
 onUnmounted(() => {
@@ -29,10 +29,8 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="abs_box">
-    <div :class="`return_arrow_container ${back_arrow_vis ? 'visible' : ''}`" @click="handle_click">
-      <nav-arrow></nav-arrow>
-    </div>
+  <div :class="`return_arrow_container ${back_arrow_vis ? 'visible' : ''}`" @click="handle_click">
+    <nav-arrow></nav-arrow>
   </div>
 </template>
 
@@ -42,10 +40,11 @@ onUnmounted(() => {
   left: -100px;
   /*bottom: 50%;*/
 }
+
 .return_arrow_container {
   z-index: 9999;
   position: fixed;
-  /*left: 30px;*/
+  left: 30px;
   top: 30px;
 
   transition: 200ms ease-in-out;
@@ -53,6 +52,7 @@ onUnmounted(() => {
   visibility: hidden;
   transform: translate(-10px);
 }
+
 .visible {
   visibility: visible;
   opacity: 1;

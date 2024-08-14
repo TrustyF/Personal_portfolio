@@ -20,7 +20,7 @@ import archived from '/src/assets/icons/archived.webp'
   width: 100%;
   height: 100%;
   z-index: 100;
-  background-color: rgba(0, 0, 0, 0.4);
+  /*background-color: rgba(0, 0, 0, 0.4);*/
   display: flex;
   flex-flow: column;
   align-items: center;

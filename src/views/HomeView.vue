@@ -131,7 +131,9 @@ onUnmounted(() => {
       <transition-group name="list">
         <project-container class="setSize" v-for="article in filtered_articles" :key="article.folder"
                            :title="article.folder"
-                           :data="article"/>
+                           :data="article"
+                           :minimal="false"
+        />
 
       </transition-group>
     </div>
@@ -226,14 +228,14 @@ onUnmounted(() => {
   grid-template-columns: repeat(4, 1fr);
   align-content: flex-start;
   align-items: flex-start;
-  gap: 20px;
+  gap: 5px;
 }
 
 .tablet_feed {
   /*outline: 1px solid orange;*/
   /*align-items: flex-start;*/
   width: 100%;
-  gap: 20px;
+  gap: 10px;
   position: relative;
   display: flex;
   flex-flow: column;
@@ -242,7 +244,7 @@ onUnmounted(() => {
 .mobile_feed {
   /*outline: 1px solid orange;*/
   /*align-items: flex-start;*/
-  gap: 20px;
+  gap: 10px;
   position: relative;
   display: flex;
   flex-flow: column;
@@ -263,7 +265,6 @@ onUnmounted(() => {
 .list-leave-active {
   display: none;
   /*position: absolute;*/
-  /*z-index: -1;*/
 }
 
 

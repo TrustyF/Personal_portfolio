@@ -23,7 +23,7 @@ let router = useRouter()
 
 <style scoped>
 .home_reel {
-  margin-top: 70px;
+  /*margin-top: 10px;*/
 }
 .title {
   /*color: white;*/
@@ -32,6 +32,6 @@ let router = useRouter()
   /*font-weight: 800;*/
   margin-bottom: 30px;
   border-bottom: 1px solid #383838;
-  padding-bottom: 10px;
+  padding: 10px;
 }
 </style>

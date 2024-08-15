@@ -15,13 +15,23 @@ let router = useRouter()
 
 <template>
   <div class="home_reel">
-    <vimeo-embed id="917254100" :vimeo="true"/>
+    <h1 class="title">2024 FX Reel</h1>
+    <vimeo-embed id="998917047" :vimeo="true" :muted="1"/>
   </div>
 
 </template>
 
 <style scoped>
 .home_reel {
-  margin-top: 100px;
+  margin-top: 70px;
+}
+.title {
+  /*color: white;*/
+  font-size: 1.2em;
+  text-transform: uppercase;
+  /*font-weight: 800;*/
+  margin-bottom: 30px;
+  border-bottom: 1px solid #383838;
+  padding-bottom: 10px;
 }
 </style>

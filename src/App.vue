@@ -23,7 +23,6 @@ function track_leave(){
 onMounted(() => {
   check_mobile()
   addEventListener('resize', check_mobile)
-  track_leave()
   window.addEventListener('beforeunload', track_leave)
 })
 

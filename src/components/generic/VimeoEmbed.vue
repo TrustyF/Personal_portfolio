@@ -29,8 +29,13 @@ let props = defineProps({
 
 function set_vimeo_functions() {
   let vimeo_player = new Player(document.getElementById('vimeo_player'))
-  vimeo_player.on('play', function () {
-    log_event('vimeo_play','int',props.id)
+  vimeo_player.on('play', async function () {
+    let title = await vimeo_player.getVideoTitle()
+    log_event('vimeo_play', 'vid', title)
+  });
+  vimeo_player.on('pause', async function () {
+    let pos = await vimeo_player.getCurrentTime()
+    log_event('vimeo_pause', 'vid', pos)
   });
 }
 

@@ -1,7 +1,7 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed} from "vue";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
-import {analytics_track} from "@/scripts/AnalyticsTracker.js";
+import {log_event} from "@/scripts/log_events.js";
 
 let props = defineProps({
   base_filters: {
@@ -23,11 +23,11 @@ function handle_select(name) {
 
   if (!props.multi) {
     if (props.ref_filters.includes(name)) {
-      analytics_track('filter_use', `removed filter: ${name}`)
+      log_event('filter_use', 'int', `removed filter: ${name}`)
       emits('selected_filters', [])
 
     } else {
-      analytics_track('filter_use', `filtering by: ${name}`)
+      log_event('filter_use', 'int', `filtering by: ${name}`)
       emits('selected_filters', [name])
 
     }
@@ -38,13 +38,13 @@ function handle_select(name) {
       temp.push(name);
       emits('selected_filters', temp)
 
-      analytics_track('filter_use', `filtering by: ${name}`)
+      log_event('filter_use', 'int', `filtering by: ${name}`)
     } else {
       let temp = props.ref_filters
       temp.splice(index, 1);
       emits('selected_filters', temp)
 
-      analytics_track('filter_use', `removed filter: ${name}`)
+      log_event('filter_use', 'int', `removed filter: ${name}`)
     }
   }
 }

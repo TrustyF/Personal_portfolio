@@ -2,8 +2,8 @@
 import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
 import arrow from "/src/assets/icons/arrow-left-circle-fill.svg"
 import NavArrow from "@/components/nav/NavArrow.vue";
-import {analytics_track} from "@/scripts/AnalyticsTracker.js";
 import {useRouter} from "vue-router";
+import {log_event} from "@/scripts/log_events.js";
 
 let back_arrow_vis = ref(false)
 let router = useRouter()
@@ -15,7 +15,7 @@ function handle_back_arrow() {
 }
 
 function handle_click() {
-  analytics_track('nav_return_arrow', 'returning with arrow')
+  log_event('return_arrow', 'nav')
   router.go(-1)
 }
 

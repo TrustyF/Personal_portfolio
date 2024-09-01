@@ -2,8 +2,8 @@
 import NavBar from "@/components/nav/NavBar.vue";
 import BottomFooter from "@/components/generic/BottomFooter.vue";
 import {onMounted, provide, ref} from "vue";
-import {analytics_track} from "@/scripts/AnalyticsTracker.js";
 import {useRoute} from "vue-router";
+import {log_event} from "@/scripts/log_events.js";
 
 let route = useRoute()
 let is_mobile = ref(0)
@@ -14,10 +14,11 @@ function check_mobile() {
   if (in_width <= 1000) is_mobile.value = 1
   if (in_width <= 660) is_mobile.value = 2
 }
+
 provide('is_mobile', is_mobile)
 
-function track_leave(){
-  analytics_track('page_leave',`from:${route.name}`)
+function track_leave() {
+  log_event('page_leave', 'nav', `from:${route.name}`)
 }
 
 onMounted(() => {

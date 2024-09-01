@@ -6,8 +6,8 @@ import SoftwareTag from "@/components/project/SoftwareTag.vue";
 import NavReturnArrow from "@/components/nav/NavReturnArrow.vue";
 import NavArrow from "@/components/nav/NavArrow.vue";
 import NavUpArrow from "@/components/nav/NavUpArrow.vue";
-import {analytics_track} from "@/scripts/AnalyticsTracker.js";
 import {useRouter} from "vue-router";
+import {log_event} from "@/scripts/log_events.js";
 
 let router = useRouter()
 
@@ -52,7 +52,7 @@ function test_images_loaded() {
 }
 
 function handle_back_arrow_click() {
-  analytics_track('nav_return_arrow', 'returning with arrow')
+  log_event('return_arrow','nav')
   router.go(-1)
 }
 
@@ -85,7 +85,7 @@ let index_data = computed(() => {
 let tit = index_data.value.title
 
 onMounted(() => {
-  analytics_track('project_view', `${props.project_name}`)
+  // log_event('project_view', 'nav', `${props.project_name}`)
   if (props.image_loader) test_images_loaded()
   if (!props.image_loader) images_loaded.value = true
 

@@ -1,6 +1,6 @@
-import {analytics_track} from "@/scripts/AnalyticsTracker.js";
+import {log_event} from "@/scripts/log_events.js";
 
 export const openNewTab = (path) => {
-    analytics_track('open_new_tab', path)
+    log_event('open_new_tab','nav', path)
     window.open(path, '_blank')
 }

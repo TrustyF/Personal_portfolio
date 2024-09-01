@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import ReelView from '../views/ReelView.vue'
 import index from '/src/project_pages/index.json'
-import {analytics_track} from "@/scripts/AnalyticsTracker.js";
+import {log_event} from "@/scripts/log_events.js";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,7 +51,7 @@ router.addRoute(project_route)
 
 router.beforeEach((to, from) => {
     // track page changes
-    analytics_track('router_nav', `from ${from.name ? from.name : 'outside'}, to ${to.name}`)
+    log_event('page_nav','nav', to.name)
 })
 
 export default router

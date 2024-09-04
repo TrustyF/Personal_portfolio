@@ -31,3 +31,4 @@ coverage
 /.vscode/
 /package-lock.json
 /.firebase/
+/.env

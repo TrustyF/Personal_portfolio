@@ -41,7 +41,7 @@ function set_vimeo_functions() {
 
 
 onMounted(() => {
-  set_vimeo_functions()
+  if (props.vimeo) set_vimeo_functions()
 })
 
 </script>

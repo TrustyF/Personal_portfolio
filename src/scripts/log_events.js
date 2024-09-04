@@ -7,6 +7,8 @@ let server_url = ' https://analytics-trustyfox.pythonanywhere.com'
 export function log_event(name, type, info = null) {
 
     let url = `${server_url}/event/add`
+    if (import.meta.env.DEV) url = `${local_url}/event/add`
+
     let params = {
         name: String(name),
         source: 'portfolio',
@@ -15,7 +17,9 @@ export function log_event(name, type, info = null) {
         uid: session_seed,
     }
 
-    if (import.meta.env.DEV) console.log(params)
+    if (import.meta.env.DEV) {
+        console.log(params)
+    }
 
     axios.get(url, {params: params})
         .then()

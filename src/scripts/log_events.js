@@ -7,7 +7,7 @@ let server_url = ' https://analytics-trustyfox.pythonanywhere.com'
 export function log_event(name, type, info = null) {
 
     let url = `${server_url}/event/add`
-    if (import.meta.env.DEV) url = `${local_url}/event/add`
+    // if (import.meta.env.DEV) url = `${local_url}/event/add`
 
     let params = {
         name: String(name),
@@ -19,7 +19,7 @@ export function log_event(name, type, info = null) {
     }
 
 
-    console.log(params)
+    // console.log(params)
 
 
     axios.post(url, params)

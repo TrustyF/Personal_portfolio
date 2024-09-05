@@ -14,5 +14,16 @@ export default defineConfig({
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
+    },
+    build: {
+        target: "es2022"
+    },
+    esbuild: {
+        target: "es2022"
+    },
+    optimizeDeps: {
+        esbuildOptions: {
+            target: "es2022",
+        }
     }
 })

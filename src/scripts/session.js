@@ -1,5 +1,3 @@
-import {log_event} from "@/scripts/log_events.js";
-
 export const session_seed = Math.round(Math.random() * 10000000)
 
 export let geo_location = await get_geo()

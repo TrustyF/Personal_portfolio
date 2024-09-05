@@ -9,6 +9,8 @@ export function log_event(name, type, info = null) {
     let url = `${server_url}/event/add`
     if (import.meta.env.DEV) url = `${local_url}/event/add`
 
+    console.log(name, type, info)
+
     let params = {
         name: String(name),
         source: 'portfolio',

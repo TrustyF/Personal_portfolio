@@ -1,12 +1,16 @@
+import axios from "axios";
+
 export const session_seed = Math.round(Math.random() * 10000000)
 
-export let geo_location = await get_geo()
-
-async function get_geo() {
+const get_geo = async () => {
     let key = import.meta.env.VITE_GEO_API
     let url = `https://api.ipgeolocation.io/ipgeo?apiKey=${key}`;
-    return await fetch(url)
-        .then(resp => resp.json())
+    return await axios.get(url, {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then(resp => resp.data)
         .then(json => {
             return {
                 country_name: json['country_name'],
@@ -19,4 +23,7 @@ async function get_geo() {
                 country_emoji: json['country_emoji'],
             }
         })
+        .catch(err => err)
 }
+
+export const geo_location = await get_geo()

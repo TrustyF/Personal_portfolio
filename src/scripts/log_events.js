@@ -1,5 +1,5 @@
 import axios from "axios";
-import {session_seed} from "@/scripts/session.js";
+import {session_seed, geo_location} from "@/scripts/session.js";
 
 let local_url = 'http://192.168.1.11:5000'
 let server_url = ' https://analytics-trustyfox.pythonanywhere.com'
@@ -15,13 +15,14 @@ export function log_event(name, type, info = null) {
         type: String(type),
         info: String(info),
         uid: session_seed,
+        geo: geo_location,
     }
 
     if (import.meta.env.DEV) {
         console.log(params)
     }
 
-    axios.get(url, {params: params})
+    axios.post(url, params)
         .then()
         .catch(error => null)
 }

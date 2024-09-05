@@ -7,7 +7,6 @@ let server_url = ' https://analytics-trustyfox.pythonanywhere.com'
 export async function log_event(name, type, info = null) {
 
     let url = `${server_url}/event/add`
-    // if (import.meta.env.DEV) url = `${local_url}/event/add`
 
     let params = {
         name: String(name),
@@ -18,9 +17,7 @@ export async function log_event(name, type, info = null) {
         geo: await geo_location,
     }
 
-
-    console.log(params)
-
+    // console.log(params)
 
     axios.post(url, params)
         .then(resp => {

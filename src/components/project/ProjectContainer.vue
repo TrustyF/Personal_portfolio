@@ -48,7 +48,7 @@ function push_project(){
       <div class="software_tags">
         <software-tag :name="data['type']"
                       :title="true"
-                      p:adding="6"
+                      :padding="6"
                       :gap="3"
                       :font_size="0.7"
                       :img_size="11"

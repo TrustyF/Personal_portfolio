@@ -48,17 +48,17 @@ let props = defineProps({
 
         <div class="contact_cont" style="cursor: text">
           <img :src="envelope" alt="envelope" style="width: 15px" rel="preload">
-          <h2 style="transform: translate(0,-2px)">sirjacobs.arthur@gmail.com</h2>
+          <h2>sirjacobs.arthur@gmail.com</h2>
         </div>
 
         <div class="contact_cont" @click="openNewTab('https://www.linkedin.com/in/arthur-sirjacobs/')">
           <img :src="linkedin" alt="linkedin" style="width: 15px" rel="preload">
-          <h2 style="transform: translate(0,-1px)">LinkedIn</h2>
+          <h2>LinkedIn</h2>
         </div>
 
         <div class="contact_cont" @click="openNewTab('https://github.com/TrustyF')">
           <img :src="github" alt="github" style="width: 15px" rel="preload">
-          <h2 style="transform: translate(0,-1px)">Github</h2>
+          <h2>Github</h2>
         </div>
 
       </div>

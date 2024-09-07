@@ -1,7 +1,7 @@
 <script setup>
 import NavBar from "@/components/nav/NavBar.vue";
 import BottomFooter from "@/components/generic/BottomFooter.vue";
-import {onMounted, provide, ref} from "vue";
+import {onMounted, provide, ref, watch} from "vue";
 import {useRoute} from "vue-router";
 import {log_event} from "@/scripts/log_events.js";
 

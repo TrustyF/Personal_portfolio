@@ -37,8 +37,6 @@ let box_pad = computed(() => `${props.padding}px`)
 let box_gap = computed(() => `${props.gap}px`)
 let font_height = computed(() => `${props.font_size}em`)
 
-let emits = defineEmits(["test"]);
-const curr_api = inject("curr_api");
 
 let logo = computed(() => new URL(`/src/assets/software_icons/${props.name}.webp`, import.meta.url))
 let loaded = ref(false)

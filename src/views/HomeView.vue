@@ -133,7 +133,7 @@ onUnmounted(() => {
   <div class="homepage_wrapper">
     <div id="feed" class="feed" v-if="is_mobile===0">
       <transition-group name="list">
-        <project-container class="setSize" v-for="article in filtered_articles" :key="article.folder"
+        <project-container class="setSize" v-for="(article,index) in filtered_articles" :key="article.folder+index"
                            :title="article.folder"
                            :data="article"
                            :minimal="false"

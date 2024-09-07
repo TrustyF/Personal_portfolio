@@ -28,11 +28,16 @@ let thumb_path = computed(() => {
   return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${props.data['folder']}%2Fthumb.webp?alt=media&token=a2f6eba9-92db-4b11-8a37-3897350a93e2`
 })
 
+function push_project(){
+  console.log('pushing',props.data['folder'])
+  router.push(`portfolio/${props.data['folder']}`)
+}
+
 
 </script>
 
 <template>
-  <div class="project_container" @click="router.push('/portfolio/' + data['folder'])">
+  <div class="project_container" @click="push_project">
 
     <div :class="`cover ${data['outdated'] ? 'faded':''}`">
       <img :src="thumb_path" alt="" rel="preload" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
@@ -43,18 +48,18 @@ let thumb_path = computed(() => {
       <div class="software_tags">
         <software-tag :name="data['type']"
                       :title="true"
-                      padding="6"
-                      gap="3"
-                      font_size="0.7"
-                      img_size="11"
+                      p:adding="6"
+                      :gap="3"
+                      :font_size="0.7"
+                      :img_size="11"
                       bg_color="#494949"
         />
         <software-tag v-for="soft in data['software'].slice(0,1)" :key="soft"
                       :name="soft"
-                      padding="6"
-                      gap="3"
-                      font_size="0.7"
-                      img_size="11"
+                      :padding="6"
+                      :gap="3"
+                      :font_size="0.7"
+                      :img_size="11"
                       bg_color="#494949"
         />
 <!--        <software-tag :name="data['category'].slice(0,1)"-->

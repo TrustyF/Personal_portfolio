@@ -20,7 +20,7 @@ const router = createRouter({
             children: [
                 {
                     path: '',
-                    name: 'portfolio',
+                    name: 'portfolio_home',
                     component: () => import('../views/HomeView.vue')
                 }
             ]
@@ -34,24 +34,35 @@ const router = createRouter({
             path: '/about',
             name: 'about',
             component: () => import('../views/AboutView.vue')
+        },
+        {
+            path: '/:pathMatch(.*)',
+            name: 'not found',
+            component: () => import('../views/NotFoundView.vue')
         }
     ]
 })
 
-let project_route = router.options.routes.find((r) => r.name === 'portfolio')
-for (let i = 0; i < index.length; i++) {
-    let proj = {
-        path: `${index[i].folder}`,
-        name: `${index[i].folder}`,
-        component: () => import(`../project_pages/pages/${index[i].folder}.vue`)
-    }
-    project_route.children.push(proj)
-}
-router.addRoute(project_route)
-
 router.beforeEach((to, from) => {
     // track page changes
-    log_event('page_nav','nav', to.name)
+    log_event('page_nav', 'nav', to.name)
 })
+
+
+let project_route = router.options.routes.find((r) => r.name === 'portfolio')
+
+const dynamicRoutes = index.map(proj => {
+    return {
+        path: proj.folder,
+        name: proj.title,
+        component: () => import(`../project_pages/pages/${proj.folder}.vue`)
+    };
+});
+
+dynamicRoutes.forEach(route => {
+    project_route.children.push(route); // Add each dynamic route
+});
+
+router.addRoute(project_route)
 
 export default router

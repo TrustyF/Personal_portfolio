@@ -12,8 +12,6 @@ let props = defineProps({
   },
 });
 let is_mobile = inject('is_mobile')
-let emits = defineEmits(["test"]);
-const curr_api = inject("curr_api");
 
 function getImg(name) {
   return new URL(`/src/assets/company_icons/${name}.webp`, import.meta.url)

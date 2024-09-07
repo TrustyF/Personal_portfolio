@@ -10,8 +10,6 @@ let props = defineProps({
     default: null,
   },
 });
-let emits = defineEmits(["test"]);
-const curr_api = inject("curr_api");
 
 let specialized_software = ['houdini','python', 'after_effects', 'photoshop']
 let mastered_software = ['blender', 'maya', '3ds_max', 'creative_cloud', 'syntheyes',

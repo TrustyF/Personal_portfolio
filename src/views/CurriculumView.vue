@@ -12,8 +12,6 @@ let props = defineProps({
     default: null,
   },
 });
-let emits = defineEmits(["test"]);
-const curr_api = inject("curr_api");
 
 </script>
 

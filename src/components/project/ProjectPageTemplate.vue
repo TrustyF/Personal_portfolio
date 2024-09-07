@@ -25,8 +25,6 @@ let props = defineProps({
     default: null,
   },
 });
-let emits = defineEmits(["test"]);
-const curr_api = inject("curr_api");
 
 let heading_loaded = ref(false)
 let images_loaded = ref(false)

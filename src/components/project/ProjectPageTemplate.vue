@@ -29,6 +29,7 @@ let props = defineProps({
 let heading_loaded = ref(false)
 let images_loaded = ref(false)
 let images_test_timeout
+const yt_video_list = inject('yt_video_list')
 
 function test_images_again() {
   images_test_timeout = setTimeout(test_images_loaded, 500)
@@ -73,6 +74,35 @@ function number_to_month(num) {
   return monthLabel[num]
 }
 
+function connect_yt_players() {
+
+  const tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.body.appendChild(tag);
+
+  window.onYouTubeIframeAPIReady = () => {
+
+    console.log('attempting to connect', yt_video_list.value)
+
+    for (const i in yt_video_list.value) {
+      console.log(yt_video_list.value[i])
+      let player = new window.YT.Player(yt_video_list.value[i], {
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+  }
+}
+
+function onPlayerReady(event) {
+}
+
+function onPlayerStateChange(event) {
+  log_event('youtube_sate', 'vid', event.data)
+}
+
 
 let index_data = computed(() => {
   let i = index.findIndex((proj) => {
@@ -86,7 +116,7 @@ onMounted(() => {
   // log_event('project_view', 'nav', `${props.project_name}`)
   if (props.image_loader) test_images_loaded()
   if (!props.image_loader) images_loaded.value = true
-
+  connect_yt_players()
   nextTick(() => {
     heading_loaded.value = true
   })

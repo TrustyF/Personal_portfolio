@@ -6,7 +6,6 @@ let server_url = ' https://analytics-trustyfox.pythonanywhere.com'
 
 export async function log_event(name, type, info = null) {
 
-    if (import.meta.env.DEV) return
 
     let url = `${server_url}/event/add`
 
@@ -19,7 +18,12 @@ export async function log_event(name, type, info = null) {
         geo: await geo_location,
     }
 
-    // console.log(params)
+
+    if (import.meta.env.DEV) {
+        // console.log('dev mode not logging to server')
+        console.log('dev log',params)
+        return
+    }
 
     axios.post(url, params)
         .then(resp => {

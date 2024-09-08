@@ -20,11 +20,11 @@ const router = createRouter({
         },
         {
             path: '/portfolio',
-            name: 'portfolio',
+            name: 'portfolio_home',
             children: [
                 {
                     path: '',
-                    name: 'portfolio_home',
+                    name: 'portfolio',
                     component: () => import('../views/HomeView.vue')
                 }
             ]
@@ -53,7 +53,7 @@ router.beforeEach((to, from) => {
 })
 
 
-let project_route = router.options.routes.find((r) => r.name === 'portfolio')
+let project_route = router.options.routes.find((r) => r.name === 'portfolio_home')
 
 const dynamicRoutes = index.map(proj => {
     return {

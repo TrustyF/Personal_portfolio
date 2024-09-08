@@ -1,5 +1,5 @@
 <script setup>
-import {inject, onMounted, watch, ref, computed, onBeforeMount, onUnmounted} from "vue";
+import {onMounted} from "vue";
 import {log_event} from "@/scripts/log_events.js";
 import Player from "@vimeo/player"
 
@@ -47,13 +47,6 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="!vimeo" :id="id" class="yt_embed">
-    <iframe :src="`https://www.youtube.com/embed/${id}?controls=${autoplay?0:1}&color=white&modestbranding=1
-    &rel=0&playsinline=1&enablejsapi=1&showinfo=0&loop=1&mute=${muted}&autoplay=${autoplay}${autoplay ? '&playlist='+id : ''}`"
-            title="YouTube video player" frameborder="0" loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%;height: 100%"></iframe>
-  </div>
 
   <div v-if="vimeo" :id="id" style="padding:56.25% 0 0 0;position:relative;">
     <iframe id="vimeo_player" :src="`https://player.vimeo.com/video/${id}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp
@@ -65,9 +58,4 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.yt_embed {
-  width: 100%;
-  overflow: hidden;
-  aspect-ratio: 16/9;
-}
 </style>

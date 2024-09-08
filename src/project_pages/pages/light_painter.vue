@@ -1,8 +1,6 @@
 <script setup>
-import {inject, onMounted, watch, computed} from "vue";
 import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
-import SoftwareTag from "@/components/project/SoftwareTag.vue";
-import VimeoEmbed from "@/components/generic/VimeoEmbed.vue";
+import YoutubeEmbed from "@/components/generic/YoutubeEmbed.vue";
 
 let props = defineProps({
   test: {
@@ -24,7 +22,7 @@ function get_image(path) {
     <template #content>
 
       <div class="vimeo_video">
-        <vimeo-embed id="AloSuIt0PYc"/>
+        <youtube-embed id="AloSuIt0PYc"/>
         <h5 style="text-align: center;padding-top: 10px">Script demo</h5>
       </div>
 

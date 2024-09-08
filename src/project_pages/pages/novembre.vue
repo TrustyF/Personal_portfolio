@@ -1,8 +1,6 @@
 <script setup>
-import {inject, onMounted, watch, computed} from "vue";
 import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
-import SoftwareTag from "@/components/project/SoftwareTag.vue";
-import VimeoEmbed from "@/components/generic/VimeoEmbed.vue";
+import YoutubeEmbed from "@/components/generic/YoutubeEmbed.vue";
 
 let props = defineProps({
   test: {
@@ -23,20 +21,13 @@ function get_image(path) {
   <project-page-template :project_name="proj_name" :image_loader="false" :poster="get_image('poster.webp')">
     <template #content>
 
-<!--      <movie-header-->
-<!--          video_id="J6sEwKbMdHw"-->
-<!--          title="Novembre"-->
-<!--          desc="2022"-->
-<!--          :poster="get_image('poster.webp')"-->
-<!--      />-->
-
       <div class="vimeo_video">
-        <vimeo-embed id="3C6lr_KucyY"/>
+        <youtube-embed id="3C6lr_KucyY"/>
         <h5 style="text-align: center;padding-top: 10px">Computer and phone UI</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="VB76KjtYdaM"/>
+        <youtube-embed id="VB76KjtYdaM"/>
         <h5 style="text-align: center;padding-top: 10px">UI setups demo. Assisted first 2 setups. Fully responsible for phone UI</h5>
       </div>
 

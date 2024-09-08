@@ -1,8 +1,6 @@
 <script setup>
-import {inject, onMounted, watch, computed} from "vue";
 import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
-import SoftwareTag from "@/components/project/SoftwareTag.vue";
-import VimeoEmbed from "@/components/generic/VimeoEmbed.vue";
+import YoutubeEmbed from "@/components/generic/YoutubeEmbed.vue";
 
 let props = defineProps({
   test: {
@@ -25,42 +23,34 @@ function get_image(path) {
     <template #content>
 
       <div class="vimeo_video">
-        <vimeo-embed id="Qn-TCYAb7ws" :autoplay="1"/>
+        <youtube-embed id="Qn-TCYAb7ws" :autoplay="1"/>
         <h5 style="text-align: center;padding-top: 10px">Smoke</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="FoX7hEGPXM4" :autoplay="1"/>
+        <youtube-embed id="FoX7hEGPXM4" :autoplay="1"/>
         <h5 style="text-align: center;padding-top: 10px">Fluid + RDB interactions</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="eQVpVLaN1y8" :autoplay="1"/>
+        <youtube-embed id="eQVpVLaN1y8" :autoplay="1"/>
         <h5 style="text-align: center;padding-top: 10px">Wire deform</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="ODL1GItVryg" :autoplay="1"/>
+        <youtube-embed id="ODL1GItVryg" :autoplay="1"/>
         <h5 style="text-align: center;padding-top: 10px">Chain wires</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="ng3Afg16xGI" :autoplay="1"/>
+        <youtube-embed id="ng3Afg16xGI" :autoplay="1"/>
         <h5 style="text-align: center;padding-top: 10px">Various particle interactions</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="RJA0a0ArD0E" :autoplay="1"/>
+        <youtube-embed id="RJA0a0ArD0E" :autoplay="1"/>
         <h5 style="text-align: center;padding-top: 10px">Water interaction</h5>
       </div>
-
-      <!--      <div class="single_image">-->
-      <!--        <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">-->
-      <!--          <img :src="get_image('terr1.jpg')" class="grid_image" alt="">-->
-      <!--          <img :src="get_image('terr2.jpg')" class="grid_image" alt="">-->
-      <!--        </div>-->
-      <!--        <h5>Procedural height field + automated texture generation</h5>-->
-      <!--      </div>-->
 
     </template>
 

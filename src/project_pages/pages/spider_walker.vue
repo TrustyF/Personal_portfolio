@@ -1,8 +1,6 @@
 <script setup>
-import {inject, onMounted, watch, computed} from "vue";
 import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
-import SoftwareTag from "@/components/project/SoftwareTag.vue";
-import VimeoEmbed from "@/components/generic/VimeoEmbed.vue";
+import YoutubeEmbed from "@/components/generic/YoutubeEmbed.vue";
 
 let props = defineProps({
   test: {
@@ -25,22 +23,22 @@ function get_image(path) {
     <template #content>
 
       <div class="vimeo_video">
-        <vimeo-embed id="nAKInKlDe98" :autoplay="1"/>
+        <youtube-embed id="nAKInKlDe98" :autoplay="1"/>
         <h5 style="text-align: center;padding-top: 10px">Side view</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="9PC4HGrhimY" :autoplay="1"/>
+        <youtube-embed id="9PC4HGrhimY" :autoplay="1"/>
         <h5 style="text-align: center;padding-top: 10px">Top view</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="3Iu9PXNqqW8" :autoplay="1"/>
+        <youtube-embed id="3Iu9PXNqqW8" :autoplay="1"/>
         <h5 style="text-align: center;padding-top: 10px">Close-up demo</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="vNffUkPK-RI" :autoplay="1"/>
+        <youtube-embed id="vNffUkPK-RI" :autoplay="1"/>
         <h5 style="text-align: center;padding-top: 10px">Houdini setup demo</h5>
       </div>
 

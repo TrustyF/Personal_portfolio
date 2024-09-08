@@ -1,8 +1,5 @@
 <script setup>
-import {inject, onMounted, watch, computed} from "vue";
 import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
-import SoftwareTag from "@/components/project/SoftwareTag.vue";
-import VimeoEmbed from "@/components/generic/VimeoEmbed.vue";
 import YoutubeEmbed from "@/components/generic/YoutubeEmbed.vue";
 let props = defineProps({
   test: {

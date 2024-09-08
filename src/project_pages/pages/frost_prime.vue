@@ -1,8 +1,6 @@
 <script setup>
-import {inject, onMounted, watch, computed} from "vue";
 import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
-import SoftwareTag from "@/components/project/SoftwareTag.vue";
-import VimeoEmbed from "@/components/generic/VimeoEmbed.vue";
+import YoutubeEmbed from "@/components/generic/YoutubeEmbed.vue";
 
 let props = defineProps({
   test: {
@@ -24,12 +22,12 @@ function get_image(path) {
     <template #content>
 
       <div class="vimeo_video">
-        <vimeo-embed id="z5PD0b3bWok"/>
+        <youtube-embed id="z5PD0b3bWok"/>
         <h5 style="text-align: center;padding-top: 10px">Compilation of various greenscreen scenes and animations</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="C7kI0hgJplw"/>
+        <youtube-embed id="C7kI0hgJplw"/>
         <h5 style="text-align: center;padding-top: 10px">Bits donation alerts. Different amounts trigger their dedicated animation</h5>
       </div>
 

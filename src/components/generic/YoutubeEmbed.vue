@@ -7,21 +7,20 @@ let props = defineProps({
     type: String,
     default: null,
   },
-  autoplay: {
-    type: Number,
-    default: 0,
-  },
-  muted: {
-    type: Number,
-    default: 1,
-  },
-  controls: {
-    type: Number,
-    default: 1,
-  },
+  // autoplay: {
+  //   type: Number,
+  //   default: 0,
+  // },
+  // muted: {
+  //   type: Number,
+  //   default: 1,
+  // },
+  // controls: {
+  //   type: Number,
+  //   default: 1,
+  // },
 });
 
-const player = ref(null)
 const yt_video_list = inject('yt_video_list')
 
 function add_to_list(){
@@ -29,7 +28,6 @@ function add_to_list(){
 }
 
 onMounted(() => {
-  // connect_player()
   add_to_list()
 })
 
@@ -38,7 +36,7 @@ onMounted(() => {
 <template>
   <div class="yt_embed">
     <iframe :id="`player-${id}`" width="640" height="390"
-            :src="`https://www.youtube.com/embed/${id}?enablejsapi=1&origin=http://localhost:5173`"
+            :src="`https://www.youtube.com/embed/${id}?enablejsapi=1&origin=*`"
             title="YouTube video player" frameborder="0"
             allowfullscreen style="width: 100%;height: 100%"></iframe>
   </div>

@@ -1,7 +1,6 @@
 <script setup>
-import {inject, onMounted, watch, computed} from "vue";
 import ProjectPageTemplate from "@/components/project/ProjectPageTemplate.vue";
-import VimeoEmbed from "@/components/generic/VimeoEmbed.vue";
+import YoutubeEmbed from "@/components/generic/YoutubeEmbed.vue";
 
 let props = defineProps({
   test: {
@@ -24,12 +23,12 @@ function get_image(path) {
     <template #content>
 
       <div class="vimeo_video">
-        <vimeo-embed id="bkuLbLAn-JI" muted="0"/>
+        <youtube-embed id="bkuLbLAn-JI" muted="0"/>
         <h5 style="text-align: center;padding-top: 10px">Final product</h5>
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="s-PYWy9eDjw" muted="0"/>
+        <youtube-embed id="s-PYWy9eDjw" muted="0"/>
         <h5 style="text-align: center;padding-top: 10px">Making of</h5>
       </div>
 
@@ -92,7 +91,7 @@ function get_image(path) {
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="wdhrWTRTJ0A"/>
+        <youtube-embed id="wdhrWTRTJ0A"/>
         <h5 style="text-align: center;padding-top: 10px">Animatics evolution</h5>
       </div>
 
@@ -147,15 +146,15 @@ function get_image(path) {
       </div>
 
       <div class="vimeo_video">
-        <vimeo-embed id="vt-PJ7dTJyo"/>
+        <youtube-embed id="vt-PJ7dTJyo"/>
         <h5 style="text-align: center;padding-top: 10px">Character animation tests</h5>
       </div>
       <div class="vimeo_video">
-        <vimeo-embed id="Iwu2drZNfQQ"/>
+        <youtube-embed id="Iwu2drZNfQQ"/>
         <h5 style="text-align: center;padding-top: 10px">Houdini oil sim tests</h5>
       </div>
       <div class="vimeo_video">
-        <vimeo-embed id="2pIxoGolAc4" muted="0"/>
+        <youtube-embed id="2pIxoGolAc4" muted="0"/>
         <h5 style="text-align: center;padding-top: 10px">Post-release soundtrack concert</h5>
       </div>
 

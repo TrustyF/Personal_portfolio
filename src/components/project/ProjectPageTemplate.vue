@@ -82,10 +82,7 @@ function connect_yt_players() {
 
   window.onYouTubeIframeAPIReady = () => {
 
-    console.log('attempting to connect', yt_video_list.value)
-
     for (const i in yt_video_list.value) {
-      console.log(yt_video_list.value[i])
       let player = new window.YT.Player(yt_video_list.value[i], {
         events: {
           'onReady': onPlayerReady,
@@ -100,7 +97,9 @@ function onPlayerReady(event) {
 }
 
 function onPlayerStateChange(event) {
-  log_event('youtube_sate', 'vid', event.data)
+  if (event.data === 3) log_event('youtube_play', 'vid', event.target.videoTitle)
+  if (event.data === 2) log_event('youtube_pause', 'vid', event.target.getCurrentTime())
+  if (event.data === 0) log_event('youtube_end', 'vid', event.target.getDuration())
 }
 
 

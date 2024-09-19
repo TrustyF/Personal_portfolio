@@ -29,7 +29,7 @@ let thumb_path = computed(() => {
 })
 
 function push_project(){
-  console.log('pushing',props.data['folder'])
+  // console.log('pushing',props.data['folder'])
   router.push(`portfolio/${props.data['folder']}`)
 }
 

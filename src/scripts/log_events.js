@@ -17,6 +17,7 @@ export async function log_event(name, type, info = null) {
         info: String(info),
         uid: session_seed,
         geo: await geo_location,
+        timestamp: Date.now()
     }
 
     if (import.meta.env.DEV && curr_api !== local_url) {
@@ -39,6 +40,7 @@ export async function ping_user_leave() {
         source: project,
         uid: session_seed,
         geo: await geo_location,
+        timestamp: Date.now()
     }
 
     if (import.meta.env.DEV && curr_api !== local_url) {

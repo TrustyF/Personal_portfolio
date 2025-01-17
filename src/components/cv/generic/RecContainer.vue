@@ -19,10 +19,10 @@ function getImg(name) {
 </script>
 
 <template>
-  <div class="top_cont">
+  <div class="top_cont" @click="openNewTab(data['link'])">
     <div class="school_cont">
 
-      <img class="logo" :src="getImg(data['img'])" alt="logo" @click="openNewTab(data['link'])">
+      <img class="logo" :src="getImg(data['img'])" alt="logo">
 
       <div class="title_cont">
 
@@ -53,10 +53,15 @@ function getImg(name) {
   width: 100%;
   border-radius: 10px;
   gap: 20px;
+
+  cursor: pointer;
 }
 
+.top_cont:hover {
+  background-color: hsla(160, 100%, 10%, 1);
+  transition: 100ms ease;}
+
 .logo {
-  cursor: pointer;
   width: 70px;
   aspect-ratio: 1;
   object-fit: cover;
@@ -75,14 +80,6 @@ function getImg(name) {
   display: flex;
   flex-flow: column wrap;
   gap: 20px;
-}
-
-.filler {
-  width: 0
-}
-
-.proj_cont {
-  /*box-shadow: 5px 5px 2px #222222;*/
 }
 
 .desc {

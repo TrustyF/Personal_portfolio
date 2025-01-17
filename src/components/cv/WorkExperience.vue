@@ -12,12 +12,20 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
     <div class="cv_cont">
       <h1 style="color: white;padding-left:15px">Experience</h1>
       <company-container :data="{
+      title:'Senior FX Artist',
+      name:'Atomic Cartoons',
+      img:'atomic',
+      link:'https://www.linkedin.com/company/atomiccartoons/',
+      date:'2024 - Present'
+    }"/>
+      <company-container :data="{
       title:'3D Generalist',
       name:'Dgenz',
       img:'dgenz',
       link:'https://www.linkedin.com/company/dgenz/',
       desc:'3D modelling, animation, simulation and rendering of commercial products into live-action footage',
-      date:'2024 - Present',
+      date:'2024',
+      time:'5 mos',
       projects:['tommy_clothes'],
     }"/>
       <company-container :data="{

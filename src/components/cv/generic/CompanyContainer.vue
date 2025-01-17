@@ -47,7 +47,7 @@ let articles = computed(() => {
           </div>
         </div>
 
-        <h2 class="desc">{{ data['desc'] }}</h2>
+        <h2 class="desc" v-show="data['desc']">{{ data['desc'] }}</h2>
 
         <div v-if="data['projects']" style="display:flex;flex-flow: column; gap: 20px;  align-items: flex-start;">
           <project-container-horizontal v-show="is_mobile<2"
@@ -66,8 +66,6 @@ let articles = computed(() => {
         </div>
 
       </div>
-
-<!--      <div v-if="is_mobile<2" class="filler"></div>-->
 
     </div>
   </div>

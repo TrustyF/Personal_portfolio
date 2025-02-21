@@ -1,5 +1,25 @@
 [
   {
+    "title": "Houdini_icons",
+    "folder": "houdini_icons",
+    "desc": "Developing webapp to streamline icon-finding when making HDAs",
+    "created": "15/01/2025",
+    "type": "personal",
+    "scale": "solo",
+    "software": ["vue.js", "javascript", "mySQL", "python", "git"],
+    "category": ["code"]
+  },
+  {
+    "title": "clarins_ad",
+    "folder": "clarins_masc",
+    "desc": "Integrating 3D product renders in live-action footage for viral Instagram marketing.",
+    "created": "23/07/2024",
+    "type": "freelance",
+    "scale": "solo",
+    "software": ["houdini", "blender", "after_effects", "syntheyes"],
+    "category": ["generalist", "fx"]
+  },
+  {
     "title": "hilfiger_ads",
     "folder": "tommy_clothes",
     "desc": "Integrating 3D product renders in live-action footage for viral Instagram marketing.",

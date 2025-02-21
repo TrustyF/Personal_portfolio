@@ -26,7 +26,7 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
       desc:'3D modelling, animation, simulation and rendering of commercial products into live-action footage',
       date:'2024',
       time:'5 mos',
-      projects:['tommy_clothes'],
+      projects:['tommy_clothes','clarins_masc'],
     }"/>
       <company-container :data="{
       title:'FX Artist',

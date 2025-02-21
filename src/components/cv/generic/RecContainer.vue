@@ -99,6 +99,7 @@ h1 {
 
 h2 {
   font-size: 0.8em;
+  line-height: 1.2;
 }
 
 </style>

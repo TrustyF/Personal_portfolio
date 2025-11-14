@@ -1,5 +1,16 @@
 [
   {
+    "title": "LEGO_star_wars",
+    "folder": "pieces_of_the_past",
+    "desc": "Large scale RBD destruction, fluid, pyro simulations and pipeline tools development",
+    "created": "14/11/2025",
+    "duration": "9 mos",
+    "type": "tv_show",
+    "scale": "production",
+    "software": ["houdini", "python"],
+    "category": ["fx"]
+  },
+  {
     "title": "Houdini_icons",
     "folder": "houdini_icons",
     "desc": "Developing webapp to streamline icon-finding when making HDAs",
@@ -62,8 +73,8 @@
   "created": "19/04/2023",
   "type": "short_film",
   "scale": "mid_sized",
-  "software": ["houdini", "blender","after_effects"],
-  "category": ["generalist","fx"]
+  "software": ["houdini", "blender", "after_effects"],
+  "category": ["generalist", "fx"]
 }, {
   "title": "the_abyss",
   "folder": "abyss",

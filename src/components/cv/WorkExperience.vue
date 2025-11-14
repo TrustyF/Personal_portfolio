@@ -16,7 +16,9 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
       name:'Atomic Cartoons',
       img:'atomic',
       link:'https://www.linkedin.com/company/atomiccartoons/',
-      date:'2024 - Present'
+      desc:'Large scale RBD, fluids, pyro and python tooling',
+      date:'2024 - Present',
+      projects:['pieces_of_the_past'],
     }"/>
       <company-container :data="{
       title:'3D Generalist',
@@ -64,7 +66,7 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
     }"/>
     </div>
   </div>
-<!--  <div class="footer"></div>-->
+  <!--  <div class="footer"></div>-->
 </template>
 
 <style scoped>
@@ -92,6 +94,7 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
 .footer {
   height: 100px;
 }
+
 h1 {
   font-size: 1.5em;
   text-decoration: underline #484848;

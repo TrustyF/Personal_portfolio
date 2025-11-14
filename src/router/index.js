@@ -3,8 +3,6 @@ import ReelView from '../views/ReelView.vue'
 import index from '/src/project_pages/index.json'
 import {log_event} from "@/scripts/log_events.js";
 
-import CurriculumView from "@/views/CurriculumView.vue";
-
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     scrollBehavior(to, from, savedPosition) {

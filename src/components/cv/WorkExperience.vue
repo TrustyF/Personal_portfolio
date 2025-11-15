@@ -18,7 +18,7 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
       link:'https://www.linkedin.com/company/atomiccartoons/',
       desc:'Large scale RBD, fluids, pyro and python tooling',
       date:'2024 - Present',
-      projects:['pieces_of_the_past'],
+      projects:['pieces_of_the_past','strange_tails'],
     }"/>
       <company-container :data="{
       title:'3D Generalist',

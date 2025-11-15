@@ -1,4 +1,14 @@
 [
+    {
+    "title": "LEGO_Avengers_strange_tails",
+    "folder": "strange_tails",
+    "desc": "RBD destruction and pyro simulations",
+    "created": "15/11/2025",
+    "type": "tv_show",
+    "scale": "production",
+    "software": ["houdini"],
+    "category": ["fx"]
+  },
   {
     "title": "LEGO_star_wars",
     "folder": "pieces_of_the_past",

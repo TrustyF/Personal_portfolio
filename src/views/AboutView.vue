@@ -1,10 +1,9 @@
 <script setup>
-import {inject, onMounted, watch, ref, computed, onBeforeMount} from "vue";
-import profile from '../assets/people_icons/arthur_s.webp'
-import location from '../assets/software_icons/location.webp'
-import envelope from '../assets/software_icons/envelope.webp'
-import linkedin from '../assets/software_icons/linkedin.webp'
-import github from '../assets/software_icons/github.webp'
+import profile from '/assets/people_icons/arthur_s.webp'
+import location from '/assets/software_icons/location.webp'
+import envelope from '/assets/software_icons/envelope.webp'
+import linkedin from '/assets/software_icons/linkedin.webp'
+import github from '/assets/software_icons/github.webp'
 import {openNewTab} from "@/scripts/helpers.js";
 
 let props = defineProps({

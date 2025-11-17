@@ -9,10 +9,8 @@ let props = defineProps({
 });
 
 let proj_name = 'trusty_corner'
+const img_path = `/assets/project_images/${proj_name}/`
 
-function get_image(path) {
-  return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${proj_name}%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
-}
 
 </script>
 
@@ -25,7 +23,7 @@ function get_image(path) {
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(1, 1fr);gap: 0">
-          <img :src="get_image('readme_screen_2.jpg')" class="grid_image" alt="">
+          <img :src="img_path + 'readme_screen_2.jpg'" class="grid_image" alt="">
         </div>
       </div>
 
@@ -45,7 +43,7 @@ function get_image(path) {
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(1, 1fr);gap: 0">
-          <img :src="get_image('rating_info.jpg')" class="grid_image" alt="">
+          <img :src="img_path + 'rating_info.jpg'" class="grid_image" alt="">
         </div>
       </div>
 
@@ -65,7 +63,7 @@ function get_image(path) {
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(1, 1fr);gap: 0">
-          <img :src="get_image('tags_info.jpg')" class="grid_image" alt="">
+          <img :src="img_path + 'tags_info.jpg'" class="grid_image" alt="">
         </div>
       </div>
 
@@ -87,7 +85,7 @@ function get_image(path) {
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(1, 1fr);gap: 0">
-          <img :src="get_image('search_info.jpg')" class="grid_image" alt="">
+          <img :src="img_path + 'search_info.jpg'" class="grid_image" alt="">
         </div>
       </div>
 
@@ -113,7 +111,7 @@ function get_image(path) {
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(1, 1fr);gap: 0">
-          <img :src="get_image('readme_screen_3.jpg')" class="grid_image" alt="">
+          <img :src="img_path + 'readme_screen_3.jpg'" class="grid_image" alt="">
         </div>
       </div>
 

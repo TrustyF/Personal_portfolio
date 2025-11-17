@@ -1,7 +1,6 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed} from "vue";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
-import index from "@/project_pages/index.json"
 import {useRouter} from "vue-router";
 import OutdatedTag from "@/components/generic/OutdatedTag.vue";
 
@@ -24,8 +23,7 @@ let props = defineProps({
 
 let thumb_loaded = ref(false)
 let thumb_path = computed(() => {
-  let data = props.data
-  return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${props.data['folder']}%2Fthumb.webp?alt=media&token=a2f6eba9-92db-4b11-8a37-3897350a93e2`
+  return `/assets/project_images/${props.data['folder']}/thumb.webp`
 })
 
 function push_project(){
@@ -40,7 +38,8 @@ function push_project(){
   <div class="project_container" @click="push_project">
 
     <div :class="`cover ${data['outdated'] ? 'faded':''}`">
-      <img :src="thumb_path" alt="" rel="preload" class="thumb" v-show="thumb_loaded" @load="thumb_loaded=true">
+      <img :src="thumb_path" alt="" rel="preload" class="thumb" fetchpriority="high"
+           v-show="thumb_loaded" @load="thumb_loaded=true">
     </div>
 
     <div class="underlay" v-show="!minimal">
@@ -161,15 +160,17 @@ function push_project(){
 
 h1 {
   font-size: 1.2em;
-  line-height: 1;
+  line-height: 1.2;
   display: flex;
   flex-flow: column;
   justify-content: center;
   flex: 0 0 auto;
   color: white;
   text-transform: uppercase;
-  white-space: nowrap;
-  text-shadow: black 1px 1px 2px, black 1px 1px 2px, black 0 0 2px;
+  white-space: wrap;
+  text-shadow: rgba(0, 0, 0, 0.75) 1px 1px 4px,
+  rgba(0, 0, 0, 0.55) 1px 1px 4px,
+  rgba(0, 0, 0, 0.55) 0 0 4px;
 }
 
 .proj_cont_desc {

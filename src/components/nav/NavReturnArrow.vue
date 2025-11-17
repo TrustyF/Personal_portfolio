@@ -1,6 +1,5 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
-import arrow from "/src/assets/icons/arrow-left-circle-fill.svg"
 import NavArrow from "@/components/nav/NavArrow.vue";
 import {useRouter} from "vue-router";
 import {log_event} from "@/scripts/log_events.js";

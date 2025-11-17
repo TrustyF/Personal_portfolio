@@ -114,17 +114,17 @@ function set_filter_from_url() {
 }
 
 onMounted(() => {
-  calc_container_size()
-  calc_feed_height()
+  // calc_container_size()
+  // calc_feed_height()
 
-  addEventListener('resize', calc_container_size)
-  addEventListener('resize', calc_feed_height)
+  // addEventListener('resize', calc_container_size)
+  // addEventListener('resize', calc_feed_height)
 
-  set_filter_from_url()
+  // set_filter_from_url()
 })
 onUnmounted(() => {
-  removeEventListener('resize', calc_container_size)
-  removeEventListener('resize', calc_feed_height)
+  // removeEventListener('resize', calc_container_size)
+  // removeEventListener('resize', calc_feed_height)
 })
 
 </script>

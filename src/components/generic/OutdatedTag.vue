@@ -1,6 +1,5 @@
 <script setup>
-import {inject, onMounted, watch, ref, computed} from "vue";
-import archived from '/src/assets/icons/archived.webp'
+import archived from '/assets/icons/archived.webp'
 
 </script>
 

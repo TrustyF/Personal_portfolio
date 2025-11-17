@@ -38,7 +38,7 @@ let box_gap = computed(() => `${props.gap}px`)
 let font_height = computed(() => `${props.font_size}em`)
 
 
-let logo = computed(() => new URL(`/src/assets/software_icons/${props.name}.webp`, import.meta.url))
+let logo = computed(() => `/assets/software_icons/${props.name}.webp`)
 let loaded = ref(false)
 
 </script>

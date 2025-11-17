@@ -13,7 +13,7 @@ let props = defineProps({
 });
 
 function getImg(name) {
-  return new URL(`/src/assets/people_icons/${name}.webp`, import.meta.url)
+  return `/assets/people_icons/${name}.webp`
 }
 
 </script>

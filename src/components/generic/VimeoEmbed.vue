@@ -48,7 +48,7 @@ onMounted(() => {
 
 <template>
 
-  <div v-if="vimeo" :id="id" style="padding:56.25% 0 0 0;position:relative;">
+  <div v-if="vimeo" :id="id" class="video_frame">
     <iframe id="vimeo_player" :src="`https://player.vimeo.com/video/${id}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp
     ;autopause=0&amp;mute=${muted};player_id=0&amp;app_id=58479`"
             style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" loading="lazy"
@@ -58,4 +58,10 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.video_frame {
+  padding: 56.25% 0 0 0;
+  position: relative;
+  animation: fadein 1s;
+  /*transition: 500ms ease;*/
+}
 </style>

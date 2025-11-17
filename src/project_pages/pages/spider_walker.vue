@@ -11,10 +11,6 @@ let props = defineProps({
 
 let proj_name = 'spider_walker'
 
-function get_image(path) {
-  return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${proj_name}%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
-}
-
 </script>
 
 <template>

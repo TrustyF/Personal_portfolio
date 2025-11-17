@@ -10,10 +10,8 @@ let props = defineProps({
 });
 
 let proj_name = 'tommy_clothes'
+const img_path = `/assets/project_images/${proj_name}/`
 
-function get_image(path) {
-  return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/tommy_clothes%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
-}
 
 </script>
 
@@ -33,7 +31,7 @@ function get_image(path) {
         <div style="display: flex;flex-flow: column">
           <iframe frameborder="0" src="https://www.instagram.com/p/C9SPRlaIJsr/embed"
                   scrolling="no"/>
-          <img :src="get_image('tommy_post.webp')" class="grid_image" style="margin-top: 30px" alt="">
+          <img :src="img_path + 'tommy_post.webp'" class="grid_image" style="margin-top: 30px" alt="">
         </div>
         <h5 style="text-align: center;padding-top: 10px">Topped 9.3M views, a record for the account</h5>
       </div>

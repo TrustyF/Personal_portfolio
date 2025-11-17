@@ -12,10 +12,8 @@ let props = defineProps({
 });
 
 let proj_name = 'shrine_sculpt'
+const img_path = `/assets/project_images/${proj_name}/`
 
-function get_image(path) {
-  return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${proj_name}%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
-}
 
 </script>
 
@@ -31,7 +29,7 @@ function get_image(path) {
 
 
       <div class="single_image">
-        <img :src="get_image('arthur-sirjacobs-maeve-broadbin-fishshop.jpeg')" class="grid_image" alt="">
+        <img :src="img_path + 'arthur-sirjacobs-maeve-broadbin-fishshop.jpeg'" class="grid_image" alt="">
         <h5>based on "Little Shrine" by <a href="https://www.artstation.com/drawmaevedraw" target="_blank">Maeve B</a>
         </h5>
       </div>

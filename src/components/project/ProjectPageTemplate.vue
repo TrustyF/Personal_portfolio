@@ -51,7 +51,7 @@ function test_images_loaded() {
 }
 
 function handle_back_arrow_click() {
-  log_event('return_arrow','nav')
+  log_event('return_arrow', 'nav')
   router.go(-1)
 }
 
@@ -196,7 +196,7 @@ onUnmounted(() => {
   width: 130px;
   object-fit: cover;
   border-radius: 5px;
-  cursor: pointer;
+  /*cursor: pointer;*/
   user-select: none;
 }
 

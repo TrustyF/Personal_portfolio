@@ -14,7 +14,7 @@ let props = defineProps({
 let is_mobile = inject('is_mobile')
 
 function getImg(name) {
-  return new URL(`/src/assets/company_icons/${name}.webp`, import.meta.url)
+  return`/assets/company_icons/${name}.webp`
 }
 
 let articles = computed(() => {

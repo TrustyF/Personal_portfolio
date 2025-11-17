@@ -9,10 +9,7 @@ let props = defineProps({
 });
 
 let proj_name = 'houdini_icons'
-
-function get_image(path) {
-  return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${proj_name}%2F${path}?alt=media&token=34218f81-850f-42f4-bd7e-6c95e9eee724`
-}
+const img_path = `/assets/project_images/${proj_name}/`
 
 </script>
 
@@ -25,7 +22,7 @@ function get_image(path) {
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(1, 1fr);gap: 0">
-          <img :src="get_image('banner_1.webp')" class="grid_image" alt="">
+          <img :src="img_path +'banner_1.webp'" class="grid_image" alt="">
         </div>
       </div>
 
@@ -36,7 +33,7 @@ function get_image(path) {
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(1, 1fr);gap: 0">
-          <img :src="get_image('banner_2.webp')" class="grid_image" alt="">
+          <img :src="img_path +'banner_2.webp'" class="grid_image" alt="">
         </div>
       </div>
 

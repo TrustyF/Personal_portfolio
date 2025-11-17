@@ -1,6 +1,5 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
-import arrow from "/src/assets/icons/arrow-left-circle-fill.svg"
 
 let props = defineProps({
   up: {

@@ -58,14 +58,14 @@ export async function preload(router) {
             const projectThumbnails = manifest['projects'].map(f => `/assets/project_images/${f}/thumb.webp`);
             const softwareIcons = manifest['software_icons'].map(f => `/assets/software_icons/${f}`);
             const peopleIcons = manifest['people_icons'].map(f => `/assets/people_icons/${f}`);
-            const allUrls = [...projectThumbnails, ...softwareIcons, ...peopleIcons];
+            const companyIcons = manifest['company_icons'].map(f => `/assets/company_icons/${f}`);
+            const icons = manifest['icons'].map(f => `/assets/icons/${f}`);
+            const allUrls = [...projectThumbnails, ...softwareIcons, ...peopleIcons,
+                ...companyIcons, ...icons];
 
             runChunks(allUrls, 3, (url) => {
-                const link = document.createElement('link');
-                link.rel = 'prefetch'; // thumbnails don't need high priority
-                link.as = 'image';
-                link.href = url;
-                document.head.appendChild(link);
+                const img = new Image()
+                img.src = url
             })
 
         } catch (e) {

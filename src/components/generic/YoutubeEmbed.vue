@@ -35,7 +35,7 @@ onMounted(() => {
 
 <template>
   <div class="yt_embed">
-    <iframe :id="`player-${id}`" width="640" height="390"
+    <iframe :id="`player-${id}`" width="640" height="390" loading="lazy"
             :src="`https://www.youtube.com/embed/${id}?enablejsapi=1&origin=*`"
             title="YouTube video player" frameborder="0"
             allowfullscreen style="width: 100%;height: 100%"></iframe>

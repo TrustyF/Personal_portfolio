@@ -133,7 +133,7 @@ onUnmounted(() => {
     <nav-return-arrow/>
 
     <div class="heading">
-      <img v-if="poster" class="poster" :src="poster" alt="poster">
+      <img v-if="poster" class="poster" :src="poster" alt="">
       <div class="title_container">
         <div style="gap: 10px;display: flex;flex-flow: column">
           <nav-arrow
@@ -192,7 +192,7 @@ onUnmounted(() => {
 }
 
 .poster {
-  height: 200px;
+  height: 180px;
   width: 130px;
   object-fit: cover;
   border-radius: 5px;

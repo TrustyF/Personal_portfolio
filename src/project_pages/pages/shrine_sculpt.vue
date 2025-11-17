@@ -23,7 +23,7 @@ const img_path = `/assets/project_images/${proj_name}/`
 
 
       <div class="sketchfab-embed-wrapper">
-        <iframe class="sketch_iframe" title="Little Shrine - Arthur Sirjacobs" frameborder="0" allowfullscreen width="100%"
+        <iframe class="sketch_iframe" title="Little Shrine - Arthur Sirjacobs" loading="lazy" frameborder="0" allowfullscreen width="100%"
                 src="https://sketchfab.com/models/a5589d24c8454dee874cba6528cdd8fb/embed?ui_theme=dark"></iframe>
       </div>
 

@@ -21,7 +21,7 @@ let proj_name = 'clarins_masc'
 
       <div class="single_image">
         <div style="display: grid;grid-template-columns: repeat(1,1fr)">
-          <iframe frameborder="0" src="https://www.instagram.com/p/DAkw3iOxiRa/embed"
+          <iframe frameborder="0" src="https://www.instagram.com/p/DAkw3iOxiRa/embed" loading="lazy"
                   scrolling="no"/>
 <!--          <h5 style="text-align: center;padding-top: 10px">383K views</h5>-->
         </div>

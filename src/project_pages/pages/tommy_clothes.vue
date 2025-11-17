@@ -22,7 +22,7 @@ const img_path = `/assets/project_images/${proj_name}/`
       <div class="single_image">
         <div style="display: grid;grid-template-columns: repeat(1,1fr)">
           <iframe frameborder="0" src="https://www.instagram.com/p/C50QoqjIzJf/embed"
-                  scrolling="no"/>
+                  scrolling="no" loading="lazy"/>
 <!--          <h5 style="text-align: center;padding-top: 10px">383K views</h5>-->
         </div>
       </div>
@@ -30,7 +30,7 @@ const img_path = `/assets/project_images/${proj_name}/`
       <div class="single_image">
         <div style="display: flex;flex-flow: column">
           <iframe frameborder="0" src="https://www.instagram.com/p/C9SPRlaIJsr/embed"
-                  scrolling="no"/>
+                  scrolling="no" loading="lazy"/>
           <img :src="img_path + 'tommy_post.webp'" class="grid_image" style="margin-top: 30px" alt="">
         </div>
         <h5 style="text-align: center;padding-top: 10px">Topped 9.3M views, a record for the account</h5>
@@ -39,7 +39,7 @@ const img_path = `/assets/project_images/${proj_name}/`
       <div class="single_image">
         <div style="display: grid;grid-template-columns: repeat(1,1fr)">
           <iframe frameborder="0" src="https://www.instagram.com/p/C5-adSio5T6/embed"
-                  scrolling="no"/>
+                  scrolling="no" loading="lazy"/>
 <!--          <h5 style="text-align: center;padding-top: 10px">292K views</h5>-->
         </div>
       </div>

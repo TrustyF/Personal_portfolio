@@ -32,7 +32,7 @@ let images_test_timeout
 const yt_video_list = inject('yt_video_list')
 
 function test_images_again() {
-  images_test_timeout = setTimeout(test_images_loaded, 500)
+  images_test_timeout = setTimeout(test_images_loaded, 250)
 }
 
 function test_images_loaded() {
@@ -242,7 +242,7 @@ onUnmounted(() => {
   /*-moz-animation: fadein 1s; !* Firefox < 16 *!*/
   /*-ms-animation: fadein 1s; !* Internet Explorer *!*/
   /*-o-animation: fadein 1s; !* Opera < 12.1 *!*/
-  animation: fadein 1s;
+  /*animation: fadein 1s;*/
 }
 
 .footer {

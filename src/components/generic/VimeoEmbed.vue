@@ -61,7 +61,8 @@ onMounted(() => {
 .video_frame {
   padding: 56.25% 0 0 0;
   position: relative;
-  animation: fadein 1s;
+  /*animation: fadein 1s;*/
   /*transition: 500ms ease;*/
+  background-color: black;
 }
 </style>

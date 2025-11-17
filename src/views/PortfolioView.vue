@@ -65,7 +65,7 @@ function filter_articles(arr) {
   // sorting
   filtered.sort((a, b) => convert_date(b['created']) - convert_date(a['created']))
   // sort outdated at the bottom
-  filtered.sort((a,b) => ('outdated' in a) - ('outdated' in b))
+  filtered.sort((a, b) => ('outdated' in a) - ('outdated' in b))
 
   return filtered
 }
@@ -113,19 +113,19 @@ function set_filter_from_url() {
   if (route_query.software) sel_software_filters.value = Array(route_query.software)
 }
 
-onMounted(() => {
-  // calc_container_size()
-  // calc_feed_height()
-
-  // addEventListener('resize', calc_container_size)
-  // addEventListener('resize', calc_feed_height)
-
-  // set_filter_from_url()
-})
-onUnmounted(() => {
-  // removeEventListener('resize', calc_container_size)
-  // removeEventListener('resize', calc_feed_height)
-})
+// onMounted(() => {
+//   calc_container_size()
+//   calc_feed_height()
+//
+//   addEventListener('resize', calc_container_size)
+//   addEventListener('resize', calc_feed_height)
+//
+//   set_filter_from_url()
+// })
+// onUnmounted(() => {
+//   removeEventListener('resize', calc_container_size)
+//   removeEventListener('resize', calc_feed_height)
+// })
 
 </script>
 

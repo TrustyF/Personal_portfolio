@@ -77,7 +77,7 @@ let articles = computed(() => {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  animation: fadein 0.5s;
+  /*animation: fadein 0.5s;*/
 }
 
 .logo {

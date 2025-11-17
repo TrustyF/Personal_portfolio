@@ -45,7 +45,7 @@ function getImg(name) {
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
-  animation: fadein 0.5s;
+  /*animation: fadein 0.5s;*/
   background-color: #282828;
   box-shadow: 5px 5px 10px #101010;
 

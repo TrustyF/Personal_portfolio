@@ -5,7 +5,7 @@ import {createApp} from 'vue'
 
 import axiosRetry from 'axios-retry';
 import axios from 'axios';
-
+import {preload} from "@/scripts/preloader.js";
 
 const app = createApp(App)
 
@@ -18,3 +18,5 @@ axiosRetry(axios, {
 
 app.use(router)
 app.mount('#app')
+
+preload(router).then()

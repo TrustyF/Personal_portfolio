@@ -24,8 +24,7 @@ let props = defineProps({
 
 let thumb_loaded = ref(false)
 let thumb_path = computed(() => {
-  let data = props.data
-  return `https://firebasestorage.googleapis.com/v0/b/vue-portfolio-7361b.appspot.com/o/${props.data['folder']}%2Fthumb.webp?alt=media&token=a2f6eba9-92db-4b11-8a37-3897350a93e2`
+  return `/assets/project_images/${props.data['folder']}/thumb.webp`
 })
 
 
@@ -95,7 +94,7 @@ let thumb_path = computed(() => {
   background-color: #2f2f2f;
   transition: 100ms ease;
 
-  animation: fadein 0.25s;
+  /*animation: fadein 0.25s;*/
 }
 
 .project_container:hover {
@@ -123,7 +122,7 @@ let thumb_path = computed(() => {
 
   filter: contrast(1.1);
 
-  animation: fadein 0.5s;
+  /*animation: fadein 0.5s;*/
   transition: 100ms ease;
 }
 .dimmed {

@@ -29,7 +29,11 @@ onMounted(() => {
 </script>
 <template>
   <nav-bar/>
-  <router-view/>
+  <router-view v-slot="{ Component }">
+    <KeepAlive include="ReelView,PortfolioView,CurriculumView,AboutView">
+      <component :is="Component"/>
+    </KeepAlive>
+  </router-view>
   <bottom-footer/>
 </template>
 

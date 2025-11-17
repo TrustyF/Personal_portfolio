@@ -120,7 +120,7 @@ function push_project(){
   aspect-ratio: 1;
   object-fit: cover;
   filter: contrast(1.1) brightness(1) blur(0);
-  animation: fadein 0.5s;
+  /*animation: fadein 0.5s;*/
   transition: 100ms ease;
 }
 

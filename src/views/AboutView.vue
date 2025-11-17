@@ -94,7 +94,7 @@ let props = defineProps({
   border-radius: 5%;
   object-fit: cover;
 
-  animation: fadein 0.25s;
+  /*animation: fadein 0.25s;*/
 }
 
 .info {

@@ -47,6 +47,7 @@ onMounted(() => {
   width: 100%;
   overflow: hidden;
   aspect-ratio: 16/9;
-  animation: fadein 1s;
+  background-color: black;
+  /*animation: fadein 1s;*/
 }
 </style>

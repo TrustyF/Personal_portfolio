@@ -74,8 +74,7 @@ p {
 .trusty_corner_link{
   font-size: 1.3em;
   margin-bottom: -20px;
-}
-.trusty_corner_link:visited {
   color: #00bd7e;
 }
+
 </style>

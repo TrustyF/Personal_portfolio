@@ -19,7 +19,7 @@ const img_path = `/assets/project_images/${proj_name}/`
 
     <template #content>
 
-      <a href="https://trusty-corner.me/" target="_blank" class="trusty_corner_link">trusty-corner.me</a>
+      <a href="https://vue-review-website.web.app/" target="_blank" class="trusty_corner_link">trusty-corner</a>
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(1, 1fr);gap: 0">
@@ -151,8 +151,7 @@ p {
 .trusty_corner_link{
   font-size: 1.3em;
   margin-bottom: -20px;
-}
-.trusty_corner_link:visited {
   color: #00bd7e;
+
 }
 </style>

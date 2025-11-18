@@ -30,9 +30,13 @@ let sel_type_filters = ref([])
 let software_filters = computed(() => ["houdini", "blender", "maya", "after_effects"])
 let sel_software_filters = ref([])
 
+let filtered_articles_vis = ref(false)
 let filtered_articles = computed(() => filter_articles(index));
 
 function filter_articles(arr) {
+
+  if (!filtered_articles_vis.value) return
+
   let filtered = arr
 
   //category filters
@@ -113,15 +117,17 @@ function set_filter_from_url() {
   if (route_query.software) sel_software_filters.value = Array(route_query.software)
 }
 
-// onMounted(() => {
-//   calc_container_size()
-//   calc_feed_height()
-//
-//   addEventListener('resize', calc_container_size)
-//   addEventListener('resize', calc_feed_height)
-//
-//   set_filter_from_url()
-// })
+onMounted(() => {
+  // calc_container_size()
+  // calc_feed_height()
+  //
+  // addEventListener('resize', calc_container_size)
+  // addEventListener('resize', calc_feed_height)
+
+  // do list animation
+  setTimeout(() => filtered_articles_vis.value = true, 50)
+  set_filter_from_url()
+})
 // onUnmounted(() => {
 //   removeEventListener('resize', calc_container_size)
 //   removeEventListener('resize', calc_feed_height)
@@ -133,8 +139,10 @@ function set_filter_from_url() {
   <div class="homepage_wrapper">
     <div id="feed" class="feed" v-if="is_mobile===0">
       <transition-group name="list">
-        <project-container class="setSize" v-for="(article,index) in filtered_articles" :key="article.folder+index"
-                           :title="article.folder"
+        <project-container v-for="(article,index) in filtered_articles" :key="article['folder']+index"
+                           :style="{ transitionDelay: `${index * 15}ms` }"
+                           class="project_item"
+                           :title="article['folder']"
                            :data="article"
                            :minimal="false"
         />
@@ -215,15 +223,6 @@ function set_filter_from_url() {
   margin-bottom: 100px;
 }
 
-.setSize {
-  width: v-bind(container_width);
-  height: v-bind(container_height);
-}
-
-.setFeedHeight {
-  height: v-bind(feed_height);
-}
-
 .feed {
   /*outline: 1px solid orange;*/
   position: relative;
@@ -257,18 +256,18 @@ function set_filter_from_url() {
 .list-move,
 .list-enter-active,
 .list-leave-active {
-  transition: transform 500ms ease, opacity 200ms linear;
+    transition: transform 250ms ease, opacity 150ms linear;
 }
 
 .list-enter-from,
 .list-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
+    opacity: 0;
+    transform: translateX(30px);
 }
 
 .list-leave-active {
-  display: none;
-  /*position: absolute;*/
+    display: none;
+    /*position: absolute;*/
 }
 
 

@@ -59,7 +59,8 @@ function getImg(name) {
 
 .top_cont:hover {
   background-color: hsla(160, 100%, 10%, 1);
-  transition: 100ms ease;}
+  transition: 100ms ease;
+}
 
 .logo {
   width: 70px;

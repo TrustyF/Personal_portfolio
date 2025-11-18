@@ -16,20 +16,20 @@
 
 /* css-lint-disable-next-line */
 @font-face {
-  font-family: "Work Sans";
-  src: url("/fonts/work-sans/WorkSans-VariableFont_wght.woff2") format("woff2");
-  font-weight: 100 900; /* Enables variable weight range */
-  font-style: normal;
-  font-display: swap;
+    font-family: "Work Sans";
+    src: url("/fonts/work-sans/WorkSans-VariableFont_wght.woff2") format("woff2");
+    font-weight: 100 900; /* Enables variable weight range */
+    font-style: normal;
+    font-display: swap;
 }
 
 /* Italic */
 @font-face {
-  font-family: "Work Sans";
-  src: url("/fonts/work-sans/WorkSans-Italic-VariableFont_wght.woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
+    font-family: "Work Sans";
+    src: url("/fonts/work-sans/WorkSans-Italic-VariableFont_wght.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
 }
 
 @keyframes fadein {
@@ -38,5 +38,14 @@
     }
     to {
         opacity: 1;
+    }
+}
+
+
+
+@keyframes small_list_slide {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

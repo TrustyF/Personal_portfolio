@@ -3,15 +3,49 @@ import {inject, onMounted, watch, ref, computed} from "vue";
 import CompanyContainer from "@/components/cv/generic/CompanyContainer.vue";
 import NavUpArrow from "@/components/nav/NavUpArrow.vue";
 
+const grid = ref(null)
+const slide_seen = ref(false)
+
+function add_slide_anim() {
+  console.log('add')
+  const items = grid.value.querySelectorAll('.list-item')
+  items.forEach((el, index) => {
+    el.style.opacity = 0
+    el.style.transform = `translateY(${50}px)`
+    el.style.animation = `small_list_slide ${0.5}s ease forwards`
+    el.style.animationDelay = `${((index) * 100) + 100}ms`
+    el.classList.add('small_list_slide')
+  })
+}
+
+function remove_slide() {
+  const items = grid.value.querySelectorAll('.list-item')
+  items.forEach((el, index) => {
+    el.classList.remove('small_list_slide')
+  })
+}
+
+onMounted(() => {
+  if (slide_seen.value) {
+    slide_seen.value = false
+    remove_slide()
+  }
+  if (!slide_seen.value) {
+    slide_seen.value = true
+    add_slide_anim()
+  }
+})
+
 </script>
 
 <template>
-  <div class="cv_wrapper">
+  <div class="cv_wrapper" ref="grid">
     <nav-up-arrow/>
     <div class="timeline"></div>
     <div class="cv_cont">
+      <div>{{ slide_seen }}</div>
       <h1 style="color: white;padding-left:15px">Experience</h1>
-      <company-container :data="{
+      <company-container class="list-item" :data="{
       title:'Senior FX Artist',
       name:'Atomic Cartoons',
       img:'atomic',
@@ -20,7 +54,7 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
       date:'2024 - Present',
       projects:['pieces_of_the_past','strange_tails'],
     }"/>
-      <company-container :data="{
+      <company-container class="list-item" :data="{
       title:'3D Generalist',
       name:'Dgenz',
       img:'dgenz',
@@ -30,7 +64,7 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
       time:'5 mos',
       projects:['tommy_clothes','clarins_masc'],
     }"/>
-      <company-container :data="{
+      <company-container class="list-item" :data="{
       title:'FX Artist',
       name:'UFX Studios',
       img:'ufx',
@@ -40,7 +74,7 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
       time:'2 yr',
       projects:['abyss','zweite_welle','novembre','theodosia'],
     }"/>
-      <company-container :data="{
+      <company-container class="list-item" :data="{
       title:'MoGraph Artist',
       name:'FrostPrime',
       img:'frost',
@@ -50,14 +84,14 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
       time:'4 yr',
       projects:['frost_prime'],
     }"/>
-      <company-container :data="{
+      <company-container class="list-item" :data="{
       title:'MoGraph Artist',
       img:'twitch',
       desc:'Freelance motion graphics for various twitch channels. Animated alerts and bits',
       date:'2017 - 2018',
       time:'2 yr',
     }"/>
-      <company-container :data="{
+      <company-container class="list-item" :data="{
       title:'Video Editor',
       img:'youtube',
       desc:'Freelance youtube video editor. Music reviews, gameplay videos and short films',
@@ -66,7 +100,6 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
     }"/>
     </div>
   </div>
-  <!--  <div class="footer"></div>-->
 </template>
 
 <style scoped>

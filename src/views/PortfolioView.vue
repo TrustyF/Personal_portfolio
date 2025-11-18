@@ -27,8 +27,18 @@ let type_filters = computed(() => {
   return [...new Set(index.map(x => x.type))]
 })
 let sel_type_filters = ref([])
-let software_filters = computed(() => ["houdini", "blender", "maya", "after_effects"])
+let software_filters = computed(() => ["houdini", "blender", "maya", "after_effects", "python"])
 let sel_software_filters = ref([])
+
+let filter_enabled = computed(() => {
+  let total = 0;
+  total += sel_category_filters.value.length
+  total += sel_scale_filters.value.length
+  total += sel_type_filters.value.length
+  total += sel_software_filters.value.length
+
+  return total > 0;
+})
 
 let filtered_articles_vis = ref(false)
 let filtered_articles = computed(() => filter_articles(index));
@@ -72,6 +82,13 @@ function filter_articles(arr) {
   filtered.sort((a, b) => ('outdated' in a) - ('outdated' in b))
 
   return filtered
+}
+
+function clear_filters() {
+  sel_category_filters.value = []
+  sel_scale_filters.value = []
+  sel_type_filters.value = []
+  sel_software_filters.value = []
 }
 
 let container_width = ref()
@@ -175,6 +192,11 @@ onMounted(() => {
 
     <div class="filters_container" v-if="is_mobile<2">
 
+      <div class="clear_button" :class="{'visible':filter_enabled}">
+        <p>Clear</p>
+        <div class="clear_button_hitbox" @click="clear_filters"></div>
+      </div>
+
       <div class="filter">
         <p>Project category</p>
         <project-filter-bar :base_filters="category_filters"
@@ -189,7 +211,7 @@ onMounted(() => {
         <project-filter-bar :base_filters="scale_filters"
                             :ref_filters="sel_scale_filters"
                             @selected_filters="sel_scale_filters=$event"
-                            :multi="true"
+                            :multi="false"
         />
       </div>
 
@@ -256,22 +278,59 @@ onMounted(() => {
 .list-move,
 .list-enter-active,
 .list-leave-active {
-    transition: transform 250ms ease, opacity 150ms linear;
+  transition: transform 250ms ease, opacity 150ms linear;
 }
 
 .list-enter-from,
 .list-leave-to {
-    opacity: 0;
-    transform: translateX(30px);
+  opacity: 0;
+  transform: translateX(30px);
 }
 
 .list-leave-active {
-    display: none;
-    /*position: absolute;*/
+  display: none;
+  /*position: absolute;*/
 }
 
+.clear_button {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  padding: 7px 9px 7px 9px;
+  font-size: 0.8em;
+  line-height: 1;
+  border-radius: 8px;
+  user-select: none;
+  background-color: rgba(56, 56, 56, 0.5);
+  transition: 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.clear_button:hover {
+  background-color: #267359;
+  color: white;
+}
+
+.clear_button_hitbox {
+  position: absolute;
+  /*outline: 1px solid red;*/
+  left: 50%;
+  top: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  user-select: none;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
 
 .filters_container {
+  position: relative;
   width: 250px;
   display: flex;
   flex-flow: column wrap;

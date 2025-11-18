@@ -3,39 +3,6 @@ import {inject, onMounted, watch, ref, computed} from "vue";
 import CompanyContainer from "@/components/cv/generic/CompanyContainer.vue";
 import NavUpArrow from "@/components/nav/NavUpArrow.vue";
 
-const grid = ref(null)
-const slide_seen = ref(false)
-
-function add_slide_anim() {
-  console.log('add')
-  const items = grid.value.querySelectorAll('.list-item')
-  items.forEach((el, index) => {
-    el.style.opacity = 0
-    el.style.transform = `translateY(${50}px)`
-    el.style.animation = `small_list_slide ${0.5}s ease forwards`
-    el.style.animationDelay = `${((index) * 100) + 100}ms`
-    el.classList.add('small_list_slide')
-  })
-}
-
-function remove_slide() {
-  const items = grid.value.querySelectorAll('.list-item')
-  items.forEach((el, index) => {
-    el.classList.remove('small_list_slide')
-  })
-}
-
-onMounted(() => {
-  if (slide_seen.value) {
-    slide_seen.value = false
-    remove_slide()
-  }
-  if (!slide_seen.value) {
-    slide_seen.value = true
-    add_slide_anim()
-  }
-})
-
 </script>
 
 <template>
@@ -43,7 +10,6 @@ onMounted(() => {
     <nav-up-arrow/>
     <div class="timeline"></div>
     <div class="cv_cont">
-      <div>{{ slide_seen }}</div>
       <h1 style="color: white;padding-left:15px">Experience</h1>
       <company-container class="list-item" :data="{
       title:'Senior FX Artist',

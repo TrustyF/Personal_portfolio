@@ -16,19 +16,22 @@ const runIdle = (fn) => {
 }
 
 function runChunks(items, chunkSize, fn) {
+    return new Promise(resolve => {
+        let chunks = chunkArray(items, chunkSize)
+        let i = 0;
 
-    let chunks = chunkArray(items, chunkSize)
+        const processNextChunk = () => {
+            if (i >= chunks.length) {
+                resolve()
+                return;
+            }
 
-    let i = 0;
-
-    const processNextChunk = () => {
-        if (i >= chunks.length) return;
-        chunks[i].forEach(fn); // call your processing function on each item
-        i++;
+            chunks[i].forEach(fn); // call your processing function on each item
+            i++;
+            runIdle(processNextChunk);
+        };
         runIdle(processNextChunk);
-    };
-
-    runIdle(processNextChunk);
+    })
 }
 
 export async function preload(router) {
@@ -38,15 +41,23 @@ export async function preload(router) {
 
     const preload_routes = () => {
 
-        const routes = router.getRoutes()
+        const routes = router.options.routes
 
-        runChunks(routes, 2, (r) => {
-            if (typeof r.component === 'function') r.component();
-
-            r.children?.forEach(child => {
-                if (typeof child.component === 'function') child.component();
+        function load_route(route) {
+            if (typeof route.component === 'function') route.component();
+            if (route.components) Object.values(route.components).forEach((comp) => {
+                if (typeof comp === 'function') comp()
             });
-        })
+        }
+
+        // load top-level routes then children
+        runChunks(routes, 2, (route) => load_route(route))
+            .then(() => {
+                routes.forEach((r) => {
+                    const children = r.children
+                    if (children) runChunks(children, 2, (route) => load_route(route))
+                })
+            })
     }
 
     const preload_thumbnails = async () => {

@@ -26,6 +26,7 @@ const router = createRouter({
                     path: '',
                     name: 'portfolio',
                     component: () => import('../views/PortfolioView.vue')
+                        .catch(() => import('../views/NotFoundView.vue'))
                 }
             ]
         },
@@ -33,11 +34,15 @@ const router = createRouter({
             path: '/cv',
             name: 'cv',
             component: () => import('../views/CurriculumView.vue')
+                .catch(() => import('../views/NotFoundView.vue'))
+
         },
         {
             path: '/about',
             name: 'about',
             component: () => import('../views/AboutView.vue')
+                .catch(() => import('../views/NotFoundView.vue'))
+
         },
         {
             path: '/:pathMatch(.*)',

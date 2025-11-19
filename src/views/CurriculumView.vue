@@ -16,16 +16,18 @@ let props = defineProps({
 </script>
 
 <template>
-  <div class="cv_view_wrapper">
-    <div style="display: flex;flex-flow: column nowrap;gap: 50px">
-      <education/>
-      <langues/>
-      <softwares/>
-      <recommendations/>
+  <div>
+    <div class="cv_view_wrapper">
+      <div style="display: flex;flex-flow: column nowrap;gap: 50px">
+        <education/>
+        <langues/>
+        <softwares/>
+        <recommendations/>
+      </div>
+      <work-experience/>
     </div>
-    <work-experience/>
+    <div class="footer"></div>
   </div>
-  <div class="footer"></div>
 </template>
 
 <style scoped>
@@ -40,6 +42,7 @@ let props = defineProps({
 .footer {
   height: 100px;
 }
+
 @media only screen and (max-width: 1000px) {
   .cv_view_wrapper {
     display: flex;

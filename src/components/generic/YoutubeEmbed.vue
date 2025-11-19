@@ -24,6 +24,7 @@ let props = defineProps({
 const yt_video_list = inject('yt_video_list')
 
 function add_to_list(){
+  if (!yt_video_list) return
   yt_video_list.value.push(`player-${props.id}`)
 }
 

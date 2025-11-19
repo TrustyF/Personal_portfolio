@@ -15,55 +15,57 @@ let props = defineProps({
 </script>
 
 <template>
-  <div class="about_cont">
+  <div>
+    <div class="about_cont">
 
-    <div class="personal">
-      <img :src="profile" alt="profile" class="prof_pic" rel="preload">
+      <div class="personal">
+        <img :src="profile" alt="profile" class="prof_pic" rel="preload">
 
-      <div class="info">
-        <h1 style="color: white;font-size: 2em">Arthur Sirjacobs</h1>
-        <h2>Houdini FX Artist</h2>
+        <div class="info">
+          <h1 style="color: white;font-size: 2em">Arthur Sirjacobs</h1>
+          <h2>Houdini FX Artist</h2>
 
-        <div style="display: flex;gap: 5px;align-items: center;margin-top: 20px">
-          <img style="width: 15px;opacity: 50%" :src="location" alt="location" rel="preload">
-          <h2 style="font-size: 0.8em;transform: translate(0,-1px)">Vancouver BC - Canada</h2>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="contact" style="max-width: 1000px;">
-      <h1 style="color: white;font-size: 1.3em;">About</h1>
-      <div class="contact_links" style="line-height: 1.5">
-        Creative tech artist focused on simulations and procedural tools development. Strong background
-        in film production and visual effects. Looking to be part of, and learn more about the professional
-        pipeline and related fields. Interested in new technologies and their practical applications.
-      </div>
-    </div>
-
-    <div class="contact">
-      <h1 style="color: white;font-size: 1.3em;">Contact</h1>
-      <div class="contact_links">
-
-        <div class="contact_cont" style="cursor: text">
-          <img :src="envelope" alt="envelope" style="width: 15px" rel="preload">
-          <h2>sirjacobs.arthur@gmail.com</h2>
-        </div>
-
-        <div class="contact_cont" @click="openNewTab('https://www.linkedin.com/in/arthur-sirjacobs/')">
-          <img :src="linkedin" alt="linkedin" style="width: 15px" rel="preload">
-          <h2>LinkedIn</h2>
-        </div>
-
-        <div class="contact_cont" @click="openNewTab('https://github.com/TrustyF')">
-          <img :src="github" alt="github" style="width: 15px" rel="preload">
-          <h2>Github</h2>
+          <div style="display: flex;gap: 5px;align-items: center;margin-top: 20px">
+            <img style="width: 15px;opacity: 50%" :src="location" alt="location" rel="preload">
+            <h2 style="font-size: 0.8em;transform: translate(0,-1px)">Vancouver BC - Canada</h2>
+          </div>
         </div>
 
       </div>
+
+      <div class="contact" style="max-width: 1000px;">
+        <h1 style="color: white;font-size: 1.3em;">About</h1>
+        <div class="contact_links" style="line-height: 1.5">
+          Creative tech artist focused on simulations and procedural tools development. Strong background
+          in film production and visual effects. Looking to be part of, and learn more about the professional
+          pipeline and related fields. Interested in new technologies and their practical applications.
+        </div>
+      </div>
+
+      <div class="contact">
+        <h1 style="color: white;font-size: 1.3em;">Contact</h1>
+        <div class="contact_links">
+
+          <div class="contact_cont" style="cursor: text">
+            <img :src="envelope" alt="envelope" style="width: 15px" rel="preload">
+            <h2>sirjacobs.arthur@gmail.com</h2>
+          </div>
+
+          <div class="contact_cont" @click="openNewTab('https://www.linkedin.com/in/arthur-sirjacobs/')">
+            <img :src="linkedin" alt="linkedin" style="width: 15px" rel="preload">
+            <h2>LinkedIn</h2>
+          </div>
+
+          <div class="contact_cont" @click="openNewTab('https://github.com/TrustyF')">
+            <img :src="github" alt="github" style="width: 15px" rel="preload">
+            <h2>Github</h2>
+          </div>
+
+        </div>
+      </div>
     </div>
+    <div style="height: 70px"></div>
   </div>
-  <div style="height: 70px"></div>
 </template>
 
 <style scoped>

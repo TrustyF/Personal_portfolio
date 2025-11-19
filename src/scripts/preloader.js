@@ -1,4 +1,6 @@
 // preload routes
+import {createVNode, render} from "vue";
+
 function chunkArray(array, chunkSize) {
     const chunks = [];
     for (let i = 0; i < array.length; i += chunkSize) {
@@ -36,7 +38,13 @@ function runChunks(items, chunkSize, fn) {
 
 export async function preload(router) {
     await router.isReady()
-    await new Promise(resolve => window.addEventListener('load', resolve));
+    await new Promise(resolve => {
+        if (document.readyState === 'complete') {
+            resolve();
+        } else {
+            window.addEventListener('load', resolve, {once: true});
+        }
+    });
     await new Promise(requestAnimationFrame);
 
     const preload_routes = () => {
@@ -89,3 +97,47 @@ export async function preload(router) {
 }
 
 
+export async function preload_article(router, article) {
+    await router.isReady()
+    await new Promise(resolve => {
+        if (document.readyState === 'complete') {
+            resolve();
+        } else {
+            window.addEventListener('load', resolve, {once: true});
+        }
+    });
+    await new Promise(requestAnimationFrame);
+
+    const preload_article = async () => {
+        const resolved = router.resolve('/portfolio/' + article);
+
+        const record = resolved.matched[resolved.matched.length - 1];
+        const component = record.components.default;
+
+        let compLoader = component;
+        if (typeof component === 'function') {
+            compLoader = await component(); // async import
+            compLoader = compLoader.default;
+        }
+
+        // Create a hidden DOM container
+        const container = document.createElement('div');
+        container.style.cssText = "position:absolute; left:-99999px; top:-99999px; visibility:hidden;";
+        document.body.appendChild(container);
+
+        // Create and mount the VNode
+        const vnode = createVNode(compLoader, resolved.params);
+        render(vnode, container);
+
+        // Give Vue a tick to finish rendering
+        await Promise.resolve();
+
+        // OPTIONAL: unmount after rendering
+        render(null, container);
+        container.remove();
+
+        return true;
+    }
+
+    runIdle(preload_article)
+}

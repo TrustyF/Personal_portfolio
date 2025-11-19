@@ -81,7 +81,7 @@ function connect_yt_players() {
   document.body.appendChild(tag);
 
   window.onYouTubeIframeAPIReady = () => {
-
+    if (!yt_video_list) return
     for (const i in yt_video_list.value) {
       let player = new window.YT.Player(yt_video_list.value[i], {
         events: {

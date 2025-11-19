@@ -7,7 +7,7 @@
     "dev": "vite",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "build-manifest": "node generate-manifest.js",
+    "build-manifest": "node build-manifest.js",
     "build": "npm run build-manifest && vite build"
   },
   "dependencies": {

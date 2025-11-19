@@ -3,20 +3,33 @@ import ReelView from '../views/ReelView.vue'
 import index from '/src/project_pages/index.json'
 import {log_event} from "@/scripts/log_events.js";
 
+let resolveScrollPromise = null;
+
+export function notifyPageVisible() {
+    if (resolveScrollPromise) {
+        resolveScrollPromise();
+        resolveScrollPromise = null;
+    }
+}
+
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
+
     scrollBehavior(to, from, savedPosition) {
-        if (savedPosition) {
-            return savedPosition
-        } else {
-            return {top: 0}
-        }
+        return new Promise(resolve => {
+            resolveScrollPromise = () => {
+                if (savedPosition) resolve(savedPosition);
+                else resolve({top: 0});
+            };
+        });
     },
+
     routes: [
         {
             path: '/',
             name: 'reel',
-            component: ReelView
+            component: ReelView,
+            meta: {order: 0},
         },
         {
             path: '/portfolio',
@@ -26,7 +39,9 @@ const router = createRouter({
                     path: '',
                     name: 'portfolio',
                     component: () => import('../views/PortfolioView.vue')
-                        .catch(() => import('../views/NotFoundView.vue'))
+                        .catch(() => import('../views/NotFoundView.vue')),
+                    meta: {order: 1},
+
                 }
             ]
         },
@@ -34,20 +49,24 @@ const router = createRouter({
             path: '/cv',
             name: 'cv',
             component: () => import('../views/CurriculumView.vue')
-                .catch(() => import('../views/NotFoundView.vue'))
+                .catch(() => import('../views/NotFoundView.vue')),
+            meta: {order: 2},
+
 
         },
         {
             path: '/about',
             name: 'about',
             component: () => import('../views/AboutView.vue')
-                .catch(() => import('../views/NotFoundView.vue'))
+                .catch(() => import('../views/NotFoundView.vue')),
+            meta: {order: 3},
+
 
         },
         {
             path: '/:pathMatch(.*)',
             name: 'not found',
-            component: () => import('../views/NotFoundView.vue')
+            component: () => import('../views/NotFoundView.vue'),
         }
     ]
 })

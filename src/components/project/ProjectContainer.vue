@@ -3,6 +3,7 @@ import {inject, onMounted, watch, ref, computed} from "vue";
 import SoftwareTag from "@/components/project/SoftwareTag.vue";
 import {useRouter} from "vue-router";
 import OutdatedTag from "@/components/generic/OutdatedTag.vue";
+import {preload_article} from "@/scripts/preloader.js";
 
 let router = useRouter()
 
@@ -26,16 +27,19 @@ let thumb_path = computed(() => {
   return `/assets/project_images/${props.data['folder']}/thumb.webp`
 })
 
-function push_project(){
-  // console.log('pushing',props.data['folder'])
+function push_project() {
   router.push(`portfolio/${props.data['folder']}`)
+}
+
+function preload_project() {
+  // preload_article(router, props.data['folder'])
 }
 
 
 </script>
 
 <template>
-  <div class="project_container" @click="push_project">
+  <div class="project_container" @click="push_project" @mouseenter="preload_project">
 
     <div :class="`cover ${data['outdated'] ? 'faded':''}`">
       <img :src="thumb_path" alt="" rel="preload" class="thumb" fetchpriority="high"
@@ -61,16 +65,16 @@ function push_project(){
                       :img_size="11"
                       bg_color="#494949"
         />
-<!--        <software-tag :name="data['category'].slice(0,1)"-->
-<!--                      :title="false"-->
-<!--                      padding="6"-->
-<!--                      gap="3"-->
-<!--                      font_size="0.7"-->
-<!--                      img_size="11"-->
-<!--                      bg_color="#494949"-->
-<!--        />-->
+        <!--        <software-tag :name="data['category'].slice(0,1)"-->
+        <!--                      :title="false"-->
+        <!--                      padding="6"-->
+        <!--                      gap="3"-->
+        <!--                      font_size="0.7"-->
+        <!--                      img_size="11"-->
+        <!--                      bg_color="#494949"-->
+        <!--        />-->
       </div>
-<!--      <div class="proj_cont_desc"> {{ data['desc'] }}</div>-->
+      <!--      <div class="proj_cont_desc"> {{ data['desc'] }}</div>-->
     </div>
 
     <div class="underlay_shadow"></div>
@@ -100,6 +104,7 @@ function push_project(){
   visibility: visible;
   transform: translate(0);
 }
+
 .project_container:hover .underlay_shadow {
   opacity: 1;
   visibility: visible;
@@ -109,6 +114,7 @@ function push_project(){
   position: relative;
   aspect-ratio: 1;
 }
+
 .faded {
   opacity: 0.25;
 }
@@ -148,6 +154,7 @@ function push_project(){
   visibility: hidden;
   transform: translate(-10px);
 }
+
 .underlay_shadow {
   position: absolute;
   width: 100%;

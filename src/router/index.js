@@ -1,7 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import ReelView from '../views/ReelView.vue'
 import index from '/src/project_pages/index.json'
-import {log_event} from "@/scripts/log_events.js";
 
 let resolveScrollPromise = null;
 
@@ -69,11 +68,6 @@ const router = createRouter({
             component: () => import('../views/NotFoundView.vue'),
         }
     ]
-})
-
-router.beforeEach((to, from) => {
-    // track page changes
-    log_event('page_nav', 'nav', to.name)
 })
 
 

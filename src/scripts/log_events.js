@@ -1,5 +1,5 @@
-import axios from "axios";
-import {session_seed, geo_location} from "@/scripts/session.js";
+import {axios} from "@bundled-es-modules/axios";
+import {geo_location, get_session_seed} from "@/scripts/session.js";
 
 let local_url = 'http://192.168.1.11:5000'
 let server_url = 'https://analytics-trustyfox.pythonanywhere.com'
@@ -15,7 +15,7 @@ export async function log_event(name, type, info = null) {
         source: project,
         type: String(type),
         info: String(info),
-        uid: session_seed,
+        uid: get_session_seed(),
         geo: await geo_location,
         timestamp: Date.now()
     }
@@ -38,7 +38,7 @@ export async function ping_user_leave() {
 
     let params = {
         source: project,
-        uid: session_seed,
+        uid: get_session_seed(),
         geo: await geo_location,
         timestamp: Date.now()
     }

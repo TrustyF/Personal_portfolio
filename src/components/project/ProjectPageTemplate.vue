@@ -7,7 +7,6 @@ import NavReturnArrow from "@/components/nav/NavReturnArrow.vue";
 import NavArrow from "@/components/nav/NavArrow.vue";
 import NavUpArrow from "@/components/nav/NavUpArrow.vue";
 import {useRouter} from "vue-router";
-import {log_event} from "@/scripts/log_events.js";
 
 let router = useRouter()
 
@@ -51,7 +50,6 @@ function test_images_loaded() {
 }
 
 function handle_back_arrow_click() {
-  log_event('return_arrow', 'nav')
   router.go(-1)
 }
 
@@ -86,7 +84,6 @@ function connect_yt_players() {
       let player = new window.YT.Player(yt_video_list.value[i], {
         events: {
           'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
         }
       });
     }
@@ -96,11 +93,6 @@ function connect_yt_players() {
 function onPlayerReady(event) {
 }
 
-function onPlayerStateChange(event) {
-  if (event.data === 3) log_event('youtube_play', 'vid', event.target.videoTitle)
-  if (event.data === 2) log_event('youtube_pause', 'vid', event.target.getCurrentTime())
-  if (event.data === 0) log_event('youtube_end', 'vid', event.target.getDuration())
-}
 
 
 let index_data = computed(() => {

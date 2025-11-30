@@ -1,7 +1,6 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
 import NavArrow from "@/components/nav/NavArrow.vue";
-import {log_event} from "@/scripts/log_events.js";
 
 let back_arrow_vis = ref(false)
 
@@ -19,7 +18,6 @@ function scrollTop() {
 }
 
 function handle_click() {
-  log_event('up_arrow', 'nav')
   scrollTop()
 }
 

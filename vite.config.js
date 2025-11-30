@@ -10,7 +10,11 @@ export default defineConfig({
         vue(),
         compression(),
     ],
-    optimizeDeps: {esbuildOptions: {target: "ES2022"}},
+    optimizeDeps: {
+        esbuildOptions: {target: "ES2022"},
+        exclude: ["rrweb"],
+
+    },
     build: {
         target: "ES2022"
     },

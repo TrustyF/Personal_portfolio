@@ -41,6 +41,7 @@
     box-sizing: border-box;
     margin: 0;
     font-weight: normal;
+    line-height: 0.9;
 }
 html {
     scrollbar-gutter: stable;
@@ -52,7 +53,6 @@ body {
     /*transition:*/
     /*  color 0.5s,*/
     /*  background-color 0.5s;*/
-    line-height: 0.9;
     font-family: Inter,
     -apple-system,
     BlinkMacSystemFont,

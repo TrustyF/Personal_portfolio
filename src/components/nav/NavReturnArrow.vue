@@ -2,7 +2,6 @@
 import {inject, onMounted, watch, ref, computed, onUnmounted} from "vue";
 import NavArrow from "@/components/nav/NavArrow.vue";
 import {useRouter} from "vue-router";
-import {log_event} from "@/scripts/log_events.js";
 
 let back_arrow_vis = ref(false)
 let router = useRouter()
@@ -14,7 +13,6 @@ function handle_back_arrow() {
 }
 
 function handle_click() {
-  log_event('return_arrow', 'nav')
   router.go(-1)
 }
 

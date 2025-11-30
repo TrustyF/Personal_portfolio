@@ -3,7 +3,6 @@ import NavBar from "@/components/nav/NavBar.vue";
 import BottomFooter from "@/components/generic/BottomFooter.vue";
 import {computed, onMounted, provide, ref, watch} from "vue";
 import {useRoute} from "vue-router";
-import {log_event, ping_user_leave} from "@/scripts/log_events.js";
 import {notifyPageVisible} from "@/router/index.js";
 
 let route = useRoute()
@@ -45,8 +44,6 @@ provide('yt_video_list', yt_video_list)
 onMounted(() => {
   check_mobile()
   addEventListener('resize', check_mobile)
-  ping_user_leave()
-  setInterval(() => ping_user_leave(), 5000)
 })
 
 </script>
@@ -55,7 +52,7 @@ onMounted(() => {
   <router-view v-slot="{ Component }">
     <Transition :name="transitionName" mode="out-in" @before-enter="notify_after_enter">
       <KeepAlive include="ReelView,PortfolioView,CurriculumView,AboutView">
-        <component :is="Component"/>
+        <component :is="Component" class="view-page"/>
       </KeepAlive>
     </Transition>
   </router-view>
@@ -63,6 +60,11 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
+.view-page * {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
 
 .fade-enter-active,
 .fade-leave-active {
@@ -72,6 +74,13 @@ onMounted(() => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.slide-left-enter-to,
+.slide-left-leave-from,
+.slide-right-enter-to,
+.slide-right-leave-from {
+  transform: translate3d(0, 0, 0);
 }
 
 .slide-left-enter-from {

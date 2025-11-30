@@ -1,6 +1,5 @@
 <script setup>
 import {onMounted} from "vue";
-import {log_event} from "@/scripts/log_events.js";
 import Player from "@vimeo/player"
 
 let props = defineProps({
@@ -31,11 +30,9 @@ function set_vimeo_functions() {
   let vimeo_player = new Player(document.getElementById('vimeo_player'))
   vimeo_player.on('play', async function () {
     let title = await vimeo_player.getVideoTitle()
-    log_event('vimeo_play', 'vid', title)
   });
   vimeo_player.on('pause', async function () {
     let pos = await vimeo_player.getCurrentTime()
-    log_event('vimeo_pause', 'vid', pos)
   });
 }
 

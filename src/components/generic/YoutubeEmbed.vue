@@ -1,6 +1,5 @@
 <script setup>
 import {inject, onMounted, watch, ref, computed, onBeforeMount, onUnmounted} from "vue";
-import {log_event} from "@/scripts/log_events.js";
 
 let props = defineProps({
   id: {

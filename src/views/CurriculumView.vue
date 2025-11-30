@@ -6,12 +6,7 @@ import Recommendations from "@/components/cv/Recommendations.vue";
 import Langues from "@/components/cv/Langues.vue";
 import Softwares from "@/components/cv/Softwares.vue";
 
-let props = defineProps({
-  test: {
-    type: String,
-    default: null,
-  },
-});
+
 
 </script>
 

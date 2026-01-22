@@ -11,59 +11,51 @@ let server_url = 'https://analytics-trustyfox.pythonanywhere.com'
 let curr_api = server_url
 let project = 'portfolio'
 
-let url = `${curr_api}/event/add`
+let url = `${curr_api}/session/add`
 
 async function send_batch(events) {
-  let geo = await geo_location
-  let sid = get_session_seed()
-  let params = {
-    source: project,
-    sid: sid,
-    geo: geo,
-    events: events
-  }
+    let geo = await geo_location
+    let sid = get_session_seed()
+    let params = {
+        source: project,
+        sid: sid,
+        geo: geo,
+        events: events
+    }
 
-  axios.post(url, params).catch((e) => {
-    console.log(e)
-  })
+    axios.post(url, params).catch((e) => {
+        console.log(e)
+    })
 
 }
 
 export default {
-  start() {
-    if (stopRecording) return;
+    start() {
+        if (stopRecording) return;
 
-    stopRecording = record({
-      emit(event) {
-        // if ([2,3].includes(event.type)) {
-          events.push(JSON.stringify(event));
-        // }
-      },
-      slimDOMOptions: 'all',
-      sampling: {
-        mousemove: 50,
-        scroll: 150,
-        input: 'last',
-      },
-    });
+        stopRecording = record({
+            emit(event) {
+                events.push(JSON.stringify(event));
+            },
+        });
 
-    sendInterval = setInterval(() => {
-      if (events.length === 0) return;
-      send_batch(events)
-      console.log(events.length)
-      events = [];
-    }, 2500);
-  },
+        sendInterval = setInterval(() => {
+            if (events.length === 0) return;
+            send_batch(events)
+            console.log(events.length)
+            events = [];
+        }, 10000);
+    },
 
-  stop() {
-    if (stopRecording) {
-      stopRecording();
-      stopRecording = null;
-    }
-    if (sendInterval) {
-      clearInterval(sendInterval);
-      sendInterval = null;
-    }
-    events = [];
-  },
+    stop() {
+        if (stopRecording) {
+            stopRecording();
+            stopRecording = null;
+        }
+        if (sendInterval) {
+            clearInterval(sendInterval);
+            sendInterval = null;
+        }
+        events = [];
+    },
 };

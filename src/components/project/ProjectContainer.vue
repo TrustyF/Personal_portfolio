@@ -26,6 +26,10 @@ let thumb_loaded = ref(false)
 let thumb_path = computed(() => {
   return `/assets/project_images/${props.data['folder']}/thumb.webp`
 })
+let branding_loaded = ref(false)
+let branding_path = computed(() => {
+  return `/assets/branding_icons/${props.data['branding']}.webp`
+})
 
 function push_project() {
   router.push(`portfolio/${props.data['folder']}`)
@@ -40,6 +44,11 @@ function preload_project() {
 
 <template>
   <div class="project_container" @click="push_project" @mouseenter="preload_project">
+
+    <div class="branding">
+      <img :src="branding_path" alt="" rel="preload" class="branding" fetchpriority="high"
+           v-show="branding_loaded" @load="branding_loaded=true">
+    </div>
 
     <div :class="`cover ${data['outdated'] ? 'faded':''}`">
       <img :src="thumb_path" alt="" rel="preload" class="thumb" fetchpriority="high"
@@ -74,7 +83,7 @@ function preload_project() {
         <!--                      bg_color="#494949"-->
         <!--        />-->
       </div>
-      <!--      <div class="proj_cont_desc"> {{ data['desc'] }}</div>-->
+      <!--            <div class="proj_cont_desc"> {{ data['desc'] }}</div>-->
     </div>
 
     <div class="underlay_shadow"></div>
@@ -110,6 +119,12 @@ function preload_project() {
   visibility: visible;
 }
 
+.project_container:hover .branding {
+  transition: 100ms ease opacity;
+  opacity: 0;
+  visibility: hidden;
+}
+
 .cover {
   position: relative;
   aspect-ratio: 1;
@@ -128,6 +143,20 @@ function preload_project() {
   filter: contrast(1.1) brightness(1) blur(0);
   /*animation: fadein 0.5s;*/
   transition: 100ms ease;
+}
+
+.branding {
+  z-index: 1;
+  position: absolute;
+  height: 30px;
+  object-fit: cover;
+  left: 0;
+  bottom: 0;
+  margin: 5px;
+  transition: 400ms ease;
+  opacity: 1;
+  visibility: visible;
+  /*filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));*/
 }
 
 .software_tags {

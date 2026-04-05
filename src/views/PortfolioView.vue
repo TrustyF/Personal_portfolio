@@ -27,7 +27,7 @@ let type_filters = computed(() => {
   return [...new Set(index.map(x => x.type))]
 })
 let sel_type_filters = ref([])
-let software_filters = computed(() => ["houdini", "blender", "maya", "after_effects", "python"])
+let software_filters = computed(() => ["houdini", "blender", "maya", "after_effects", "python","vue.js"])
 let sel_software_filters = ref([])
 
 let filter_enabled = computed(() => {

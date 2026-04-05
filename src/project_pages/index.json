@@ -1,5 +1,49 @@
 [
-    {
+  {
+    "title": "LEGO_Star_Wars_Yoda's_Hungry",
+    "folder": "yoda_soup",
+    "desc": "Soup sims and light assistance",
+    "created": "22/07/2026",
+    "type": "short_film",
+    "scale": "production",
+    "software": ["houdini"],
+    "category": ["fx"],
+    "branding": "lego_star_wars"
+  },
+  {
+    "title": "LEGO_Avengers_X-Men",
+    "folder": "xmen_sentinels",
+    "desc": "RBD destruction and pyro smokes",
+    "created": "22/07/2026",
+    "type": "short_film",
+    "scale": "production",
+    "software": ["houdini"],
+    "category": ["fx"],
+    "branding": "lego_marvel"
+  },
+  {
+    "title": "LEGO_Avengers_fantastic_four",
+    "folder": "f4_galactus",
+    "desc": "Responsible for human torch pyro simulations",
+    "created": "24/06/2026",
+    "type": "short_film",
+    "scale": "production",
+    "software": ["houdini"],
+    "category": ["fx"],
+    "branding": "lego_marvel"
+  },
+  {
+    "title": "LEGO_Avengers_hulk's_truck",
+    "folder": "hulk_truck",
+    "desc": "RBD destruction and pyro smoke",
+    "created": "15/12/2025",
+    "type": "short_film",
+    "scale": "production",
+    "software": ["houdini"],
+    "category": ["fx"],
+    "branding": "lego_marvel"
+  },
+  {
     "title": "LEGO_Avengers_strange_tails",
     "folder": "strange_tails",
     "desc": "RBD destruction and pyro simulations",
@@ -7,10 +51,11 @@
     "type": "tv_show",
     "scale": "production",
     "software": ["houdini"],
-    "category": ["fx"]
+    "category": ["fx"],
+    "branding": "lego_marvel"
   },
   {
-    "title": "LEGO_star_wars",
+    "title": "LEGO_Star_Wars_Pieces_of_the_Past",
     "folder": "pieces_of_the_past",
     "desc": "Large scale RBD destruction, fluid, pyro simulations and pipeline tools development",
     "created": "14/11/2025",
@@ -18,7 +63,8 @@
     "type": "tv_show",
     "scale": "production",
     "software": ["houdini", "python"],
-    "category": ["fx"]
+    "category": ["fx"],
+    "branding": "lego_star_wars"
   },
   {
     "title": "Houdini_icons",
@@ -38,7 +84,8 @@
     "type": "freelance",
     "scale": "solo",
     "software": ["houdini", "blender", "after_effects", "syntheyes"],
-    "category": ["generalist", "fx"]
+    "category": ["generalist", "fx"],
+    "branding": "clarins"
   },
   {
     "title": "hilfiger_ads",
@@ -48,7 +95,8 @@
     "type": "freelance",
     "scale": "solo",
     "software": ["houdini", "blender", "marvelous", "after_effects", "syntheyes"],
-    "category": ["generalist", "fx"]
+    "category": ["generalist", "fx"],
+    "branding": "tommy_hilfinger"
   },
   {
     "title": "pool_rooms",

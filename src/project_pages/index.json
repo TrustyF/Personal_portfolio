@@ -1,8 +1,8 @@
 [
   {
-    "title": "LEGO_Star_Wars_Yoda's_Hungry",
-    "folder": "yoda_soup",
-    "desc": "Soup sims and light assistance",
+    "title": "LEGO_Star_Wars_Shorts",
+    "folder": "lego_star_wars_shorts",
+    "desc": "Series of Youtube shorts.Responsible for pyro smoke, RBD, soup sim and light assistance",
     "created": "22/07/2026",
     "type": "short_film",
     "scale": "production",
@@ -11,32 +11,10 @@
     "branding": "lego_star_wars"
   },
   {
-    "title": "LEGO_Avengers_X-Men",
-    "folder": "xmen_sentinels",
-    "desc": "RBD destruction and pyro smokes",
+    "title": "LEGO_Marvel_Avengers_Shorts",
+    "folder": "lego_marvel_avengers_shorts",
+    "desc": "Series of Youtube shorts. Responsible for RBD destruction and pyro smoke",
     "created": "22/07/2026",
-    "type": "short_film",
-    "scale": "production",
-    "software": ["houdini"],
-    "category": ["fx"],
-    "branding": "lego_marvel"
-  },
-  {
-    "title": "LEGO_Avengers_fantastic_four",
-    "folder": "f4_galactus",
-    "desc": "Responsible for human torch pyro simulations",
-    "created": "24/06/2026",
-    "type": "short_film",
-    "scale": "production",
-    "software": ["houdini"],
-    "category": ["fx"],
-    "branding": "lego_marvel"
-  },
-  {
-    "title": "LEGO_Avengers_hulk's_truck",
-    "folder": "hulk_truck",
-    "desc": "RBD destruction and pyro smoke",
-    "created": "15/12/2025",
     "type": "short_film",
     "scale": "production",
     "software": ["houdini"],

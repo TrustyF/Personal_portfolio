@@ -3,8 +3,10 @@
     "abyss",
     "balloon_stairs",
     "clarins_masc",
+    "f4_galactus",
     "frost_prime",
     "houdini_icons",
+    "hulk_truck",
     "inc_short",
     "invis_sphere",
     "lab_13",
@@ -23,14 +25,18 @@
     "theodosia",
     "tommy_clothes",
     "trusty_corner",
+    "xmen_sentinels",
+    "yoda_soup",
     "zweite_welle"
   ],
   "project_articles": [
     "abyss.vue",
     "balloon_stairs.vue",
     "clarins_masc.vue",
+    "f4_galactus.vue",
     "frost_prime.vue",
     "houdini_icons.vue",
+    "hulk_truck.vue",
     "inc_short.vue",
     "invis_sphere.vue",
     "lab_13.vue",
@@ -49,6 +55,8 @@
     "theodosia.vue",
     "tommy_clothes.vue",
     "trusty_corner.vue",
+    "xmen_sentinels.vue",
+    "yoda_soup.vue",
     "zweite_welle.vue"
   ],
   "software_icons": [

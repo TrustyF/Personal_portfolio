@@ -9,7 +9,7 @@ let props = defineProps({
   },
 });
 
-let proj_name = 'hulk_truck'
+let proj_name = 'lego_star_wars_shorts'
 const img_path = `/assets/project_images/${proj_name}/`
 
 
@@ -21,7 +21,11 @@ const img_path = `/assets/project_images/${proj_name}/`
     <template #content>
 
       <div class="vimeo_video">
-        <youtube-embed id="2tns-bejFww" muted="0"/>
+        <youtube-embed id="EMofq2mdAkk" muted="0"/>
+      </div>
+
+      <div class="vimeo_video">
+        <youtube-embed id="CEv89CoIFjU" muted="0"/>
       </div>
 
     </template>

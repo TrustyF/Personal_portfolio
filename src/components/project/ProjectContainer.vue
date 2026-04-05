@@ -140,7 +140,7 @@ function preload_project() {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  filter: contrast(1.1) brightness(1) blur(0);
+  filter: contrast(1.1) brightness(1);
   /*animation: fadein 0.5s;*/
   transition: 100ms ease;
 }

@@ -9,7 +9,7 @@ let props = defineProps({
   },
 });
 
-let proj_name = 'f4_galactus'
+let proj_name = 'lego_marvel_avengers_shorts'
 const img_path = `/assets/project_images/${proj_name}/`
 
 
@@ -19,6 +19,14 @@ const img_path = `/assets/project_images/${proj_name}/`
   <project-page-template :project_name="proj_name" :image_loader="false">
 
     <template #content>
+
+      <div class="vimeo_video">
+        <youtube-embed id="UPKuRgxtOXo" muted="0"/>
+      </div>
+
+      <div class="vimeo_video">
+        <youtube-embed id="2tns-bejFww" muted="0"/>
+      </div>
 
       <div class="vimeo_video">
         <youtube-embed id="SxJ0SnK11eo" muted="0"/>

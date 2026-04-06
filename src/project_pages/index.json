@@ -62,8 +62,7 @@
     "type": "freelance",
     "scale": "solo",
     "software": ["houdini", "blender", "after_effects", "syntheyes"],
-    "category": ["generalist", "fx"],
-    "branding": "clarins"
+    "category": ["generalist", "fx"]
   },
   {
     "title": "hilfiger_ads",

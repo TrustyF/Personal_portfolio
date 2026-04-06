@@ -45,9 +45,9 @@ function preload_project() {
 <template>
   <div class="project_container" @click="push_project" @mouseenter="preload_project">
 
-    <div class="branding">
-      <img :src="branding_path" alt="" rel="preload" class="branding" fetchpriority="high"
-           v-show="branding_loaded" @load="branding_loaded=true">
+    <div class="branding" v-show="branding_loaded">
+      <img :src="branding_path" alt="" rel="preload" class="branding_img" fetchpriority="high"
+           @load="branding_loaded=true">
     </div>
 
     <div :class="`cover ${data['outdated'] ? 'faded':''}`">
@@ -87,6 +87,7 @@ function preload_project() {
     </div>
 
     <div class="underlay_shadow"></div>
+    <div class="underlay_blur"></div>
 
     <outdated-tag v-show="data['outdated']"/>
   </div>
@@ -119,8 +120,13 @@ function preload_project() {
   visibility: visible;
 }
 
+.project_container:hover .underlay_blur {
+  backdrop-filter: blur(5px);
+}
+
+
 .project_container:hover .branding {
-  transition: 100ms ease opacity;
+  transition: 150ms ease;
   opacity: 0;
   visibility: hidden;
 }
@@ -146,17 +152,24 @@ function preload_project() {
 }
 
 .branding {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
   position: absolute;
-  height: 30px;
-  object-fit: cover;
   left: 0;
   bottom: 0;
-  margin: 5px;
   transition: 400ms ease;
   opacity: 1;
   visibility: visible;
-  /*filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));*/
+}
+
+.branding_img {
+  object-fit: cover;
+  height: 30px;
+  margin: 10px;
+  filter: drop-shadow(2px 1px 1px rgba(0, 0, 0, 0.75));
 }
 
 .software_tags {
@@ -188,10 +201,19 @@ function preload_project() {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(10deg, hsla(160, 100%, 30%, 1) 0%, rgba(0, 0, 0, 0) 60%);
+  background: linear-gradient(20deg, hsla(160, 100%, 30%, 1) 0%, rgba(0, 0, 0, 0) 60%);
   opacity: 0;
   visibility: hidden;
   transition: 200ms ease-out;
+}
+
+.underlay_blur {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(0px);
+  transition: 200ms ease;
+  mask-image: linear-gradient(20deg, black 30%, transparent 60%);
 }
 
 h1 {
@@ -204,9 +226,11 @@ h1 {
   color: white;
   text-transform: uppercase;
   white-space: wrap;
-  text-shadow: rgba(0, 0, 0, 0.75) 1px 1px 4px,
-  rgba(0, 0, 0, 0.55) 1px 1px 4px,
-  rgba(0, 0, 0, 0.55) 0 0 4px;
+  -webkit-text-stroke: 1px rgba(100, 100, 100, 1);
+  paint-order: stroke fill;
+  text-shadow: rgba(0, 0, 0, 1) 1px 1px 3px,
+  rgba(0, 0, 0, 0.75) 1px 1px 4px,
+  rgba(0, 0, 0, 0.75) 0 0 4px;
 }
 
 .proj_cont_desc {

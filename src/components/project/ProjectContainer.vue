@@ -62,7 +62,7 @@ function preload_project() {
                       :title="true"
                       :padding="6"
                       :gap="3"
-                      :font_size="0.7"
+                      :font_size="12"
                       :img_size="11"
                       bg_color="#494949"
         />
@@ -70,7 +70,7 @@ function preload_project() {
                       :name="soft"
                       :padding="6"
                       :gap="3"
-                      :font_size="0.7"
+                      :font_size="12"
                       :img_size="11"
                       bg_color="#494949"
         />
@@ -146,7 +146,7 @@ function preload_project() {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  filter: contrast(1.1) brightness(1);
+  /*filter: contrast(1.1) brightness(1);*/
   /*animation: fadein 0.5s;*/
   transition: 100ms ease;
 }
@@ -166,8 +166,9 @@ function preload_project() {
 }
 
 .branding_img {
-  object-fit: cover;
-  height: 30px;
+  height: 25px;
+  max-width: 80px;
+  object-fit: contain;
   margin: 10px;
   filter: drop-shadow(2px 1px 1px rgba(0, 0, 0, 0.75));
 }
@@ -217,14 +218,13 @@ function preload_project() {
 }
 
 h1 {
-  font-size: 1.2em;
-  line-height: 1.2;
+  font-size: 20px;
+  line-height: 22px;
   display: flex;
   flex-flow: column;
   justify-content: center;
   flex: 0 0 auto;
   color: white;
-  text-transform: uppercase;
   white-space: wrap;
   -webkit-text-stroke: 1px rgba(100, 100, 100, 1);
   paint-order: stroke fill;

@@ -50,7 +50,7 @@ let thumb_path = computed(() => {
                       :title="!minimal"
                       :padding="6"
                       :gap="3"
-                      :font_size="0.7"
+                      :font_size="12"
                       :img_size="11"
                       bg_color="#494949"
         />
@@ -58,7 +58,7 @@ let thumb_path = computed(() => {
                       :title="!minimal"
                       :padding="6"
                       :gap="3"
-                      :font_size="0.7"
+                      :font_size="12"
                       :img_size="11"
                       bg_color="#494949"
         />
@@ -66,7 +66,7 @@ let thumb_path = computed(() => {
                       :title="!minimal"
                       :padding="6"
                       :gap="3"
-                      :font_size="0.7"
+                      :font_size="12"
                       :img_size="11"
                       bg_color="#494949"
         />
@@ -86,6 +86,7 @@ let thumb_path = computed(() => {
 
   display: flex;
   flex-flow: row nowrap;
+  gap: 10px;
 
   position: relative;
   border-radius: 5px;
@@ -106,6 +107,7 @@ let thumb_path = computed(() => {
 .project_container:hover {
   opacity: 1;
 }
+
 .cover {
   /*outline: 1px solid cornflowerblue;*/
   position: relative;
@@ -125,9 +127,11 @@ let thumb_path = computed(() => {
   /*animation: fadein 0.5s;*/
   transition: 100ms ease;
 }
+
 .dimmed {
   opacity: 0.3;
 }
+
 .software_tags {
   /*outline: 1px solid orange;*/
   /*position: absolute;*/
@@ -146,23 +150,25 @@ let thumb_path = computed(() => {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  /*gap: 5px;*/
   padding: 15px;
 
   user-select: none;
 }
 
 h1 {
-  font-size: 1.2em;
-  line-height: 1;
+  font-size: 20px;
+  line-height: 28px;
   /*outline: 1px solid cornflowerblue;*/
   display: flex;
   flex-flow: column;
   justify-content: center;
 
-  flex: 0 0 auto;
+  /*flex: 0 0 auto;*/
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   color: white;
-  text-transform: uppercase;
 }
 
 .proj_cont_desc {
@@ -176,19 +182,21 @@ h1 {
   opacity: 0.7;
 
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .proj_cont_duration {
   font-size: 0.9em;
+  text-wrap: nowrap;
 }
 
 @media only screen and (max-width: 660px) {
   .underlay {
     gap: 3px;
   }
+
   h1 {
     font-size: 1em;
     line-height: normal;
@@ -198,6 +206,7 @@ h1 {
     /*margin-top: 5px;*/
     font-size: 0.65em;
   }
+
   .software_tags {
     margin: 0;
   }

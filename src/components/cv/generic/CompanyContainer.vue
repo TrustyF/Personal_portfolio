@@ -54,7 +54,7 @@ let articles = computed(() => {
                                         class="proj_cont"
                                         v-for="article in articles" :key="`${article.folder}_cv`"
                                         :data="article"
-                                        style="height: 150px"
+                                        style="height: 130px"
           />
           <project-container-horizontal v-show="is_mobile===2"
                                         class="proj_cont"

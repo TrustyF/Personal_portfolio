@@ -55,28 +55,29 @@
     "category": ["code"]
   },
   {
-    "title": "clarins_ad",
+    "title": "Clarins_ad",
     "folder": "clarins_masc",
     "desc": "Integrating 3D product renders in live-action footage for viral Instagram marketing.",
     "created": "23/07/2024",
     "type": "freelance",
-    "scale": "solo",
+    "scale": "mid_sized",
     "software": ["houdini", "blender", "after_effects", "syntheyes"],
-    "category": ["generalist", "fx"]
+    "category": ["generalist", "fx"],
+    "branding": "clarins"
   },
   {
-    "title": "hilfiger_ads",
+    "title": "Hilfiger_ads",
     "folder": "tommy_clothes",
     "desc": "Integrating 3D product renders in live-action footage for viral Instagram marketing.",
     "created": "23/04/2024",
     "type": "freelance",
-    "scale": "solo",
+    "scale": "mid_sized",
     "software": ["houdini", "blender", "marvelous", "after_effects", "syntheyes"],
     "category": ["generalist", "fx"],
     "branding": "tommy_hilfinger"
   },
   {
-    "title": "pool_rooms",
+    "title": "Pool_rooms",
     "folder": "pool_rooms",
     "desc": "Exploring the aesthetics of the \"Pool Rooms\" using procedural modeling in Houdini. Custom water and caustic shaders created in Blender.",
     "created": "16/04/2024",
@@ -85,7 +86,7 @@
     "category": ["generalist", "fx"]
   },
   {
-    "title": "skull_rocket",
+    "title": "Skull_rocket",
     "folder": "skull_rocket",
     "desc": "Smoke, explosion and debris simulation in Houdini. Terrain made using heightfields and procedural textures. Rendered using Solaris USD and Karma.",
     "created": "18/01/2024",
@@ -111,7 +112,7 @@
   "software": ["houdini", "blender", "after_effects"],
   "category": ["generalist", "fx"]
 }, {
-  "title": "the_abyss",
+  "title": "The_Abyss",
   "folder": "abyss",
   "desc": "Large scale smoke and destruction effects in Houdini. Building destruction setups developed by a small team",
   "created": "01/01/2023",
@@ -119,10 +120,11 @@
   "type": "movie",
   "scale": "production",
   "software": ["houdini"],
-  "category": ["fx"]
+  "category": ["fx"],
+  "branding": "ufx_studios"
 },
   {
-    "title": "die_zweite_welle",
+    "title": "Die_Zweite_Welle",
     "folder": "zweite_welle",
     "desc": "Large scale water and destruction effects.",
     "created": "01/05/2022",
@@ -130,10 +132,11 @@
     "type": "tv_show",
     "scale": "production",
     "software": ["houdini"],
-    "category": ["fx"]
+    "category": ["fx"],
+    "branding": "ufx_studios"
   },
   {
-    "title": "novembre",
+    "title": "Novembre",
     "folder": "novembre",
     "desc": "Developed and animated a complete Iphone messaging interface, controlled programmatically in After Effects. Assisted Arno Ringoet in the creation of computer UI elements",
     "created": "01/04/2022",
@@ -141,10 +144,11 @@
     "type": "movie",
     "scale": "production",
     "software": ["after_effects"],
-    "category": ["mograph"]
+    "category": ["mograph"],
+    "branding": "ufx_studios"
   },
   {
-    "title": "theodosia",
+    "title": "Theodosia",
     "folder": "theodosia",
     "desc": "Developed smoke creature setup in Houdini. Worked closely with the comp team to lookdev the final design.",
     "created": "01/03/2022",
@@ -152,10 +156,11 @@
     "type": "tv_show",
     "scale": "production",
     "software": ["houdini"],
-    "category": ["fx"]
+    "category": ["fx"],
+    "branding": "ufx_studios"
   },
   {
-    "title": "louis",
+    "title": "Louis",
     "folder": "louis",
     "desc": "End of year school group project, developed over 3 months with a team of 5 artists. Open theme project with complete short film production pipeline",
     "created": "29/01/2022",
@@ -164,7 +169,7 @@
     "software": ["houdini", "blender"],
     "category": ["generalist", "fx"]
   }, {
-  "title": "balloon_stairs",
+  "title": "Balloon_stairs",
   "folder": "balloon_stairs",
   "desc": "Group project exam, lasted 1 month with a group of 4 artists. Assigned goal was to pick part of the building and warp it with vfx",
   "created": "05/08/2021",
@@ -191,7 +196,7 @@
   "software": ["maya", "python", "blender"],
   "category": ["generalist", "code"]
 }, {
-  "title": "spider_walker",
+  "title": "Spider_walker",
   "folder": "spider_walker",
   "desc": "Research project aimed at implementing a naive solution for automatic foot placement in Houdini. Written in VEX",
   "created": "01/05/2021",
@@ -200,7 +205,7 @@
   "software": ["houdini"],
   "category": ["code"]
 }, {
-  "title": "shrine_sculpt",
+  "title": "Shrine_sculpt",
   "folder": "shrine_sculpt",
   "desc": "Zbrush sculpt based on artwork by Maeve B. Base modeled in Blender and finalized in Zbrush",
   "created": "01/02/2021",
@@ -209,7 +214,7 @@
   "software": ["zbrush", "blender"],
   "category": ["generalist"]
 }, {
-  "title": "invisible_sphere",
+  "title": "Invisible_sphere",
   "folder": "invis_sphere",
   "desc": "Series of Houdini simulations themed around revealing an invisible ball",
   "created": "01/01/2021",
@@ -218,7 +223,7 @@
   "software": ["houdini"],
   "category": ["fx"]
 }, {
-  "title": "frost_prime",
+  "title": "Frost_prime",
   "folder": "frost_prime",
   "desc": "Creating greenscreen scenes and alerts for twitch streamer FrostPrime from 2018 to 2024",
   "created": "01/01/2020",
@@ -246,7 +251,7 @@
   "software": ["after_effects"],
   "category": ["mograph"]
 }, {
-  "title": "lab 13",
+  "title": "Lab 13",
   "folder": "lab_13",
   "desc": "Short film assignment, very outdated. Showcases cinematography exploration and tracked HUD elements",
   "created": "07/07/2016",

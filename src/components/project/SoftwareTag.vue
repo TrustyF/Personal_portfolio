@@ -25,7 +25,7 @@ let props = defineProps({
   },
   font_size: {
     type: Number,
-    default: 0.8,
+    default: 12,
   },  bg_color: {
     type: String,
     default: '#383838',
@@ -35,7 +35,7 @@ let props = defineProps({
 let im_size = computed(() => `${props.img_size}px`)
 let box_pad = computed(() => `${props.padding}px`)
 let box_gap = computed(() => `${props.gap}px`)
-let font_height = computed(() => `${props.font_size}em`)
+let font_height = computed(() => `${props.font_size}px`)
 
 
 let logo = computed(() => `/assets/software_icons/${props.name}.webp`)
@@ -61,18 +61,20 @@ let loaded = ref(false)
   gap: v-bind(box_gap);
   border-radius: 5px;
   user-select: none;
+  align-items: center;
 }
 
 .software_tag_img {
   height: v-bind(im_size);
   width: v-bind(im_size);
-  object-fit: contain
+  object-fit: contain;
 }
 
 h1 {
   color: white;
   font-size: v-bind(font_height);
-  line-height: 1;
+  line-height: 1.2;
+  text-align: center;
   white-space: nowrap;
 }
 </style>

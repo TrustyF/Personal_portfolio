@@ -27,7 +27,7 @@ let type_filters = computed(() => {
   return [...new Set(index.map(x => x.type))]
 })
 let sel_type_filters = ref([])
-let software_filters = computed(() => ["houdini", "blender", "maya", "after_effects", "python","vue.js"])
+let software_filters = computed(() => ["houdini", "blender", "maya", "after_effects", "python", "vue.js"])
 let sel_software_filters = ref([])
 
 let filter_enabled = computed(() => {
@@ -91,40 +91,6 @@ function clear_filters() {
   sel_software_filters.value = []
 }
 
-let container_width = ref()
-let container_height = ref()
-
-function calc_container_size() {
-  let elems = window.document.getElementsByClassName('project_container')
-
-  if (!elems.length > 0) return
-
-  for (let e of elems) {
-    e.classList.remove('setSize')
-  }
-
-  let box = elems[0].getBoundingClientRect()
-
-  container_width.value = `${box.width}px`
-  container_height.value = `${box.height}px`
-
-  for (let e of elems) {
-    e.classList.remove('setSize')
-  }
-}
-
-let feed_height = ref()
-
-function calc_feed_height() {
-  let elem = window.document.getElementById('feed')
-
-  elem.classList.remove('setFeedHeight')
-
-  let box = elem.getBoundingClientRect()
-  feed_height.value = `${box.height}px`
-
-  elem.classList.add('setFeedHeight')
-}
 
 function set_filter_from_url() {
   let route_query = router.currentRoute.value.query
@@ -135,20 +101,11 @@ function set_filter_from_url() {
 }
 
 onMounted(() => {
-  // calc_container_size()
-  // calc_feed_height()
-  //
-  // addEventListener('resize', calc_container_size)
-  // addEventListener('resize', calc_feed_height)
-
   // do list animation
   setTimeout(() => filtered_articles_vis.value = true, 50)
   set_filter_from_url()
 })
-// onUnmounted(() => {
-//   removeEventListener('resize', calc_container_size)
-//   removeEventListener('resize', calc_feed_height)
-// })
+
 
 </script>
 

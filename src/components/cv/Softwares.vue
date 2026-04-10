@@ -60,7 +60,7 @@ let mastered_software = ['blender', 'maya', '3ds_max', 'creative_cloud', 'synthe
   color: white;
   padding-bottom: 5px;
   font-size: 1.5em;
-  text-decoration: underline #484848;
+  /*text-decoration: underline #484848;*/
   text-underline-offset: 5px;
 }
 </style>

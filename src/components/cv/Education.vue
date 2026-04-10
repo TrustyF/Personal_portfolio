@@ -66,9 +66,9 @@ onMounted(() => {
 
 .title {
   color: white;
-  padding-bottom: 15px;
+  padding-bottom: 25px;
   font-size: 1.5em;
-  text-decoration: underline #484848;
+  /*text-decoration: underline #484848;*/
   text-underline-offset: 5px;
 }
 </style>

@@ -10,11 +10,33 @@ let props = defineProps({
     type: Object,
     default: null,
   },
+  present: {
+    type: Boolean,
+    default: false
+  }
 });
 let is_mobile = inject('is_mobile')
 
 function getImg(name) {
-  return`/assets/company_icons/${name}.webp`
+  return `/assets/company_icons/${name}.webp`
+}
+
+function diff_from_present(to, from = new Date()) {
+  let totalMonths =
+      (to.getFullYear() - from.getFullYear()) * 12 +
+      (to.getMonth() - from.getMonth()) -
+      (to.getDate() < from.getDate() ? 1 : 0);
+
+  totalMonths = Math.abs(totalMonths);
+
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  const parts = [];
+  if (years) parts.push(`${years} year${years !== 1 ? 's' : ''}`);
+  if (months) parts.push(`${months} month${months !== 1 ? 's' : ''}`);
+
+  return parts.length ? parts.join(' ') : '0 months';
 }
 
 let articles = computed(() => {
@@ -40,33 +62,28 @@ let articles = computed(() => {
           <img v-if="!data['link']" :src="getImg(data['img'])" class="logo" style="cursor: default"
                alt="logo">
 
-          <div style="gap: 10px;display: flex;flex-flow: column">
+          <div style="gap: 5px;display: flex;flex-flow: column">
             <h1 style="color: white">{{ data['title'] }}</h1>
             <h2 style="color: white">{{ data['name'] }}</h2>
-            <h2 style="margin-top: -5px">{{ data['date'] + (data['time'] ? ' . ' + data['time'] : '') }}</h2>
+            <div style="display: flex;flex-flow: row;gap: 10px;margin-top: 10px">
+              <h2 style="margin-top: -5px">{{ data['date'] }}</h2>
+              <h2 style="margin-top: -5px">{{
+                  ' · ' + (data['time'] ? data['time'] : diff_from_present(new Date('2024-12-01')))
+                }}</h2>
+            </div>
           </div>
         </div>
 
-        <h2 class="desc" v-show="data['desc']">{{ data['desc'] }}</h2>
+        <h2 class="desc" style="color: #dcdcdc" v-show="data['desc']">{{ data['desc'] }}</h2>
 
-        <div v-if="data['projects']" style="display:flex;flex-flow: column; gap: 20px;  align-items: flex-start;">
-          <project-container-horizontal v-show="is_mobile<2"
-                                        class="proj_cont"
-                                        v-for="article in articles" :key="`${article.folder}_cv`"
-                                        :data="article"
-                                        style="height: 130px"
-          />
-          <project-container-horizontal v-show="is_mobile===2"
-                                        class="proj_cont"
-                                        v-for="article in articles" :key="`${article.folder}_cv`"
-                                        :data="article"
-                                        :minimal="true"
-                                        style="height: 100px"
+        <div v-if="data['projects']" class="proj_wrapper">
+          <project-container v-for="article in articles" :key="`${article.folder}_cv`"
+                             :data="article"
+                             :thumbnail="true"
+                             class="proj_cont"
           />
         </div>
-
       </div>
-
     </div>
   </div>
 </template>
@@ -75,7 +92,7 @@ let articles = computed(() => {
 .top_cont {
   position: relative;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
   /*animation: fadein 0.5s;*/
 }
@@ -90,10 +107,10 @@ let articles = computed(() => {
 
 .arrow_cont {
   position: absolute;
-  top: calc(50% - 15px);
-  left: -14px;
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
+  top: calc(50% - 10px);
+  left: -15px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
   border-right: 15px solid #282828;
 }
 
@@ -101,11 +118,12 @@ let articles = computed(() => {
   position: absolute;
   left: -36px;
   top: calc(50% - 5px);
-  background-color: #383838;
+  background-color: #484848;
   outline: 10px solid #181818;
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  transform: scale(0.6);
 }
 
 .company_cont {
@@ -130,12 +148,23 @@ let articles = computed(() => {
   width: 100%;
 }
 
+.proj_wrapper {
+  /*outline: 1px solid rebeccapurple;*/
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  /*align-content: flex-start;*/
+  /*align-items: flex-start;*/
+  gap: 10px;
+
+}
+
 .filler {
   width: 50px
 }
 
 .proj_cont {
-  /*box-shadow: 5px 5px 2px #222222;*/
+  height: 150px;
 }
 
 .desc {
@@ -153,11 +182,20 @@ h1 {
 
 h2 {
   font-size: 0.9em;
+  color: #8c8c8c;
 }
 
 @media only screen and (max-width: 660px) {
   .company_cont {
     flex-flow: column;
+  }
+
+  .arrow_cont {
+    display: none;
+  }
+
+  .arrow_ball {
+    display: none;
   }
 }
 

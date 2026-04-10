@@ -11,7 +11,8 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
     <div class="timeline"></div>
     <div class="cv_cont">
       <h1 style="color: white;padding-left:15px">Experience</h1>
-      <company-container class="list-item" :data="{
+      <div class="exp_list">
+        <company-container class="list-item" :present="true" :data="{
       title:'Senior FX Artist',
       name:'Atomic Cartoons',
       img:'atomic',
@@ -20,50 +21,51 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
       date:'2024 - Present',
       projects:['pieces_of_the_past','strange_tails','lego_marvel_avengers_shorts','lego_star_wars_shorts'],
     }"/>
-      <company-container class="list-item" :data="{
+        <company-container class="list-item" :data="{
       title:'3D Generalist',
       name:'Dgenz',
       img:'dgenz',
       link:'https://www.linkedin.com/company/dgenz/',
       desc:'3D modelling, animation, simulation and rendering of commercial products into live-action footage',
       date:'2024',
-      time:'5 mos',
+      time:'5 months',
       projects:['tommy_clothes','clarins_masc'],
     }"/>
-      <company-container class="list-item" :data="{
+        <company-container class="list-item" :data="{
       title:'FX Artist',
       name:'UFX Studios',
       img:'ufx',
       link:'https://www.linkedin.com/company/umedia-vfx',
-      desc:'Worked on: Abyss (2022), Die zweite well, Novembre, Mascarade and Theodosia. Responsible for water, smoke and destruction fx',
+      desc:'Responsible for large scale water, smoke and destruction fx',
       date:'2022 - 2024',
-      time:'2 yr',
+      time:'2 years',
       projects:['abyss','zweite_welle','novembre','theodosia'],
     }"/>
-      <company-container class="list-item" :data="{
+        <company-container class="list-item" :data="{
       title:'MoGraph Artist',
       name:'FrostPrime',
       img:'frost',
       link:'https://www.twitch.tv/frostprime',
       desc:'Creating branded motion graphics and animated greenscreen backdrops',
       date:'2018 - 2024',
-      time:'4 yr',
+      time:'4 years',
       projects:['frost_prime'],
     }"/>
-      <company-container class="list-item" :data="{
+        <company-container class="list-item" :data="{
       title:'MoGraph Artist',
       img:'twitch',
       desc:'Freelance motion graphics for various twitch channels. Animated alerts and bits',
       date:'2017 - 2018',
-      time:'2 yr',
+      time:'2 years',
     }"/>
-      <company-container class="list-item" :data="{
+        <company-container class="list-item" :data="{
       title:'Video Editor',
       img:'youtube',
       desc:'Freelance youtube video editor. Music reviews, gameplay videos and short films',
       date:'2015 - 2017',
-      time:'2 yr',
+      time:'2 years',
     }"/>
+      </div>
     </div>
   </div>
 </template>
@@ -79,13 +81,20 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
 
 .cv_cont {
   display: flex;
+  width: 100%;
   flex-flow: column nowrap;
-  gap: 40px;
+  gap: 30px;
+}
+
+.exp_list {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 30px;
 }
 
 .timeline {
   display: inline-flex;
-  background-color: #484848;
+  background: linear-gradient(to top, #484848 90%, transparent 95%);
   width: 2px;
   /*margin-left: 40px;*/
 }
@@ -96,7 +105,14 @@ import NavUpArrow from "@/components/nav/NavUpArrow.vue";
 
 h1 {
   font-size: 1.5em;
-  text-decoration: underline #484848;
+  /*text-decoration: underline #484848;*/
   text-underline-offset: 5px;
 }
+
+@media only screen and (max-width: 660px) {
+  .timeline {
+    display: none
+  }
+}
+
 </style>

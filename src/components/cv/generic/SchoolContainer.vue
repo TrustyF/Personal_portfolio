@@ -22,10 +22,10 @@ function getImg(name) {
 
       <div class="title_cont">
 
-        <div style="gap: 10px;display: flex;flex-flow: column">
+        <div style="gap: 5px;display: flex;flex-flow: column">
           <h1 style="color: white">{{ data['title'] }}</h1>
           <h2 style="color: white">{{ data['name'] }}</h2>
-          <h2 style="margin-top: -5px">{{ data['date'] + (data['time'] ? ' . ' + data['time'] : '') }}</h2>
+          <h2 style="margin-top: 5px">{{ data['date'] + (data['time'] ? ' . ' + data['time'] : '') }}</h2>
         </div>
       </div>
 

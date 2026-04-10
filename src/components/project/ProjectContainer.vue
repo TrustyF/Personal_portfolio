@@ -16,6 +16,10 @@ let props = defineProps({
     type: Boolean,
     default: false,
   },
+  thumbnail: {
+    type: Boolean,
+    default: false,
+  },
   horizontal: {
     type: Boolean,
     default: false,
@@ -45,7 +49,7 @@ function preload_project() {
 <template>
   <div class="project_container" @click="push_project" @mouseenter="preload_project">
 
-    <div class="branding" v-show="branding_loaded">
+    <div class="branding" v-show="branding_loaded && !thumbnail">
       <img :src="branding_path" alt="" rel="preload" class="branding_img" fetchpriority="high"
            @load="branding_loaded=true">
     </div>
@@ -55,7 +59,7 @@ function preload_project() {
            v-show="thumb_loaded" @load="thumb_loaded=true">
     </div>
 
-    <div class="underlay" v-show="!minimal">
+    <div class="underlay" v-show="!minimal && !thumbnail">
       <h1>{{ data['title'].replaceAll('_', ' ') }} </h1>
       <div class="software_tags">
         <software-tag :name="data['type']"
@@ -86,8 +90,8 @@ function preload_project() {
       <!--            <div class="proj_cont_desc"> {{ data['desc'] }}</div>-->
     </div>
 
-    <div class="underlay_shadow"></div>
-    <div class="underlay_blur"></div>
+    <div class="underlay_shadow" v-show="!thumbnail"></div>
+    <div class="underlay_blur" v-show="!thumbnail"></div>
 
     <outdated-tag v-show="data['outdated']"/>
   </div>
@@ -97,8 +101,9 @@ function preload_project() {
 .project_container {
   /*outline: 1px solid orange;*/
   cursor: pointer;
-  width: 100%;
+  /*width: 100%;*/
   height: 100%;
+  aspect-ratio: 1/1;
 
   display: flex;
   flex-flow: column nowrap;

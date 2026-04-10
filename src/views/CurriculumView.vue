@@ -13,7 +13,7 @@ import Softwares from "@/components/cv/Softwares.vue";
 <template>
   <div>
     <div class="cv_view_wrapper">
-      <div style="display: flex;flex-flow: column nowrap;gap: 50px">
+      <div style="display: flex;flex-flow: column nowrap;gap: 80px">
         <education/>
         <langues/>
         <softwares/>
@@ -29,7 +29,7 @@ import Softwares from "@/components/cv/Softwares.vue";
 .cv_view_wrapper {
   /*outline: 1px dotted orange;*/
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 3fr;
   gap: 40px;
   justify-content: space-around;
 }

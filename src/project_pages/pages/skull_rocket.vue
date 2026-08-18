@@ -29,26 +29,26 @@ const img_path = `/assets/project_images/${proj_name}/`
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
           <img :src="img_path + 'terr1.jpg'" class="grid_image" alt="">
-          <img :src="img_path + 'terr2.jpg'" class="grid_image" alt="">
+          <img :src="img_path + 'terr2.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
         </div>
         <h5>Procedural height field + automated texture generation</h5>
       </div>
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(4, 1fr);gap: 0">
-          <img :src="img_path + 'skull1_crop.jpg'" class="grid_image" alt="">
-          <img :src="img_path + 'skull2_crop.jpg'" class="grid_image" alt="">
-          <img :src="img_path + 'skull3_crop.jpg'" class="grid_image" alt="">
-          <img :src="img_path + 'skull4_crop.jpg'" class="grid_image" alt="">
+          <img :src="img_path + 'skull1_crop.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
+          <img :src="img_path + 'skull2_crop.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
+          <img :src="img_path + 'skull3_crop.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
+          <img :src="img_path + 'skull4_crop.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
         </div>
         <h5>Integrating skull as temperature mask</h5>
       </div>
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(3, 1fr);gap: 0">
-          <img :src="img_path + 'traj.jpg'" class="grid_image" alt="">
-          <img :src="img_path + 'vel1.jpg'" class="grid_image" alt="">
-          <img :src="img_path + 'vel2.jpg'" class="grid_image" alt="">
+          <img :src="img_path + 'traj.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
+          <img :src="img_path + 'vel1.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
+          <img :src="img_path + 'vel2.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
         </div>
         <h5>Trajectory automatically finds nearest valid impact point. Generates impact velocities for debris and
           sand</h5>
@@ -56,17 +56,17 @@ const img_path = `/assets/project_images/${proj_name}/`
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
-          <img :src="img_path + 'def2.jpg'" class="grid_image" alt="">
-          <img :src="img_path + 'def1.jpg'" class="grid_image" alt="">
+          <img :src="img_path + 'def2.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
+          <img :src="img_path + 'def1.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
         </div>
         <h5>Deforms heightfield on impact</h5>
       </div>
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(3, 1fr);gap: 0">
-          <img :src="img_path + 'trail1.jpg'" class="grid_image" alt="">
-          <img :src="img_path + 'trail2.jpg'" class="grid_image" alt="">
-          <img :src="img_path + 'temp2.jpg'" class="grid_image" alt="">
+          <img :src="img_path + 'trail1.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
+          <img :src="img_path + 'trail2.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
+          <img :src="img_path + 'temp2.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
         </div>
         <h5>Trail smoke, post-impact steam</h5>
       </div>

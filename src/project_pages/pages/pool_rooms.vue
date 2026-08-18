@@ -19,23 +19,23 @@ const img_path = `/assets/project_images/${proj_name}/`
     <template #content>
 
       <div class="single_image">
-        <img :src="img_path +'4.jpg'" class="grid_image" alt="">
+        <img :src="img_path +'4.webp'" class="grid_image" alt="">
         <h5>Final render</h5>
       </div>
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(3, 1fr);gap: 0">
-          <img :src="img_path +'Ref1.jpg'" class="grid_image" alt="">
-          <img :src="img_path +'ref2.jpg'" class="grid_image" alt="">
-          <img :src="img_path +'ref3.jpg'" class="grid_image" alt="">
+          <img :src="img_path +'Ref1.webp'" class="grid_image" loading="lazy" decoding="async" alt="">
+          <img :src="img_path +'ref2.webp'" class="grid_image" loading="lazy" decoding="async" alt="">
+          <img :src="img_path +'ref3.webp'" class="grid_image" loading="lazy" decoding="async" alt="">
         </div>
         <h5>Reference and inspiration. (<a href="https://www.instagram.com/jaredpike.art/">Jared pike</a>)</h5>
       </div>
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: 1.5fr 1fr;gap: 0">
-          <img :src="img_path +'1.jpg'" class="grid_image" alt="" style="object-position: 80%">
-          <img :src="img_path +'Pool.jpg'" class="grid_image" alt="">
+          <img :src="img_path +'1.webp'" class="grid_image" loading="lazy" decoding="async" alt="" style="object-position: 80%">
+          <img :src="img_path +'Pool.webp'" class="grid_image" loading="lazy" decoding="async" alt="">
         </div>
         <h5>Early exploration in blender</h5>
       </div>
@@ -47,8 +47,8 @@ const img_path = `/assets/project_images/${proj_name}/`
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(2, 1fr);gap: 0">
-          <img :src="img_path +'2.jpg'" class="grid_image" alt="">
-          <img :src="img_path +'3.jpg'" class="grid_image" alt="">
+          <img :src="img_path +'2.webp'" class="grid_image" loading="lazy" decoding="async" alt="">
+          <img :src="img_path +'3.webp'" class="grid_image" loading="lazy" decoding="async" alt="">
         </div>
         <h5>Refining lighting and shaders</h5>
       </div>

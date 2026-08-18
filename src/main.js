@@ -6,7 +6,6 @@ import {createApp} from 'vue'
 import axiosRetry from 'axios-retry';
 import {axios} from '@bundled-es-modules/axios';
 import {preload} from "@/scripts/preloader.js";
-import rrweb_plugin from "./scripts/rrweb_plugin.js";
 
 const app = createApp(App)
 
@@ -20,5 +19,5 @@ axiosRetry(axios, {
 app.use(router)
 app.mount('#app')
 
-rrweb_plugin.start()
+import("./scripts/rrweb_plugin.js").then(({default: rrweb_plugin}) => rrweb_plugin.start())
 preload(router).then()

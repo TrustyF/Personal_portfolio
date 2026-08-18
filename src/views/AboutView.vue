@@ -91,8 +91,8 @@ let props = defineProps({
 }
 
 .prof_pic {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 5%;
   object-fit: cover;
 

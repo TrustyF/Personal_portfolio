@@ -5,57 +5,90 @@ import {geo_location, get_session_seed} from "@/scripts/session.js";
 let stopRecording = null;
 let events = [];
 let sendInterval = null;
+let geo = null;
+let flushOnHide = null;
+let visibilityHandler = null;
 
-let local_url = 'http://127.0.0.1:5000'
-let server_url = 'https://analytics-trustyfox.pythonanywhere.com'
-let curr_api = server_url
+let server_url = 'https://analytics.arthursirjacobs.com'
 let project = 'portfolio'
 
-let url = `${curr_api}/session/add`
+let url = `${server_url}/api/session/add`
 
-async function send_batch(events) {
-    let geo = await geo_location
-    let sid = get_session_seed()
-    let params = {
-        source: project,
-        sid: sid,
-        geo: geo,
-        events: events
-    }
+async function send_batch(batch) {
+  let params = {
+    source: project,
+    sid: get_session_seed(),
+    geo: geo,
+    events: batch
+  }
 
-    axios.post(url, params).catch((e) => {
-        console.log(e)
-    })
-
+  await axios.post(url, params).catch(() => {
+    // failed to send, requeue the raw (unpacked) batch for the next flush
+    events = batch.concat(events);
+  })
 }
 
 export default {
-    start() {
-        if (stopRecording) return;
+  start() {
+    if (stopRecording) return;
 
-        stopRecording = record({
-            emit(event) {
-                events.push(JSON.stringify(event));
-            },
-        });
+    geo_location.then(g => geo = g);
 
-        sendInterval = setInterval(() => {
-            if (events.length === 0) return;
-            send_batch(events)
-            console.log(events.length)
-            events = [];
-        }, 10000);
-    },
+    stopRecording = record({
+      emit(event) {
+        // keep the hot input path cheap; compression happens once per flush, not per event
+        events.push(event);
+      },
+      blockClass: 'notification_wrapper',
+      sampling: {
+        mousemove: 50,
+        mouseInteraction: true,
+        scroll: 150,
+        input: 'last'
+      },
+      slimDOMOptions: 'all'
+    });
 
-    stop() {
-        if (stopRecording) {
-            stopRecording();
-            stopRecording = null;
-        }
-        if (sendInterval) {
-            clearInterval(sendInterval);
-            sendInterval = null;
-        }
-        events = [];
-    },
+    sendInterval = setInterval(() => {
+      if (events.length === 0) return;
+      let batch = events;
+      events = [];
+      send_batch(batch).then()
+    }, 10000);
+
+    flushOnHide = () => {
+      if (events.length === 0) return;
+      let params = {
+        source: project,
+        sid: get_session_seed(),
+        geo: geo,
+        events: events
+      }
+      navigator.sendBeacon(url, new Blob([JSON.stringify(params)], {type: 'application/json'}));
+      events = [];
+    }
+    visibilityHandler = () => {
+      if (document.visibilityState === 'hidden') flushOnHide();
+    }
+    document.addEventListener('visibilitychange', visibilityHandler);
+    window.addEventListener('pagehide', flushOnHide);
+  },
+
+  stop() {
+    if (stopRecording) {
+      stopRecording();
+      stopRecording = null;
+    }
+    if (sendInterval) {
+      clearInterval(sendInterval);
+      sendInterval = null;
+    }
+    if (flushOnHide) {
+      document.removeEventListener('visibilitychange', visibilityHandler);
+      window.removeEventListener('pagehide', flushOnHide);
+      flushOnHide = null;
+      visibilityHandler = null;
+    }
+    events = [];
+  },
 };

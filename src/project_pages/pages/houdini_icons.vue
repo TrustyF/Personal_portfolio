@@ -33,7 +33,7 @@ const img_path = `/assets/project_images/${proj_name}/`
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(1, 1fr);gap: 0">
-          <img :src="img_path +'banner_2.webp'" class="grid_image" alt="">
+          <img :src="img_path +'banner_2.webp'" class="grid_image" loading="lazy" decoding="async" alt="">
         </div>
       </div>
 

@@ -43,7 +43,7 @@ const img_path = `/assets/project_images/${proj_name}/`
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(1, 1fr);gap: 0">
-          <img :src="img_path + 'rating_info.jpg'" class="grid_image" alt="">
+          <img :src="img_path + 'rating_info.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
         </div>
       </div>
 
@@ -63,7 +63,7 @@ const img_path = `/assets/project_images/${proj_name}/`
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(1, 1fr);gap: 0">
-          <img :src="img_path + 'tags_info.jpg'" class="grid_image" alt="">
+          <img :src="img_path + 'tags_info.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
         </div>
       </div>
 
@@ -85,7 +85,7 @@ const img_path = `/assets/project_images/${proj_name}/`
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(1, 1fr);gap: 0">
-          <img :src="img_path + 'search_info.jpg'" class="grid_image" alt="">
+          <img :src="img_path + 'search_info.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
         </div>
       </div>
 
@@ -111,7 +111,7 @@ const img_path = `/assets/project_images/${proj_name}/`
 
       <div class="single_image">
         <div style="display: grid;  grid-template-columns: repeat(1, 1fr);gap: 0">
-          <img :src="img_path + 'readme_screen_3.jpg'" class="grid_image" alt="">
+          <img :src="img_path + 'readme_screen_3.jpg'" class="grid_image" loading="lazy" decoding="async" alt="">
         </div>
       </div>
 
